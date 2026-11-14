@@ -57,6 +57,7 @@ Im Ordner `originale/figuren/` liegt außerdem der ganze Bogen als `silberwind_l
 | `kulissen_elemente_3.png` | Ähnliches Set mit Trauerweide, Ruine, Teichen, Briefkasten und Laterne. Darin sind auch eine kleine **Ida** und ein **Rabat** in Ganzkörperansicht | Pastorales Aquarell-Tileset für Fantasielandschaften-1 |
 | `omas_kinderfoto.png` | Altes Sepia-Foto mit Fotoecken: Die junge Lene mit **weißer Strähne** umarmt Silberwind. Es ist aus dem Bogen ausgeschnitten. | Silberschweif und Lene im Vintage-Aquarell (neu, unterer Teil) |
 | `spielzeug_ball_puppe_socke_bogen.png` | Flickenball mit Sternen, Stoffpuppe mit Wollhaaren, gestrickte Ringelsocke, für das Rätsel „Aufräumen“ auf Seite 1–2 | Kuschelige Vintage-Spielzeuge_ Ball, Puppe und Socke (neu) |
+| `oberflaeche_haus_einstellungen_bogen.png` | Zwei runde Knopf-Medaillons mit Goldrand, Ranken und Kirschblüten: ein Häuschen (Knopf „Zum Buchdeckel“) und zwei Zahnräder (Knopf „Elternbereich“) | Verspielte Märchen-UI-Buttons_ Haus und Zahnräder (neu) |
 | `klickobjekte_und_szenen_bogen.png` | Spinne, Spieluhr mit Ballerina, Kuckuck im Häuschen mit Buchstabenschild (**A**), springender Fisch, Strickkorb mit Fäustlingen, Schriftzug **MUTIGES HERZ** in Leuchtbuchstaben, Kiste „Aufräumen“, Kiste „Sortieren“, Truhe mit Fragezeichen geschlossen und offen. Dazu drei Szenen: **Holunda und Brummbart beim Tee**, **Oma umarmt Silberwind**, **Familie in der Tür** (Papa, Mama, Oma, Ida) | Illustrierter Mutiges-Herz-Assetbogen (neu) |
 
 Die PNG-Bögen sind Sammelblätter. Für das Spiel müssen die einzelnen Figuren und Gegenstände noch ausgeschnitten werden. Dafür am besten die großen Originale aus `originale/` verwenden.
@@ -82,6 +83,7 @@ Alle Sammelbögen sind in einzelne PNG-Dateien mit transparentem Hintergrund zer
 | `gegenstaende/einzeln/inventar/` | 21 | Silberfeder, Brief, Märchenbuch, Omas Tagebuch, Kompass, Schal, Laterne dunkel, halb und hell, Fäustling, Honigkekse, Mondperle, Wegweiser-Pfosten, 3 Schilder, Hängeschild, 4 Trittsteine |
 | `gegenstaende/einzeln/klickobjekte/` | 9 | Spinne, Spieluhr, Kuckuck, Fisch, Strickkorb, Kisten „Aufräumen“ und „Sortieren“, Truhe zu und offen |
 | `gegenstaende/einzeln/spielzeug/` | 3 | `ball`, `puppe`, `socke` |
+| `gegenstaende/einzeln/oberflaeche/` | 2 | Knopf-Bilder `haus` und `einstellungen` |
 | `gegenstaende/einzeln/buchstaben/` | 12 | `buchstabe_01_m` bis `buchstabe_11_z` in der Reihenfolge von MUTIGES HERZ, dazu der ganze Schriftzug |
 | `gegenstaende/einzeln/kulissen/` | 455 | Alle Teile der 3 Kulissen-Blätter, nummeriert (`kulisse1_001` …). Welche Nummer was ist, zeigen `kulisse1_uebersicht.jpg` bis `kulisse3_uebersicht.jpg` |
 

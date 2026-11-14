@@ -23,8 +23,8 @@ export function Startseite(props: { kannWeiterlesen: boolean; weiterlesen: () =>
           </button>
         </div>
       </div>
-      <Halteknopf class="ecke-oben-rechts" label="Elternbereich" ausloesen={props.oeffneEltern}>
-        ⚙
+      <Halteknopf class="ecke-oben-rechts bild-knopf" label="Elternbereich" ausloesen={props.oeffneEltern}>
+        <img src={asset('gegenstaende/oberflaeche/einstellungen')} alt="" draggable={false} />
       </Halteknopf>
     </div>
   );

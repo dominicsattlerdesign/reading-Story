@@ -122,8 +122,8 @@ export function Doppelseite(props: {
       <Szene objekte={seite.objekte} merker={m} leuchtet={leuchtet} antippen={antippen} blase={blase} blaseZu={() => setBlase(null)} />
       <div class="buchfalz" aria-hidden="true" />
 
-      <button class="ecke-oben-links rund-knopf" onClick={props.zurStartseite} aria-label="Zum Buchdeckel">
-        🏠
+      <button class="ecke-oben-links rund-knopf bild-knopf" onClick={props.zurStartseite} aria-label="Zum Buchdeckel">
+        <img src={asset('gegenstaende/oberflaeche/haus')} alt="" draggable={false} />
       </button>
       <div class="seitenzahl">
         Seite {seite.nummer}
@@ -135,8 +135,8 @@ export function Doppelseite(props: {
           </span>
         )}
       </div>
-      <Halteknopf class="ecke-oben-rechts" label="Elternbereich" ausloesen={props.oeffneEltern}>
-        ⚙
+      <Halteknopf class="ecke-oben-rechts bild-knopf" label="Elternbereich" ausloesen={props.oeffneEltern}>
+        <img src={asset('gegenstaende/oberflaeche/einstellungen')} alt="" draggable={false} />
       </Halteknopf>
 
       <TextKarte text={seite.text} />
