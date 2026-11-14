@@ -141,9 +141,9 @@
       ],
       "karten": [
         { "id": "k_buch", "text": "Buch", "bild": "gegenstaende/inventar/maerchenbuch", "gruppe": "buch" },
-        { "id": "k_ball", "text": "Ball", "emoji": "⚽", "gruppe": "ball" },
-        { "id": "k_puppe", "text": "Puppe", "emoji": "🪆", "gruppe": "puppe" },
-        { "id": "k_socke", "text": "Socke", "emoji": "🧦", "gruppe": "socke" }
+        { "id": "k_ball", "text": "Ball", "bild": "gegenstaende/spielzeug/ball", "gruppe": "ball" },
+        { "id": "k_puppe", "text": "Puppe", "bild": "gegenstaende/spielzeug/puppe", "gruppe": "puppe" },
+        { "id": "k_socke", "text": "Socke", "bild": "gegenstaende/spielzeug/socke", "gruppe": "socke" }
       ],
       "tipps": [
         "Lies das Wort auf der Kiste ganz langsam: B – a – l – l.",
