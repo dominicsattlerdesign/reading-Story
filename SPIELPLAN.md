@@ -108,7 +108,7 @@ Er öffnet sich über das Zahnrad. Damit Kinder nicht hineinkommen, muss man den
 | **3 Teil 1** | Seiten 3–10 (Wohnzimmer bis Waldrand) | Ersten Teil durchspielen |
 | **4 Teil 2** | Seiten 11–20 (Brücke bis Echohöhle) | Zweiten Teil durchspielen |
 | **5 Teil 3** | Seiten 21–28, Zauberwort, Flug, Ende, Startbildschirm | Ganzes Spiel durchspielbar |
-| **6 Feinschliff** | Elternbereich, Offline (PWA), Ladezeiten, Prüfung auf Tablet und Handy | Fertig für den Browser |
+| **6 Feinschliff** | Elternbereich, Offline (PWA), Ladezeiten, Prüfung auf Tablet und Handy. **Handy-Ansicht:** Auf kleinen Handys wird die Bühne auf ca. 40 % verkleinert, und die Knöpfe wären nur noch ca. 37 px groß. Dort werden Knöpfe, Leiste und Schrift deshalb vergrößert, damit sie mindestens 48 px groß bleiben. | Fertig für den Browser |
 | **7 Android** | Capacitor einrichten, App-Symbol, Test auf einem Gerät oder Emulator | Installierbare App (APK) |
 
 Für Etappe 7 sind noch nötig: **Android Studio mit Java (JDK)**. Ein Android-SDK-Ordner ist auf dem Rechner schon vorhanden, Java und die Android-Werkzeuge sind aber nicht eingerichtet.

@@ -1,0 +1,151 @@
+:root {
+  --nacht: #1f140d;
+  --leder: #5a321b;
+  --leder-hell: #7a4a2a;
+  --gold: #e2b04a;
+  --gold-hell: #f6d887;
+  --pergament: #f5e9cf;
+  --pergament-rand: #d9c39a;
+  --tinte: #3a2716;
+  --gruen: #5f8f4e;
+  --schatten: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --schrift: 'Andika', 'Trebuchet MS', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--nacht);
+  font-family: var(--schrift);
+  color: var(--tinte);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button { font-family: inherit; color: inherit; cursor: pointer; }
+img { -webkit-user-drag: none; }
+
+/* ---------- Buehne ---------- */
+.rahmen { position: fixed; inset: 0; background: radial-gradient(circle at 50% 40%, #3a2617, var(--nacht)); }
+.buehne { position: absolute; left: 50%; top: 50%; transform-origin: center; overflow: hidden; border-radius: 18px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); background: var(--leder); }
+
+.drehen-hinweis { display: none; }
+@media (orientation: portrait) and (max-width: 1024px) {
+  .buehne { display: none; }
+  .drehen-hinweis { display: flex; position: fixed; inset: 0; flex-direction: column; align-items: center; justify-content: center; color: var(--pergament); font-size: 28px; text-align: center; padding: 16px; }
+  .drehen-symbol { font-size: 96px; animation: drehen 2.4s ease-in-out infinite; }
+}
+@keyframes drehen { 0%, 30% { transform: rotate(0); } 60%, 100% { transform: rotate(90deg); } }
+
+/* ---------- Knoepfe ---------- */
+.gross-knopf {
+  min-width: 280px; min-height: 88px; padding: 0 40px;
+  font-size: 40px; font-weight: 700; border-radius: 44px; border: 4px solid var(--gold);
+  box-shadow: var(--schatten); transition: transform 0.12s ease;
+}
+.gross-knopf:active { transform: scale(0.96); }
+.gross-knopf.primaer { background: linear-gradient(#f3c860, #d99a2b); color: #3b2306; }
+.gross-knopf.zweitrangig { background: var(--pergament); color: var(--tinte); }
+
+.rund-knopf, .halteknopf {
+  position: absolute; width: 76px; height: 76px; border-radius: 50%;
+  border: 3px solid var(--gold); background: rgba(245, 233, 207, 0.92);
+  font-size: 38px; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--schatten); z-index: 20;
+}
+.ecke-oben-links { left: 20px; top: 18px; }
+.ecke-oben-rechts { right: 20px; top: 18px; }
+.halteknopf { opacity: 0.75; touch-action: none; }
+.halte-ring { position: absolute; inset: -6px; border-radius: 50%; border: 6px solid transparent; }
+.halteknopf.haelt .halte-ring { border-color: var(--gold); animation: halten var(--dauer) linear forwards; clip-path: inset(0 100% 0 0); }
+@keyframes halten { to { clip-path: inset(0 0 0 0); } }
+
+.klein-knopf { min-height: 56px; padding: 0 22px; font-size: 22px; border-radius: 14px; border: 2px solid var(--pergament-rand); background: #fff8e8; margin: 6px 8px 6px 0; }
+.klein-knopf.warnung { border-color: #b4553a; color: #8a2e17; }
+
+/* ---------- Startseite / Buchdeckel ---------- */
+.startseite { position: absolute; inset: 0; padding: 34px; background: repeating-linear-gradient(45deg, var(--leder) 0 6px, var(--leder-hell) 6px 7px); }
+.deckel { position: relative; width: 100%; height: 100%; border-radius: 14px; overflow: hidden; border: 8px solid var(--gold); box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.6), var(--schatten); }
+.deckel-bild { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.deckel-verlauf { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20, 12, 30, 0.75) 0%, rgba(20, 12, 30, 0.35) 45%, rgba(0, 0, 0, 0) 70%); }
+.deckel-held { position: absolute; right: 60px; top: 80px; height: 640px; filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5)); animation: schweben 5s ease-in-out infinite; }
+@keyframes schweben { 50% { transform: translateY(-16px); } }
+.deckel-titel { position: absolute; left: 80px; top: 90px; margin: 0; color: var(--gold-hell); text-shadow: 0 4px 14px rgba(0, 0, 0, 0.8); line-height: 1; }
+.titel-klein { display: block; font-size: 64px; font-weight: 400; }
+.titel-gross { display: block; font-size: 150px; font-weight: 700; letter-spacing: 2px; }
+.deckel-knoepfe { position: absolute; left: 80px; bottom: 90px; display: flex; gap: 28px; }
+
+/* ---------- Doppelseite ---------- */
+.doppelseite { position: absolute; inset: 0; background: var(--nacht); }
+.aufblaettern { animation: aufblaettern 0.6s ease-out; }
+@keyframes aufblaettern { from { opacity: 0; transform: perspective(1600px) rotateY(-8deg) scale(0.98); } }
+.hintergrund { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.figur { position: absolute; width: auto; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35)); pointer-events: none; }
+.buchfalz { position: absolute; left: 50%; top: 0; bottom: 0; width: 90px; transform: translateX(-50%); pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 42%, rgba(0, 0, 0, 0.32) 50%, rgba(0, 0, 0, 0.18) 58%, rgba(0, 0, 0, 0) 100%); }
+.seitenzahl { position: absolute; left: 50%; top: 22px; transform: translateX(-50%); padding: 6px 22px; border-radius: 20px; background: rgba(245, 233, 207, 0.85); font-size: 22px; box-shadow: var(--schatten); }
+
+/* ---------- Text-Karte ---------- */
+.textkarte { position: absolute; left: 40px; top: 110px; width: 580px; max-height: 640px; z-index: 10;
+  background: var(--pergament); border-radius: 16px; border: 3px solid var(--pergament-rand);
+  box-shadow: var(--schatten), inset 0 0 40px rgba(170, 130, 70, 0.25); }
+.textkarte-text { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 30px 34px 34px;
+  font-size: 31px; line-height: 1.55; max-height: 634px; overflow-y: auto; scrollbar-width: thin; }
+.wort { border-radius: 8px; padding: 0 1px; transition: background 0.12s; }
+.wort.aktiv { background: var(--gold-hell); box-shadow: 0 0 0 3px var(--gold-hell); }
+.textkarte-zuklappen { position: absolute; right: -30px; top: 50%; transform: translateY(-50%); width: 60px; height: 88px; border-radius: 0 16px 16px 0;
+  border: 3px solid var(--pergament-rand); border-left: 0; background: var(--pergament); font-size: 46px; line-height: 1; }
+.textkarte-zu { position: absolute; left: 0; top: 140px; width: 84px; height: 110px; border-radius: 0 20px 20px 0; border: 3px solid var(--pergament-rand); border-left: 0;
+  background: var(--pergament); font-size: 48px; box-shadow: var(--schatten); z-index: 10; }
+
+/* ---------- Leiste ---------- */
+.leiste { position: absolute; left: 0; right: 0; bottom: 0; height: 128px; display: flex; align-items: center; gap: 22px; padding: 0 24px 0 150px; z-index: 15;
+  background: linear-gradient(rgba(31, 20, 13, 0), rgba(31, 20, 13, 0.75) 35%); }
+.rabat-knopf { position: absolute; left: 18px; bottom: 14px; width: 124px; height: 124px; border-radius: 50%; padding: 6px;
+  border: 4px solid var(--gold); background: radial-gradient(#fff8e8, #ecdcb8); box-shadow: var(--schatten); animation: wippen 3s ease-in-out infinite; }
+.rabat-knopf img { width: 100%; height: 100%; object-fit: contain; }
+.rabat-knopf:active { transform: scale(0.94); }
+@keyframes wippen { 50% { transform: translateY(-5px); } }
+
+.sprechblase { position: absolute; max-width: 520px; padding: 18px 24px; border-radius: 22px; background: #fffdf6; font-size: 28px; line-height: 1.35; box-shadow: var(--schatten); }
+.rabat-blase { left: 120px; bottom: 140px; z-index: 30; animation: auftauchen 0.25s ease-out; }
+.rabat-blase::after { content: ''; position: absolute; left: 22px; bottom: -18px; border: 12px solid transparent; border-top: 16px solid #fffdf6; border-left-width: 6px; }
+@keyframes auftauchen { from { opacity: 0; transform: translateY(10px) scale(0.95); } }
+
+.inventar { list-style: none; display: flex; gap: 10px; margin: 0; padding: 0; }
+.fach { position: relative; width: 84px; height: 84px; border-radius: 16px; border: 3px dashed rgba(245, 233, 207, 0.45); background: rgba(245, 233, 207, 0.12); }
+.fach.voll { border: 3px solid var(--gold); background: rgba(245, 233, 207, 0.9); }
+.fach img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.lichter { position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); display: flex; gap: 4px; }
+.licht { width: 14px; height: 14px; border-radius: 50%; background: #6b5a45; border: 2px solid var(--pergament); }
+.licht.an { background: var(--gold-hell); box-shadow: 0 0 10px var(--gold); }
+
+.raetsel-punkte { display: flex; gap: 12px; margin-left: auto; }
+.punkt { width: 30px; height: 30px; border-radius: 50%; border: 3px solid var(--pergament); background: rgba(245, 233, 207, 0.2); }
+.punkt.an { background: var(--gold-hell); border-color: var(--gold); box-shadow: 0 0 14px var(--gold); }
+
+.weiter-knopf { min-width: 200px; height: 88px; border-radius: 44px; font-size: 36px; font-weight: 700; border: 4px solid rgba(245, 233, 207, 0.4);
+  background: rgba(245, 233, 207, 0.25); color: rgba(245, 233, 207, 0.6); }
+.weiter-knopf.bereit { border-color: var(--gold); background: linear-gradient(#f3c860, #d99a2b); color: #3b2306; animation: leuchten 1.6s ease-in-out infinite; }
+@keyframes leuchten { 50% { box-shadow: 0 0 28px var(--gold); } }
+
+/* ---------- Elternbereich ---------- */
+.eltern-hintergrund { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); z-index: 50; display: flex; align-items: center; justify-content: center; }
+.eltern { width: 820px; max-height: 820px; overflow-y: auto; padding: 34px 44px; border-radius: 22px; background: var(--pergament); box-shadow: var(--schatten); font-size: 24px; user-select: text; }
+.eltern h2 { margin: 0 0 18px; font-size: 40px; }
+.eltern .zeile { display: flex; align-items: center; gap: 14px; margin: 14px 0; flex-wrap: wrap; }
+.eltern .zeile.spalte { flex-direction: column; align-items: stretch; }
+.eltern input[type='checkbox'] { width: 34px; height: 34px; accent-color: var(--gruen); }
+.eltern input[type='range'] { width: 100%; height: 34px; accent-color: var(--gruen); }
+.eltern select { font: inherit; font-size: 22px; min-height: 52px; border-radius: 10px; padding: 0 10px; }
+.eltern hr { border: 0; border-top: 2px solid var(--pergament-rand); margin: 18px 0; }
+.eltern .schliessen { display: block; margin: 20px 0 0 auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

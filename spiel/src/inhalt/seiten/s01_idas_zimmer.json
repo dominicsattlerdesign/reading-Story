@@ -1,0 +1,11 @@
+{
+  "id": "s01",
+  "nummer": "1–2",
+  "titel": "Idas Zimmer",
+  "hintergrund": "hintergruende/ort01_idas_zimmer",
+  "text": "Heute blüht Omas Kirschbaum zum ersten Mal in diesem Jahr. Ida kann nicht schlafen. Oma hat erzählt, dass in dieser Nacht Silberwind kommt. Silberwind ist ein Pegasus. Ein Pferd mit Flügeln! Ida schaut aus dem Fenster. Aber der Himmel bleibt leer. Da tippt etwas an die Scheibe. Rabat spitzt die Ohren.",
+  "figuren": [
+    { "bild": "figuren/ida/ida_vorne_2", "x": 900, "y": 840, "hoehe": 420 },
+    { "bild": "figuren/rabat/rabat_eingerollt_auf_decke", "x": 1205, "y": 660, "hoehe": 125 }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "spiel",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "spiel", "run", "dev"],
+      "port": 5173
+    }
+  ]
+}
