@@ -85,7 +85,29 @@ img { -webkit-user-drag: none; }
 .aufblaettern { animation: aufblaettern 0.6s ease-out; }
 @keyframes aufblaettern { from { opacity: 0; transform: perspective(1600px) rotateY(-8deg) scale(0.98); } }
 .hintergrund { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.figur { position: absolute; width: auto; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35)); pointer-events: none; }
+/* ---------- Szene ---------- */
+.objekt { position: absolute; padding: 0; border: 0; background: none; }
+.objekt.mit-bild img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35)); pointer-events: none; }
+.objekt.klickbar { cursor: pointer; }
+.objekt.klickbar.mit-bild:active img { transform: scale(0.95); }
+.objekt.flaeche { border-radius: 18px; }
+.objekt.flaeche.klickbar:active { background: rgba(246, 216, 135, 0.18); }
+.objekt.funkeln::after { content: '✦'; position: absolute; right: -14px; top: -18px; font-size: 34px; color: var(--gold-hell);
+  text-shadow: 0 0 12px var(--gold), 0 0 4px #fff; animation: funkeln 1.6s ease-in-out infinite; pointer-events: none; }
+.objekt.funkeln img { animation: glimmen 1.6s ease-in-out infinite; }
+@keyframes funkeln { 0%, 100% { opacity: 0.3; transform: scale(0.7) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(20deg); } }
+@keyframes glimmen { 50% { filter: drop-shadow(0 0 14px var(--gold-hell)) drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35)); } }
+.objekt.hinweis { outline: 5px dashed var(--gold-hell); outline-offset: 8px; border-radius: 18px; animation: hinweis 0.9s ease-in-out infinite; }
+@keyframes hinweis { 50% { outline-color: rgba(246, 216, 135, 0.2); } }
+.effekt-licht { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: screen;
+  background: radial-gradient(circle at 5% 55%, rgba(255, 200, 110, 0.45), rgba(255, 180, 90, 0.12) 35%, rgba(0, 0, 0, 0) 60%); }
+.szenen-blase { z-index: 25; transform: translate(-50%, -100%); border: 0; text-align: center; font-family: inherit; animation: auftauchen 0.25s ease-out; }
+.szenen-blase.unten { transform: translate(-50%, 0); }
+.szenen-blase.oben::after { content: ''; position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%); border: 12px solid transparent; border-top: 18px solid #fffdf6; }
+.szenen-blase.unten::after { content: ''; position: absolute; left: 50%; top: -18px; transform: translateX(-50%); border: 12px solid transparent; border-bottom: 18px solid #fffdf6; }
+.buchstaben-leiste { display: inline-flex; gap: 6px; margin-left: 14px; vertical-align: middle; }
+.buchstaben-kachel { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px;
+  background: linear-gradient(#fff3c4, #f0c75a); color: #6b4310; font-weight: 700; box-shadow: 0 0 10px var(--gold); }
 .buchfalz { position: absolute; left: 50%; top: 0; bottom: 0; width: 90px; transform: translateX(-50%); pointer-events: none;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 42%, rgba(0, 0, 0, 0.32) 50%, rgba(0, 0, 0, 0.18) 58%, rgba(0, 0, 0, 0) 100%); }
 .seitenzahl { position: absolute; left: 50%; top: 22px; transform: translateX(-50%); padding: 6px 22px; border-radius: 20px; background: rgba(245, 233, 207, 0.85); font-size: 22px; box-shadow: var(--schatten); }
@@ -96,13 +118,15 @@ img { -webkit-user-drag: none; }
   box-shadow: var(--schatten), inset 0 0 40px rgba(170, 130, 70, 0.25); }
 .textkarte-text { margin: 0; padding: 30px 34px 34px;
   font-size: 31px; line-height: 1.55; max-height: 634px; overflow-y: auto; scrollbar-width: thin; }
-.textkarte-zuklappen { position: absolute; right: -30px; top: 50%; transform: translateY(-50%); width: 60px; height: 88px; border-radius: 0 16px 16px 0;
-  border: 3px solid var(--pergament-rand); border-left: 0; background: var(--pergament); font-size: 46px; line-height: 1; }
+.gelesen-knopf { display: block; margin: 0 34px 26px auto; min-height: 72px; padding: 0 30px; font-size: 30px; font-weight: 700;
+  border-radius: 36px; border: 3px solid var(--gold); background: linear-gradient(#f3c860, #d99a2b); color: #3b2306; box-shadow: var(--schatten); }
+.gelesen-knopf:active { transform: scale(0.96); }
 .textkarte-zu { position: absolute; left: 0; top: 140px; width: 84px; height: 110px; border-radius: 0 20px 20px 0; border: 3px solid var(--pergament-rand); border-left: 0;
   background: var(--pergament); font-size: 48px; box-shadow: var(--schatten); z-index: 10; }
 
 /* ---------- Leiste ---------- */
-.leiste { position: absolute; left: 0; right: 0; bottom: 0; height: 128px; display: flex; align-items: center; gap: 22px; padding: 0 24px 0 150px; z-index: 15;
+/* z-index ueber den Raetseln (40), damit Rabats Hilfe auch waehrend eines Raetsels sichtbar ist */
+.leiste { position: absolute; left: 0; right: 0; bottom: 0; height: 128px; display: flex; align-items: center; gap: 22px; padding: 0 24px 0 150px; z-index: 45;
   background: linear-gradient(rgba(31, 20, 13, 0), rgba(31, 20, 13, 0.75) 35%); }
 .rabat-knopf { position: absolute; left: 18px; bottom: 14px; width: 124px; height: 124px; border-radius: 50%; padding: 6px;
   border: 4px solid var(--gold); background: radial-gradient(#fff8e8, #ecdcb8); box-shadow: var(--schatten); animation: wippen 3s ease-in-out infinite; }
@@ -118,6 +142,8 @@ img { -webkit-user-drag: none; }
 .inventar { list-style: none; display: flex; gap: 10px; margin: 0; padding: 0; }
 .fach { position: relative; width: 84px; height: 84px; border-radius: 16px; border: 3px dashed rgba(245, 233, 207, 0.45); background: rgba(245, 233, 207, 0.12); }
 .fach.voll { border: 3px solid var(--gold); background: rgba(245, 233, 207, 0.9); }
+.fach.neu { animation: neu 0.8s ease-in-out 3; }
+@keyframes neu { 50% { transform: scale(1.25); box-shadow: 0 0 26px var(--gold-hell); } }
 .fach img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
 .lichter { position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); display: flex; gap: 4px; }
 .licht { width: 14px; height: 14px; border-radius: 50%; background: #6b5a45; border: 2px solid var(--pergament); }
@@ -131,6 +157,71 @@ img { -webkit-user-drag: none; }
   background: rgba(245, 233, 207, 0.25); color: rgba(245, 233, 207, 0.6); }
 .weiter-knopf.bereit { border-color: var(--gold); background: linear-gradient(#f3c860, #d99a2b); color: #3b2306; animation: leuchten 1.6s ease-in-out infinite; }
 @keyframes leuchten { 50% { box-shadow: 0 0 28px var(--gold); } }
+
+/* ---------- Raetsel ---------- */
+.raetsel-hintergrund { position: absolute; left: 0; right: 0; top: 0; bottom: 128px; z-index: 40; display: flex; align-items: center; justify-content: center;
+  background: rgba(20, 12, 8, 0.55); animation: einblenden 0.25s ease-out; }
+@keyframes einblenden { from { opacity: 0; } }
+.raetsel { position: relative; width: 1320px; height: 740px; display: flex; flex-direction: column; padding: 22px 40px 26px; border-radius: 24px;
+  background: var(--pergament); border: 4px solid var(--pergament-rand); box-shadow: var(--schatten), inset 0 0 60px rgba(170, 130, 70, 0.25); }
+.raetsel-kopf { display: flex; align-items: center; justify-content: space-between; }
+.raetsel-kopf h2 { margin: 0; font-size: 44px; }
+.raetsel-zu { width: 72px; height: 72px; border-radius: 50%; border: 3px solid var(--pergament-rand); background: #fff8e8; font-size: 34px; }
+.raetsel-aufgabe { margin: 8px 0 14px; font-size: 30px; line-height: 1.4; }
+.raetsel-inhalt { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; min-height: 0; }
+
+.ziehkarte { min-width: 120px; min-height: 84px; padding: 8px 26px; font-size: 36px; font-weight: 700; border-radius: 16px;
+  border: 3px solid #b98a43; background: #fffaf0; box-shadow: 0 4px 0 #b98a43, var(--schatten); touch-action: none; position: relative; z-index: 1;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: box-shadow 0.15s; }
+.ziehkarte.gewaehlt { border-color: var(--gruen); box-shadow: 0 0 0 6px rgba(95, 143, 78, 0.45), var(--schatten); transform: translateY(-6px); }
+.ziehkarte.zieht { z-index: 60; transition: none; box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35); cursor: grabbing; }
+.ziehkarte.leuchten { animation: karte-leuchten 0.9s ease-in-out infinite; }
+@keyframes karte-leuchten { 50% { box-shadow: 0 0 0 8px var(--gold-hell), 0 0 30px var(--gold); } }
+.ziehkarte.platzhalter { visibility: hidden; }
+.ziehkarte.bildkarte { padding: 10px; width: 160px; height: 150px; }
+.ziehkarte img { max-width: 100%; max-height: 100%; object-fit: contain; pointer-events: none; }
+.karten-emoji { font-size: 76px; line-height: 1; pointer-events: none; }
+.kartenstapel { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 18px; border-radius: 18px; background: rgba(185, 138, 67, 0.12); }
+
+.wackeln { animation: wackeln 0.5s ease-in-out; }
+@keyframes wackeln { 20%, 60% { transform: translateX(-10px) rotate(-1deg); } 40%, 80% { transform: translateX(10px) rotate(1deg); } }
+
+.luecken-text { font-size: 38px; line-height: 2.1; padding: 10px 24px; background: #fffdf6; border-radius: 16px; border: 2px dashed var(--pergament-rand); }
+.luecke { display: inline-block; min-width: 190px; height: 64px; margin: 0 6px; vertical-align: middle; border-radius: 12px;
+  border: 3px dashed #b98a43; background: rgba(185, 138, 67, 0.08); font-size: 36px; font-weight: 700; color: var(--gruen); }
+.luecke.bereit { border-color: var(--gruen); background: rgba(95, 143, 78, 0.12); }
+.luecke.voll { border-style: solid; border-color: var(--gruen); background: #eef6e6; padding: 0 14px; }
+
+.kisten { display: flex; gap: 22px; justify-content: center; }
+.kiste { flex: 1; max-width: 290px; height: 250px; display: flex; flex-direction: column; align-items: center; padding: 14px; border-radius: 18px;
+  border: 0; background: linear-gradient(#b07a43, #8a5a2c); box-shadow: inset 0 -12px 0 rgba(0, 0, 0, 0.18), var(--schatten); }
+.kiste.bereit { box-shadow: 0 0 0 6px rgba(95, 143, 78, 0.45), inset 0 -12px 0 rgba(0, 0, 0, 0.18); }
+.kiste.leuchten { animation: karte-leuchten 0.9s ease-in-out infinite; }
+.kiste-schild { padding: 6px 22px; border-radius: 10px; background: var(--pergament); font-size: 36px; font-weight: 700; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2); }
+.kiste-inhalt { flex: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; width: 100%; }
+.mini-karte { width: 96px; height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #fffaf0; font-size: 26px; font-weight: 700; }
+.mini-karte img { max-width: 88%; max-height: 88%; }
+.mini-karte .karten-emoji { font-size: 56px; }
+
+.silben { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-around; }
+.silben-fortschritt { display: flex; gap: 12px; }
+.silben-fortschritt .punkt { border-color: #b98a43; }
+.silben-wort { font-size: 110px; font-weight: 700; letter-spacing: 2px; min-height: 140px; }
+.silben-wort.richtig { color: var(--gruen); }
+.silbe { display: inline-block; padding: 0 8px; border-bottom: 8px solid var(--gold); border-radius: 0 0 40px 40px; margin: 0 4px; }
+.silben-strich { color: #b98a43; padding-left: 8px; }
+.klatsch-zeile { display: flex; gap: 14px; min-height: 70px; font-size: 56px; }
+.klatsch.hilfe { opacity: 0.3; animation: karte-leuchten 0.9s ease-in-out infinite; border-radius: 50%; }
+.silben-knoepfe { display: flex; gap: 30px; align-items: center; }
+.klatsch-knopf { width: 150px; height: 150px; border-radius: 50%; font-size: 80px; border: 5px solid var(--gold); background: radial-gradient(#fff8e8, #f1d79a); box-shadow: var(--schatten); }
+.klatsch-knopf:active { transform: scale(0.9); }
+button:disabled { opacity: 0.45; cursor: default; }
+
+.erfolg { position: absolute; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center; border-radius: 22px; background: rgba(245, 233, 207, 0.85); animation: einblenden 0.3s ease-out; }
+.erfolg-karte { padding: 34px 60px 40px; border-radius: 24px; background: #fffdf6; text-align: center; box-shadow: var(--schatten); border: 4px solid var(--gold); max-width: 820px; }
+.erfolg-karte p { font-size: 36px; margin: 12px 0 28px; line-height: 1.35; }
+.erfolg-karte h2 { font-size: 52px; margin: 6px 0; }
+.erfolg-sterne { font-size: 56px; color: var(--gold); animation: funkeln 1.4s ease-in-out infinite; }
 
 /* ---------- Elternbereich ---------- */
 .eltern-hintergrund { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); z-index: 50; display: flex; align-items: center; justify-content: center; }

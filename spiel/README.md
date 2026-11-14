@@ -28,9 +28,11 @@ npm run dev
 
 | Ordner | Inhalt |
 | --- | --- |
-| `src/inhalt/seiten/` | Eine JSON-Datei pro Doppelseite: Text, Hintergrund, Figuren (später auch Rätsel) |
-| `src/engine/` | Speichern (`speicher.ts`), mit Tests |
-| `src/ui/` | Bühne, Buchdeckel, Doppelseite, Text-Karte, Leiste, Elternbereich |
+| `src/inhalt/seiten/` | Eine JSON-Datei pro Doppelseite: Text, Hintergrund, Objekte zum Antippen, Rätsel, Rabat-Tipps. Das Format ist in `src/inhalt/typen.ts` beschrieben. |
+| `src/inhalt/inhalt.test.ts` | Prüft alle Seiten-Dateien: Gibt es jedes Bild, jedes Rätsel, jedes Objekt, auf das verwiesen wird? |
+| `src/engine/` | Spiellogik (`logik.ts`) und Speichern (`speicher.ts`), mit Tests |
+| `src/ui/` | Bühne, Buchdeckel, Doppelseite, Szene, Text-Karte, Leiste, Elternbereich |
+| `src/ui/raetsel/` | Rätsel-Bausteine: Lückentext, Sortieren, Silben, dazu Ziehen/Antippen und Fehler-Hilfe |
 | `scripts/bilder.mjs` | Bild-Umwandlung |
 
 Die Bühne ist immer 1600 × 900 Punkte groß und wird ins Fenster eingepasst. Alle Positionen in den Seiten-Dateien beziehen sich auf diese Größe.

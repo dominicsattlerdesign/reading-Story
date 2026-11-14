@@ -1,8 +1,12 @@
 import type { ComponentChildren } from 'preact';
+import { createContext } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
 export const BREITE = 1600;
 export const HOEHE = 900;
+
+/** Aktueller Massstab der Buehne (Bildschirm-Pixel pro Buehnen-Punkt), z. B. fuer das Ziehen. */
+export const Massstab = createContext(1);
 
 /** Feste Buehne mit 1600 x 900 Punkten, die in jedes Fenster eingepasst wird (mit Rand). */
 export function Buehne({ children }: { children: ComponentChildren }) {
@@ -18,7 +22,7 @@ export function Buehne({ children }: { children: ComponentChildren }) {
   return (
     <div class="rahmen">
       <div class="buehne" style={{ width: `${BREITE}px`, height: `${HOEHE}px`, transform: `translate(-50%, -50%) scale(${skala})` }}>
-        {children}
+        <Massstab.Provider value={skala}>{children}</Massstab.Provider>
       </div>
       <div class="drehen-hinweis" role="alert">
         <div class="drehen-symbol" aria-hidden="true">⟳</div>

@@ -7,6 +7,7 @@ export interface Spielstand {
   geloest: Record<string, string[]>; // Seite -> geloeste Raetsel-IDs
   inventar: string[];
   buchstaben: string[]; // gefundene versteckte Buchstaben (Seiten-IDs)
+  merker: Record<string, string[]>; // Seite -> gesetzte Merker (z. B. "fenster_offen")
 }
 
 export interface Ablage {
@@ -18,7 +19,7 @@ export interface Ablage {
 export const SCHLUESSEL = 'ida-pegasus/spielstand';
 
 export function neuerSpielstand(): Spielstand {
-  return { version: 1, seite: null, geloest: {}, inventar: [], buchstaben: [] };
+  return { version: 1, seite: null, geloest: {}, inventar: [], buchstaben: [], merker: {} };
 }
 
 /** Browser-Speicher. Faellt still auf "nichts gespeichert" zurueck, wenn er gesperrt ist. */
@@ -46,6 +47,7 @@ export function laden(ablage: Ablage = browserAblage): Spielstand {
       geloest: d.geloest && typeof d.geloest === 'object' ? d.geloest : {},
       inventar: Array.isArray(d.inventar) ? d.inventar : [],
       buchstaben: Array.isArray(d.buchstaben) ? d.buchstaben : [],
+      merker: d.merker && typeof d.merker === 'object' ? d.merker : {},
     };
   } catch {
     return neuerSpielstand();

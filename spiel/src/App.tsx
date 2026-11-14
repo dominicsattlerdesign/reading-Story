@@ -35,8 +35,10 @@ export function App() {
           key={seite.id}
           seite={seite}
           stand={stand}
+          aendern={setStand}
           zurStartseite={() => setAnsicht('start')}
           oeffneEltern={() => setElternOffen(true)}
+          weiterZu={(id) => setStand((s) => ({ ...s, seite: id }))}
         />
       )}
       {elternOffen && (

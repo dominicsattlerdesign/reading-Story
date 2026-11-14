@@ -1,6 +1,9 @@
 import { useState } from 'preact/hooks';
 
-/** Text auf Pergament. Laesst sich zuklappen, damit man das ganze Bild sieht. */
+/**
+ * Text auf Pergament. Nach dem Lesen tippt das Kind auf "Gelesen", dann klappt die Karte zu
+ * und das ganze Bild ist frei. Die Schriftrolle am Rand klappt sie wieder auf.
+ */
 export function TextKarte(props: { text: string }) {
   const [zu, setZu] = useState(false);
 
@@ -15,8 +18,8 @@ export function TextKarte(props: { text: string }) {
   return (
     <div class="textkarte">
       <p class="textkarte-text">{props.text}</p>
-      <button class="textkarte-zuklappen" onClick={() => setZu(true)} aria-label="Text zuklappen">
-        ‹
+      <button class="gelesen-knopf" onClick={() => setZu(true)}>
+        Gelesen <span aria-hidden="true">✓</span>
       </button>
     </div>
   );

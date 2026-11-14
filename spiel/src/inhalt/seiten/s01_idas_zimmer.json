@@ -4,8 +4,173 @@
   "titel": "Idas Zimmer",
   "hintergrund": "hintergruende/ort01_idas_zimmer",
   "text": "Heute blüht Omas Kirschbaum zum ersten Mal in diesem Jahr. Ida kann nicht schlafen. Oma hat erzählt, dass in dieser Nacht Silberwind kommt. Silberwind ist ein Pegasus. Ein Pferd mit Flügeln! Ida schaut aus dem Fenster. Aber der Himmel bleibt leer. Da tippt etwas an die Scheibe. Rabat spitzt die Ohren.",
-  "figuren": [
-    { "bild": "figuren/ida/ida_vorne_2", "x": 900, "y": 840, "hoehe": 420 },
-    { "bild": "figuren/rabat/rabat_eingerollt_auf_decke", "x": 1205, "y": 660, "hoehe": 125 }
+  "buchstabe": "M",
+  "naechste": "s03",
+  "fertig": "Alles geschafft! Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "licht", "name": "Licht", "x": 0, "y": 0, "b": 0, "h": 0,
+      "effekt": "licht", "sichtbar": ["licht"]
+    },
+    {
+      "id": "fenster", "name": "Fenster", "x": 990, "y": 30, "b": 530, "h": 400,
+      "klick": [
+        { "wenn": ["!fenster_offen"], "setze": ["fenster_offen"], "blase": "Ida öffnet das Fenster. Kühle Nachtluft! Es duftet nach Blüten. Auf dem Fensterbrett liegt etwas …" },
+        { "blase": "Draußen blüht Omas Kirschbaum. Aber der Himmel bleibt leer." }
+      ]
+    },
+    {
+      "id": "brief", "name": "Zerrissener Brief", "bild": "gegenstaende/inventar/brief_zerrissen",
+      "x": 1050, "y": 368, "b": 100, "h": 103, "ebene": 3, "sichtbar": ["fenster_offen"],
+      "funkeln": ["!raetsel:brief"],
+      "klick": [
+        { "wenn": ["!raetsel:brief"], "raetsel": "brief" },
+        { "blase": "Silberwind hat sich verirrt. Wir müssen ihm helfen!" }
+      ]
+    },
+    {
+      "id": "feder", "name": "Silberne Feder", "bild": "gegenstaende/inventar/silberfeder",
+      "x": 1165, "y": 362, "b": 92, "h": 108, "ebene": 3, "sichtbar": ["fenster_offen", "!inventar:silberfeder"],
+      "klick": [
+        { "blase": "Eine silberne Feder! Sie glitzert wie Sternenstaub. Daneben liegt ein Brief." }
+      ]
+    },
+    {
+      "id": "regal", "name": "Bücherregal", "x": 640, "y": 135, "b": 215, "h": 300,
+      "klick": [
+        { "blase": "Ein Buch steht schief: „Omas Märchen“. Das liegt bestimmt bei Oma im Wohnzimmer." }
+      ]
+    },
+    {
+      "id": "familienbild", "name": "Bild an der Wand", "x": 255, "y": 200, "b": 140, "h": 135,
+      "klick": [
+        { "blase": "Ida, Mama, Papa und Oma im Sommer. Ida lächelt." }
+      ]
+    },
+    {
+      "id": "lampe", "name": "Nachttischlampe", "x": 10, "y": 390, "b": 135, "h": 165,
+      "klick": [
+        { "wenn": ["!licht"], "setze": ["licht"], "blase": "Klick! Ida macht Licht. „Puh, so ist es nicht mehr so dunkel.“" },
+        { "blase": "Mit Licht ist es gleich viel gemütlicher." }
+      ]
+    },
+    {
+      "id": "spieluhr", "name": "Spieluhr", "bild": "gegenstaende/klickobjekte/spieluhr",
+      "x": 1495, "y": 420, "b": 80, "h": 105, "ebene": 2,
+      "funkeln": ["!raetsel:spieluhr"],
+      "klick": [
+        { "wenn": ["!raetsel:spieluhr"], "raetsel": "spieluhr" },
+        { "blase": "♪ Die Spieluhr spielt leise. ♪" }
+      ]
+    },
+    {
+      "id": "kiste", "name": "Spielzeugkiste", "bild": "gegenstaende/klickobjekte/kiste_aufraeumen",
+      "x": 640, "y": 640, "b": 200, "h": 118, "ebene": 2,
+      "funkeln": ["!raetsel:aufraeumen"],
+      "klick": [
+        { "wenn": ["!raetsel:aufraeumen"], "raetsel": "aufraeumen" },
+        { "blase": "Alles ist ordentlich aufgeräumt." }
+      ]
+    },
+    {
+      "id": "rabat_schlaeft", "name": "Rabat schläft im Körbchen", "bild": "figuren/rabat/rabat_eingerollt_auf_decke",
+      "x": 1095, "y": 497, "b": 190, "h": 130, "ebene": 2, "sichtbar": ["!rabat_wach"],
+      "klick": [
+        { "setze": ["rabat_wach"], "blase": "Rabat gähnt. „Ist es schon Frühstück?“" }
+      ]
+    },
+    {
+      "id": "koerbchen", "name": "Rabats Körbchen", "x": 1040, "y": 520, "b": 300, "h": 150, "ebene": 1,
+      "sichtbar": ["rabat_wach", "buchstabe"],
+      "klick": [
+        { "blase": "Rabats Körbchen ist jetzt leer." }
+      ]
+    },
+    {
+      "id": "buchstabe", "name": "Leuchtender Buchstabe", "bild": "gegenstaende/buchstaben/buchstabe_01_m",
+      "x": 1160, "y": 548, "b": 62, "h": 61, "ebene": 3, "sichtbar": ["rabat_wach", "!buchstabe"],
+      "funkeln": [],
+      "klick": [
+        { "buchstabe": true, "blase": "Unter Rabats Kissen lag ein leuchtendes M!" }
+      ]
+    },
+    {
+      "id": "ida", "name": "Ida", "bild": "figuren/ida/ida_vorne_2",
+      "x": 900, "y": 420, "b": 154, "h": 420, "ebene": 4,
+      "klick": [
+        { "wenn": ["!raetsel:brief"], "blase": "„Was hat da wohl an die Scheibe getippt?“" },
+        { "blase": "„Wir müssen Silberwind helfen!“" }
+      ]
+    },
+    {
+      "id": "rabat", "name": "Rabat", "bild": "figuren/rabat/rabat_sitzt_vorne",
+      "x": 1070, "y": 650, "b": 140, "h": 190, "ebene": 4, "sichtbar": ["rabat_wach"],
+      "klick": [
+        { "blase": "„Ich komme mit, wohin du auch gehst!“" }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "brief",
+      "typ": "luecken",
+      "titel": "Der nasse Brief",
+      "aufgabe": "Der Brief ist nass vom Tau. Einige Wörter fehlen. Zieh die Wörter in die Lücken.",
+      "text": "Liebe {Lene}, ich habe mich {verirrt}. Der Himmel ist so {dunkel}. Ich finde den Weg nicht nach {Hause}. Bitte hilf mir. Dein {Silberwind}",
+      "falsche": ["Sonne", "Kuchen"],
+      "tipps": [
+        "Wer hat den Brief wohl geschrieben? Und an wen?",
+        "Der Brief ist an Oma. Oma heißt Lene. Unterschrieben hat Silberwind."
+      ],
+      "erfolg": "Den Brief hat Silberwind geschrieben! Er hat sich verirrt.",
+      "belohnung": {
+        "inventar": "silberfeder",
+        "blase": "Lene – so heißt doch Oma! Die silberne Feder nehme ich mit."
+      }
+    },
+    {
+      "id": "aufraeumen",
+      "typ": "sortieren",
+      "titel": "Schnell aufräumen",
+      "aufgabe": "Bevor Ida losgeht, räumt sie auf. Lies, was auf den Kisten steht. Zieh jedes Ding in die richtige Kiste.",
+      "gruppen": [
+        { "id": "buch", "name": "Buch" },
+        { "id": "ball", "name": "Ball" },
+        { "id": "puppe", "name": "Puppe" },
+        { "id": "socke", "name": "Socke" }
+      ],
+      "karten": [
+        { "id": "k_buch", "text": "Buch", "bild": "gegenstaende/inventar/maerchenbuch", "gruppe": "buch" },
+        { "id": "k_ball", "text": "Ball", "emoji": "⚽", "gruppe": "ball" },
+        { "id": "k_puppe", "text": "Puppe", "emoji": "🪆", "gruppe": "puppe" },
+        { "id": "k_socke", "text": "Socke", "emoji": "🧦", "gruppe": "socke" }
+      ],
+      "tipps": [
+        "Lies das Wort auf der Kiste ganz langsam: B – a – l – l.",
+        "Die Socke gehört in die Kiste, auf der „Socke“ steht."
+      ],
+      "erfolg": "Alles aufgeräumt! Jetzt kann es losgehen."
+    },
+    {
+      "id": "spieluhr",
+      "typ": "silben",
+      "titel": "Die Spieluhr",
+      "aufgabe": "Die Spieluhr spielt nur, wenn du die Silben klatschst. Tipp für jede Silbe einmal auf 👏. Dann tipp auf Fertig.",
+      "woerter": ["Fuchs", "Fe-der", "Fens-ter", "La-ter-ne", "Pe-ga-sus"],
+      "tipps": [
+        "Sprich das Wort langsam und klatsch bei jedem Teil einmal.",
+        "Fe – der: Das sind zwei Teile. Also zweimal klatschen!"
+      ],
+      "erfolg": "Die Spieluhr spielt eine leise Melodie. ♪"
+    }
+  ],
+  "tipps": [
+    { "wenn": ["!fenster_offen"], "text": "Hast du das gehört? Da tippt etwas ans Fenster!", "zeige": "fenster" },
+    { "wenn": ["!raetsel:brief"], "text": "Auf dem Fensterbrett liegt ein Brief. Tipp ihn an!", "zeige": "brief" },
+    { "wenn": ["!rabat_wach"], "text": "Psst! Im Körbchen schläft jemand. Weck mich doch auf!", "zeige": "rabat_schlaeft" },
+    { "wenn": ["!raetsel:aufraeumen"], "text": "Bevor wir losgehen, räumen wir auf. Tipp auf die Kiste!", "zeige": "kiste" },
+    { "wenn": ["!raetsel:spieluhr"], "text": "Auf der Truhe steht eine Spieluhr. Tipp sie an!", "zeige": "spieluhr" },
+    { "wenn": ["!buchstabe"], "text": "In meinem Körbchen glitzert etwas …", "zeige": "buchstabe" },
+    { "text": "Alles geschafft! Tipp unten auf Weiter." }
   ]
 }

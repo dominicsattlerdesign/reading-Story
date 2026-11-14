@@ -116,3 +116,4 @@ Für Etappe 0 wird **Git** gebraucht. Das Programm `git` selbst ist auf dem Rech
 | **Startbild / Buchdeckel** | Es gibt kein eigenes Bild. Vorschlag: Ich setze den Deckel aus dem Flug-Panorama, Silberwind und dem Schriftzug zusammen. |
 | **Zweites Mädchen auf „Familie in der Tür“** | Das Bild nur verwenden, wenn es dich nicht stört. Sonst bleibt es weg, oder ein neues Bild wird erzeugt. |
 | **Kuckuck mit „A“** | Der Buchstabe U wird im Spiel über das Schild gelegt. |
+| **Bilder für „Aufräumen“ (Seite 1–2)** | Für Ball, Puppe und Socke gibt es keine Aquarellbilder. Auf der Probeseite stehen dafür Platzhalter-Emojis (⚽ 🪆 🧦). Vorschlag: drei kleine Bilder im Stil des Inventar-Bogens erzeugen. |

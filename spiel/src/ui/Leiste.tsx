@@ -1,43 +1,38 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { asset, inventar } from '../inhalt';
 
-const RABAT_SAETZE = [
-  'Ich bin Rabat! Wenn du nicht weiterweißt, tipp auf mich.',
-  'Schau dich gut um. Vielleicht kannst du etwas antippen?',
-];
-
 /** Untere Leiste: Rabat als Hilfe, Inventar, Raetsel-Punkte, Weiter-Knopf. */
 export function Leiste(props: {
   inventar: string[];
   lichter: number;
   raetsel: { gesamt: number; geloest: number };
-  weiter?: () => void;
+  rabatBlase: string | null;
+  rabatTippen: () => void;
+  blaseZu: () => void;
+  weiter: () => void;
 }) {
-  const [blase, setBlase] = useState<string | null>(null);
-  const zaehler = useRef(0);
-  const uhr = useRef<number | null>(null);
-
-  useEffect(() => () => { if (uhr.current) window.clearTimeout(uhr.current); }, []);
-
-  const rabatHilft = () => {
-    const satz = RABAT_SAETZE[zaehler.current % RABAT_SAETZE.length];
-    zaehler.current++;
-    setBlase(satz);
-    if (uhr.current) window.clearTimeout(uhr.current);
-    // Sprechblase bleibt lange genug zum Lesen stehen
-    uhr.current = window.setTimeout(() => setBlase(null), 6000);
-  };
+  // frisch gefundenes Fundstueck kurz hervorheben
+  const [neu, setNeu] = useState<string | null>(null);
+  const vorher = useRef(props.inventar);
+  useEffect(() => {
+    const dazu = props.inventar.find((i) => !vorher.current.includes(i));
+    vorher.current = props.inventar;
+    if (!dazu) return;
+    setNeu(dazu);
+    const t = window.setTimeout(() => setNeu(null), 2500);
+    return () => window.clearTimeout(t);
+  }, [props.inventar]);
 
   const fertig = props.raetsel.geloest >= props.raetsel.gesamt;
 
   return (
     <div class="leiste">
-      <button class="rabat-knopf" onClick={rabatHilft} aria-label="Rabat um Hilfe bitten">
+      <button class="rabat-knopf" onClick={props.rabatTippen} aria-label="Rabat um Hilfe bitten">
         <img src={asset('figuren/rabat/rabat_schal_lacht')} alt="" draggable={false} />
       </button>
-      {blase && (
-        <button class="sprechblase rabat-blase" aria-live="polite" onClick={() => setBlase(null)}>
-          {blase}
+      {props.rabatBlase && (
+        <button class="sprechblase rabat-blase" aria-live="polite" onClick={props.blaseZu}>
+          {props.rabatBlase}
         </button>
       )}
 
@@ -45,7 +40,7 @@ export function Leiste(props: {
         {inventar.map((ding) => {
           const hat = props.inventar.includes(ding.id);
           return (
-            <li key={ding.id} class={hat ? 'fach voll' : 'fach'} title={hat ? ding.name : 'noch nicht gefunden'}>
+            <li key={ding.id} class={`fach ${hat ? 'voll' : ''} ${neu === ding.id ? 'neu' : ''}`} title={hat ? ding.name : 'noch nicht gefunden'}>
               {hat && <img src={asset(ding.bild)} alt={ding.name} draggable={false} />}
               {hat && ding.id === 'laterne' && (
                 <span class="lichter" aria-label={`${props.lichter} von 3 Lichtern`}>
@@ -65,7 +60,7 @@ export function Leiste(props: {
         ))}
       </div>
 
-      <button class={`weiter-knopf ${fertig ? 'bereit' : ''}`} disabled={!fertig || !props.weiter} onClick={props.weiter}>
+      <button class={`weiter-knopf ${fertig ? 'bereit' : ''}`} disabled={!fertig} onClick={props.weiter}>
         Weiter <span aria-hidden="true">▶</span>
       </button>
     </div>
