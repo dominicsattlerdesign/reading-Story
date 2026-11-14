@@ -31,7 +31,7 @@ export function Doppelseite(props: { seite: Seite; stand: Spielstand; zurStartse
         ⚙
       </Halteknopf>
 
-      <TextKarte text={seite.text} autoVorlesen={stand.einstellungen.autoVorlesen} />
+      <TextKarte text={seite.text} />
 
       <Leiste inventar={stand.inventar} lichter={0} raetsel={{ gesamt: 3, geloest: (stand.geloest[seite.id] ?? []).length }} />
     </div>

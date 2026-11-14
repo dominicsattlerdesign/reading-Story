@@ -1,20 +1,12 @@
 // Spielstand speichern und laden. Funktioniert ohne Internet und ohne Konto.
 // Die Ablage ist austauschbar (Browser heute, Capacitor-Preferences in der App).
 
-export interface Einstellungen {
-  autoVorlesen: boolean;
-  tempo: number; // 0.6 – 1.2
-  stimme: string | null;
-  lesehilfe: boolean; // Wortkaertchen beim Antippen vorlesen
-}
-
 export interface Spielstand {
   version: 1;
   seite: string | null; // zuletzt geoeffnete Doppelseite
   geloest: Record<string, string[]>; // Seite -> geloeste Raetsel-IDs
   inventar: string[];
   buchstaben: string[]; // gefundene versteckte Buchstaben (Seiten-IDs)
-  einstellungen: Einstellungen;
 }
 
 export interface Ablage {
@@ -26,14 +18,7 @@ export interface Ablage {
 export const SCHLUESSEL = 'ida-pegasus/spielstand';
 
 export function neuerSpielstand(): Spielstand {
-  return {
-    version: 1,
-    seite: null,
-    geloest: {},
-    inventar: [],
-    buchstaben: [],
-    einstellungen: { autoVorlesen: true, tempo: 0.9, stimme: null, lesehilfe: false },
-  };
+  return { version: 1, seite: null, geloest: {}, inventar: [], buchstaben: [] };
 }
 
 /** Browser-Speicher. Faellt still auf "nichts gespeichert" zurueck, wenn er gesperrt ist. */
@@ -51,9 +36,8 @@ export const browserAblage: Ablage = {
 
 /** Liest den Spielstand. Kaputte oder alte Daten werden mit Standardwerten aufgefuellt, nie verworfen. */
 export function laden(ablage: Ablage = browserAblage): Spielstand {
-  const leer = neuerSpielstand();
   const roh = ablage.lesen(SCHLUESSEL);
-  if (!roh) return leer;
+  if (!roh) return neuerSpielstand();
   try {
     const d = JSON.parse(roh) as Partial<Spielstand>;
     return {
@@ -62,20 +46,14 @@ export function laden(ablage: Ablage = browserAblage): Spielstand {
       geloest: d.geloest && typeof d.geloest === 'object' ? d.geloest : {},
       inventar: Array.isArray(d.inventar) ? d.inventar : [],
       buchstaben: Array.isArray(d.buchstaben) ? d.buchstaben : [],
-      einstellungen: { ...leer.einstellungen, ...(d.einstellungen ?? {}) },
     };
   } catch {
-    return leer;
+    return neuerSpielstand();
   }
 }
 
 export function speichern(stand: Spielstand, ablage: Ablage = browserAblage) {
   ablage.schreiben(SCHLUESSEL, JSON.stringify(stand));
-}
-
-/** Setzt den Fortschritt zurueck, behaelt aber die Einstellungen. */
-export function zuruecksetzen(stand: Spielstand): Spielstand {
-  return { ...neuerSpielstand(), einstellungen: stand.einstellungen };
 }
 
 export function hatFortschritt(stand: Spielstand): boolean {

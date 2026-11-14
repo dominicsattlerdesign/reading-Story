@@ -23,7 +23,7 @@ Ein Point-and-Click-Abenteuer im Buchstil für Kinder der 2. Klasse. Es läuft i
 
 - **Hintergrund** über die ganze Doppelseite, wie im Bilderbuch. In der Mitte ist ein leichter Buchfalz zu sehen.
 - **Text-Karte** links auf Pergament, in großer Schrift. Sie lässt sich zuklappen, damit man das Bild ganz sieht.
-- **Vorlesen ohne eigenen Knopf:** Der Seitentext wird beim Aufschlagen der Seite automatisch vorgelesen, eine Aufgabe beim Öffnen des Rätsels. Wer etwas noch einmal hören will, tippt einfach auf die Text-Karte oder die Aufgabe. Die Wörter werden beim Vorlesen mitmarkiert.
+- **Kein Vorlesen:** Das Kind liest alle Texte selbst. Darum sind die Texte kurz, in großer Schrift und in einfacher Sprache geschrieben.
 - **Dinge zum Antippen** reagieren mit einer kleinen Animation und einer Sprechblase, die vorgelesen werden kann. Einige öffnen ein Rätsel.
 - **Unten links Rabat als Hilfe-Knopf:** Einmal tippen gibt einen Tipp, zweimal tippen einen deutlicheren Tipp.
 - **Inventar-Leiste** mit den sieben Fundstücken. Die Laterne zeigt, wie viele Lichter schon darin sind.
@@ -67,17 +67,12 @@ Die über 40 Rätsel der Geschichte lassen sich auf 10 wiederverwendbare Rätsel
 
 Welche Rätsel zusammengehören, steht in Datendateien (JSON), eine pro Doppelseite. Wörter austauschen oder einen leichteren oder schwereren Modus nachrüsten heißt dann: nur die Datei ändern.
 
-**Vorlesen bei Rätseln:**
-- Die **Aufgabe** wird beim Öffnen automatisch vorgelesen. Ein Tippen auf den Aufgabentext liest sie noch einmal vor.
-- Die **Wortkärtchen** werden nur vorgelesen, wenn im Elternbereich die „Lesehilfe“ eingeschaltet ist. Dann liest ein Kärtchen vor, sobald es angetippt wird. Ohne Lesehilfe würde das Vorlesen bei Lese-Rätseln die Lösung verraten.
-
 ## 4. Technik
 
 | Bereich | Wahl | Warum |
 | --- | --- | --- |
 | Grundgerüst | **Vite + TypeScript + Preact** | Klein und schnell. Bildschirme lassen sich als Bausteine bauen, und am Ende entsteht eine einfache Webseite, die sich auch als App verpacken lässt. |
-| Darstellung | HTML/CSS, keine Spiele-Engine | Text, große Knöpfe, Ziehen und Vorlesen gehen mit HTML am einfachsten und am barrierefreiesten. Die Bühne ist 16:9 und passt sich an jede Bildschirmgröße an. |
-| Vorlesen | Sprachausgabe des Browsers (deutsche Stimme), auf Android über ein Capacitor-Plugin | Sofort und kostenlos verfügbar. Alles läuft über eine eigene Zwischenschicht. So können später **eigene Aufnahmen** die Computerstimme ersetzen, ohne dass sich am Spiel etwas ändert. |
+| Darstellung | HTML/CSS, keine Spiele-Engine | Text, große Knöpfe und Ziehen gehen mit HTML am einfachsten und am barrierefreiesten. Die Bühne ist 16:9 und passt sich an jede Bildschirmgröße an. |
 | Speichern | Speicher im Browser, in der App der Speicher des Geräts | Funktioniert ohne Internet und ohne Konto. |
 | Offline | Progressive Web-App (PWA) | Das Spiel lässt sich auf dem Tablet „installieren“ und läuft ohne Internet. |
 | Android | **Capacitor** verpackt dieselbe Webseite als App | Ein einziger Code für Browser und App. |
@@ -93,8 +88,6 @@ Die leere Kopie unter `C:\Users\Admin\.copilot\repos\reading-Story` wird nicht g
 ## 5. Elternbereich
 
 Er öffnet sich über das Zahnrad. Damit Kinder nicht hineinkommen, muss man den Knopf 3 Sekunden gedrückt halten. Darin:
-- Automatisches Vorlesen an oder aus (standardmäßig an), Stimme und Sprechtempo
-- Lesehilfe für Rätselwörter an oder aus
 - Kapitelübersicht: zu jeder gespielten Seite springen
 - Fortschritt zurücksetzen
 
@@ -102,8 +95,8 @@ Er öffnet sich über das Zahnrad. Damit Kinder nicht hineinkommen, muss man den
 
 | Etappe | Inhalt | Ergebnis |
 | --- | --- | --- |
-| **0 Grundgerüst** | Projekt aufsetzen, Bild-Pipeline, Bühne mit 16:9, Buchrahmen, Schrift, Vorlese-Schicht, Speichern | Ein leeres Buch, das sich im Browser öffnet |
-| **1 Probeseite** | **Seite 1–2 komplett spielbar:** Idas Zimmer, Text mit Vorlesen, Dinge zum Antippen, Lückentext, Aufräumen, Silben klatschen, Buchstabe M, Silberfeder, Rabat-Hilfe, Umblättern | **Halt: Du (und am besten das Kind) testest die Probeseite.** Danach passen wir Größe, Tempo und Ton an, bevor alle Seiten gebaut werden. |
+| **0 Grundgerüst** | Projekt aufsetzen, Bild-Pipeline, Bühne mit 16:9, Buchrahmen, Schrift, Speichern | Ein leeres Buch, das sich im Browser öffnet |
+| **1 Probeseite** | **Seite 1–2 komplett spielbar:** Idas Zimmer, Text, Dinge zum Antippen, Lückentext, Aufräumen, Silben klatschen, Buchstabe M, Silberfeder, Rabat-Hilfe, Umblättern | **Halt: Du (und am besten das Kind) testest die Probeseite.** Danach passen wir Größe, Tempo und Ton an, bevor alle Seiten gebaut werden. |
 | **2 Bausteine** | Die übrigen Rätseltypen und der Hotspot-Editor | Alle Rätselarten funktionieren |
 | **3 Teil 1** | Seiten 3–10 (Wohnzimmer bis Waldrand) | Ersten Teil durchspielen |
 | **4 Teil 2** | Seiten 11–20 (Brücke bis Echohöhle) | Zweiten Teil durchspielen |
@@ -119,8 +112,7 @@ Für Etappe 0 wird **Git** gebraucht. Das Programm `git` selbst ist auf dem Rech
 
 | Punkt | Vorschlag |
 | --- | --- |
-| **Vorlesestimme** | Wir beginnen mit der Computerstimme. Wenn sie auf dem Tablet zu blechern klingt, kann jemand aus der Familie die Texte einsprechen. Die Aufnahmen lassen sich dann einfach hineinlegen. |
-| **Geräusche und Musik** | Es gibt noch keine. Vorschlag: In Etappe 6 ein paar freie Geräusche (Funkeln, Umblättern, Klopfen) und leise Hintergrundmusik, beides abschaltbar. Bis dahin ist das Spiel stumm, abgesehen von der Stimme. |
+| **Geräusche und Musik** | Es gibt noch keine. Vorschlag: In Etappe 6 ein paar freie Geräusche (Funkeln, Umblättern, Klopfen) und leise Hintergrundmusik, beides abschaltbar. Bis dahin ist das Spiel stumm. |
 | **Startbild / Buchdeckel** | Es gibt kein eigenes Bild. Vorschlag: Ich setze den Deckel aus dem Flug-Panorama, Silberwind und dem Schriftzug zusammen. |
 | **Zweites Mädchen auf „Familie in der Tür“** | Das Bild nur verwenden, wenn es dich nicht stört. Sonst bleibt es weg, oder ein neues Bild wird erzeugt. |
 | **Kuckuck mit „A“** | Der Buchstabe U wird im Spiel über das Schild gelegt. |

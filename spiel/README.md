@@ -29,7 +29,7 @@ npm run dev
 | Ordner | Inhalt |
 | --- | --- |
 | `src/inhalt/seiten/` | Eine JSON-Datei pro Doppelseite: Text, Hintergrund, Figuren (später auch Rätsel) |
-| `src/engine/` | Vorlesen (`vorlesen.ts`) und Speichern (`speicher.ts`), mit Tests |
+| `src/engine/` | Speichern (`speicher.ts`), mit Tests |
 | `src/ui/` | Bühne, Buchdeckel, Doppelseite, Text-Karte, Leiste, Elternbereich |
 | `scripts/bilder.mjs` | Bild-Umwandlung |
 

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { asset, inventar } from '../inhalt';
-import { vorleser } from '../engine/vorlesen';
 
 const RABAT_SAETZE = [
   'Ich bin Rabat! Wenn du nicht weiterweißt, tipp auf mich.',
@@ -20,13 +19,13 @@ export function Leiste(props: {
 
   useEffect(() => () => { if (uhr.current) window.clearTimeout(uhr.current); }, []);
 
-  const rabatHilft = async () => {
+  const rabatHilft = () => {
     const satz = RABAT_SAETZE[zaehler.current % RABAT_SAETZE.length];
     zaehler.current++;
     setBlase(satz);
     if (uhr.current) window.clearTimeout(uhr.current);
-    await vorleser.sprich(satz);
-    uhr.current = window.setTimeout(() => setBlase(null), 1500);
+    // Sprechblase bleibt lange genug zum Lesen stehen
+    uhr.current = window.setTimeout(() => setBlase(null), 6000);
   };
 
   const fertig = props.raetsel.geloest >= props.raetsel.gesamt;
@@ -37,9 +36,9 @@ export function Leiste(props: {
         <img src={asset('figuren/rabat/rabat_schal_lacht')} alt="" draggable={false} />
       </button>
       {blase && (
-        <div class="sprechblase rabat-blase" role="status">
+        <button class="sprechblase rabat-blase" aria-live="polite" onClick={() => setBlase(null)}>
           {blase}
-        </div>
+        </button>
       )}
 
       <ul class="inventar" aria-label="Deine Fundstücke">
