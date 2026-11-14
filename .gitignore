@@ -1,0 +1,15 @@
+# Abhängigkeiten und Build-Ergebnisse
+node_modules/
+dist/
+spiel/public/assets/
+
+# Android (Capacitor) Build-Ordner
+spiel/android/app/build/
+spiel/android/.gradle/
+
+# Editor und System
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*.log
