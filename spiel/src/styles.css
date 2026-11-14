@@ -92,6 +92,11 @@ img { -webkit-user-drag: none; }
 /* ---------- Szene ---------- */
 .objekt { position: absolute; padding: 0; border: 0; background: none; }
 .objekt.mit-bild img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35)); pointer-events: none; }
+/* Figuren stehen auf dem Boden: weicher Schatten unter den Fuessen */
+.objekt.figur::before { content: ''; position: absolute; left: 12%; right: 12%; bottom: -10px; height: 26px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(20, 10, 30, 0.45), rgba(20, 10, 30, 0) 70%); pointer-events: none; }
+/* Nachtszenen: Figuren etwas dunkler und waermer, damit sie zum gemalten Licht passen */
+.stimmung-nacht .objekt.figur img { filter: brightness(0.86) sepia(0.18) saturate(0.95) drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35)); }
 .objekt.klickbar { cursor: pointer; }
 .objekt.klickbar.mit-bild:active img { transform: scale(0.95); }
 .objekt.flaeche { border-radius: 18px; }
@@ -125,8 +130,11 @@ img { -webkit-user-drag: none; }
 .gelesen-knopf { display: block; margin: 0 34px 26px auto; min-height: 72px; padding: 0 30px; font-size: 30px; font-weight: 700;
   border-radius: 36px; border: 3px solid var(--gold); background: linear-gradient(#f3c860, #d99a2b); color: #3b2306; box-shadow: var(--schatten); }
 .gelesen-knopf:active { transform: scale(0.96); }
-.textkarte-zu { position: absolute; left: 0; top: 140px; width: 84px; height: 110px; border-radius: 0 20px 20px 0; border: 3px solid var(--pergament-rand); border-left: 0;
-  background: var(--pergament); font-size: 48px; box-shadow: var(--schatten); z-index: 10; }
+/* Gemalte Schriftrolle zum Wiederaufklappen des Textes */
+.textkarte-zu { position: absolute; left: 10px; top: 170px; width: 160px; height: 94px; padding: 0; border: 0; background: none; z-index: 10;
+  animation: auftauchen 0.25s ease-out; }
+.textkarte-zu img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45)); transition: transform 0.15s; }
+.textkarte-zu:active img { transform: scale(0.94); }
 
 /* ---------- Leiste ---------- */
 /* z-index ueber den Raetseln (40), damit Rabats Hilfe auch waehrend eines Raetsels sichtbar ist */
@@ -219,6 +227,11 @@ img { -webkit-user-drag: none; }
 .silben-knoepfe { display: flex; gap: 30px; align-items: center; }
 .klatsch-knopf { width: 150px; height: 150px; border-radius: 50%; font-size: 80px; border: 5px solid var(--gold); background: radial-gradient(#fff8e8, #f1d79a); box-shadow: var(--schatten); }
 .klatsch-knopf:active { transform: scale(0.9); }
+.klatsch-knopf { padding: 12px; display: flex; align-items: center; justify-content: center; }
+.klatsch-knopf img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.klatsch { display: inline-flex; width: 70px; height: 70px; }
+.klatsch img { width: 100%; height: 100%; object-fit: contain; }
+.klatsch.an img { animation: auftauchen 0.25s ease-out; }
 button:disabled { opacity: 0.45; cursor: default; }
 
 .erfolg { position: absolute; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center; border-radius: 22px; background: rgba(245, 233, 207, 0.85); animation: einblenden 0.3s ease-out; }

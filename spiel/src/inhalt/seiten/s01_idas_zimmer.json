@@ -3,6 +3,7 @@
   "nummer": "1–2",
   "titel": "Idas Zimmer",
   "hintergrund": "hintergruende/ort01_idas_zimmer",
+  "stimmung": "nacht",
   "text": "Heute blüht Omas Kirschbaum zum ersten Mal in diesem Jahr. Ida kann nicht schlafen. Oma hat erzählt, dass in dieser Nacht Silberwind kommt. Silberwind ist ein Pegasus. Ein Pferd mit Flügeln! Ida schaut aus dem Fenster. Aber der Himmel bleibt leer. Da tippt etwas an die Scheibe. Rabat spitzt die Ohren.",
   "buchstabe": "M",
   "naechste": "s03",
@@ -14,6 +15,7 @@
     },
     {
       "id": "fenster", "name": "Fenster", "x": 990, "y": 30, "b": 530, "h": 400,
+      "blaseAnker": { "x": 1150, "y": 110, "unten": true },
       "klick": [
         { "wenn": ["!fenster_offen"], "setze": ["fenster_offen"], "blase": "Ida öffnet das Fenster. Kühle Nachtluft! Es duftet nach Blüten. Auf dem Fensterbrett liegt etwas …" },
         { "blase": "Draußen blüht Omas Kirschbaum. Aber der Himmel bleibt leer." }
@@ -21,7 +23,7 @@
     },
     {
       "id": "brief", "name": "Zerrissener Brief", "bild": "gegenstaende/inventar/brief_zerrissen",
-      "x": 1050, "y": 368, "b": 100, "h": 103, "ebene": 3, "sichtbar": ["fenster_offen"],
+      "x": 1250, "y": 345, "b": 100, "h": 103, "ebene": 3, "sichtbar": ["fenster_offen"],
       "funkeln": ["!raetsel:brief"],
       "klick": [
         { "wenn": ["!raetsel:brief"], "raetsel": "brief" },
@@ -30,7 +32,7 @@
     },
     {
       "id": "feder", "name": "Silberne Feder", "bild": "gegenstaende/inventar/silberfeder",
-      "x": 1165, "y": 362, "b": 92, "h": 108, "ebene": 3, "sichtbar": ["fenster_offen", "!inventar:silberfeder"],
+      "x": 1365, "y": 339, "b": 92, "h": 108, "ebene": 3, "sichtbar": ["fenster_offen", "!inventar:silberfeder"],
       "klick": [
         { "blase": "Eine silberne Feder! Sie glitzert wie Sternenstaub. Daneben liegt ein Brief." }
       ]
@@ -56,7 +58,7 @@
     },
     {
       "id": "spieluhr", "name": "Spieluhr", "bild": "gegenstaende/klickobjekte/spieluhr",
-      "x": 1495, "y": 420, "b": 80, "h": 105, "ebene": 2,
+      "x": 105, "y": 428, "b": 100, "h": 131, "ebene": 2,
       "funkeln": ["!raetsel:spieluhr"],
       "klick": [
         { "wenn": ["!raetsel:spieluhr"], "raetsel": "spieluhr" },
@@ -65,7 +67,7 @@
     },
     {
       "id": "kiste", "name": "Spielzeugkiste", "bild": "gegenstaende/klickobjekte/kiste_aufraeumen",
-      "x": 640, "y": 640, "b": 200, "h": 118, "ebene": 2,
+      "x": 845, "y": 450, "b": 340, "h": 200, "ebene": 2,
       "funkeln": ["!raetsel:aufraeumen"],
       "klick": [
         { "wenn": ["!raetsel:aufraeumen"], "raetsel": "aufraeumen" },
@@ -73,30 +75,30 @@
       ]
     },
     {
-      "id": "rabat_schlaeft", "name": "Rabat schläft im Körbchen", "bild": "figuren/rabat/rabat_eingerollt_auf_decke",
-      "x": 1095, "y": 497, "b": 190, "h": 130, "ebene": 2, "sichtbar": ["!rabat_wach"],
+      "id": "rabat_schlaeft", "name": "Rabat schläft auf dem Bett", "bild": "figuren/rabat/rabat_eingerollt_schlaeft",
+      "x": 395, "y": 435, "b": 230, "h": 103, "ebene": 2, "sichtbar": ["!rabat_wach"],
       "klick": [
         { "setze": ["rabat_wach"], "blase": "Rabat gähnt. „Ist es schon Frühstück?“" }
       ]
     },
     {
-      "id": "koerbchen", "name": "Rabats Körbchen", "x": 1040, "y": 520, "b": 300, "h": 150, "ebene": 1,
-      "sichtbar": ["rabat_wach", "buchstabe"],
+      "id": "koerbchen", "name": "Rabats Körbchen", "x": 1175, "y": 515, "b": 290, "h": 145, "ebene": 1,
+      "sichtbar": [],
       "klick": [
-        { "blase": "Rabats Körbchen ist jetzt leer." }
+        { "blase": "Rabats Körbchen. Heute Nacht schläft er lieber bei Ida im Bett." }
       ]
     },
     {
       "id": "buchstabe", "name": "Leuchtender Buchstabe", "bild": "gegenstaende/buchstaben/buchstabe_01_m",
-      "x": 1160, "y": 548, "b": 62, "h": 61, "ebene": 3, "sichtbar": ["rabat_wach", "!buchstabe"],
+      "x": 490, "y": 470, "b": 62, "h": 61, "ebene": 3, "sichtbar": ["rabat_wach", "!buchstabe"],
       "funkeln": [],
       "klick": [
-        { "buchstabe": true, "blase": "Unter Rabats Kissen lag ein leuchtendes M!" }
+        { "buchstabe": true, "blase": "Wo Rabat geschlafen hat, leuchtet ein M!" }
       ]
     },
     {
       "id": "ida", "name": "Ida", "bild": "figuren/ida/ida_vorne_2",
-      "x": 900, "y": 420, "b": 154, "h": 420, "ebene": 4,
+      "x": 776, "y": 235, "b": 213, "h": 580, "ebene": 4,
       "klick": [
         { "wenn": ["!raetsel:brief"], "blase": "„Was hat da wohl an die Scheibe getippt?“" },
         { "blase": "„Wir müssen Silberwind helfen!“" }
@@ -104,7 +106,7 @@
     },
     {
       "id": "rabat", "name": "Rabat", "bild": "figuren/rabat/rabat_sitzt_vorne",
-      "x": 1070, "y": 650, "b": 140, "h": 190, "ebene": 4, "sichtbar": ["rabat_wach"],
+      "x": 1040, "y": 560, "b": 147, "h": 200, "ebene": 4, "sichtbar": ["rabat_wach"],
       "klick": [
         { "blase": "„Ich komme mit, wohin du auch gehst!“" }
       ]
@@ -155,7 +157,7 @@
       "id": "spieluhr",
       "typ": "silben",
       "titel": "Die Spieluhr",
-      "aufgabe": "Die Spieluhr spielt nur, wenn du die Silben klatschst. Tipp für jede Silbe einmal auf 👏. Dann tipp auf Fertig.",
+      "aufgabe": "Die Spieluhr spielt nur, wenn du die Silben klatschst. Tipp für jede Silbe einmal auf die klatschenden Hände. Dann tipp auf Fertig.",
       "woerter": ["Fuchs", "Fe-der", "Fens-ter", "La-ter-ne", "Pe-ga-sus"],
       "tipps": [
         "Sprich das Wort langsam und klatsch bei jedem Teil einmal.",
@@ -167,10 +169,10 @@
   "tipps": [
     { "wenn": ["!fenster_offen"], "text": "Hast du das gehört? Da tippt etwas ans Fenster!", "zeige": "fenster" },
     { "wenn": ["!raetsel:brief"], "text": "Auf dem Fensterbrett liegt ein Brief. Tipp ihn an!", "zeige": "brief" },
-    { "wenn": ["!rabat_wach"], "text": "Psst! Im Körbchen schläft jemand. Weck mich doch auf!", "zeige": "rabat_schlaeft" },
+    { "wenn": ["!rabat_wach"], "text": "Psst! Auf dem Bett schläft jemand. Weck mich doch auf!", "zeige": "rabat_schlaeft" },
     { "wenn": ["!raetsel:aufraeumen"], "text": "Bevor wir losgehen, räumen wir auf. Tipp auf die Kiste!", "zeige": "kiste" },
-    { "wenn": ["!raetsel:spieluhr"], "text": "Auf der Truhe steht eine Spieluhr. Tipp sie an!", "zeige": "spieluhr" },
-    { "wenn": ["!buchstabe"], "text": "In meinem Körbchen glitzert etwas …", "zeige": "buchstabe" },
+    { "wenn": ["!raetsel:spieluhr"], "text": "Auf dem Nachttisch steht eine Spieluhr. Tipp sie an!", "zeige": "spieluhr" },
+    { "wenn": ["!buchstabe"], "text": "Auf dem Bett glitzert etwas …", "zeige": "buchstabe" },
     { "text": "Alles geschafft! Tipp unten auf Weiter." }
   ]
 }

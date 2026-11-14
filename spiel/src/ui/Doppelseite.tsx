@@ -117,7 +117,7 @@ export function Doppelseite(props: {
   const gefundeneBuchstaben = stand.buchstaben.map((id) => seiteMitId(id)?.buchstabe).filter(Boolean);
 
   return (
-    <div class="doppelseite aufblaettern">
+    <div class={`doppelseite aufblaettern ${seite.stimmung ? `stimmung-${seite.stimmung}` : ''}`}>
       <img class="hintergrund" src={asset(seite.hintergrund)} alt={seite.titel} draggable={false} />
       <Szene objekte={seite.objekte} merker={m} leuchtet={leuchtet} antippen={antippen} blase={blase} blaseZu={() => setBlase(null)} />
       <div class="buchfalz" aria-hidden="true" />

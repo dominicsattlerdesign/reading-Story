@@ -58,6 +58,8 @@ Im Ordner `originale/figuren/` liegt außerdem der ganze Bogen als `silberwind_l
 | `omas_kinderfoto.png` | Altes Sepia-Foto mit Fotoecken: Die junge Lene mit **weißer Strähne** umarmt Silberwind. Es ist aus dem Bogen ausgeschnitten. | Silberschweif und Lene im Vintage-Aquarell (neu, unterer Teil) |
 | `spielzeug_ball_puppe_socke_bogen.png` | Flickenball mit Sternen, Stoffpuppe mit Wollhaaren, gestrickte Ringelsocke, für das Rätsel „Aufräumen“ auf Seite 1–2 | Kuschelige Vintage-Spielzeuge_ Ball, Puppe und Socke (neu) |
 | `oberflaeche_haus_einstellungen_bogen.png` | Zwei runde Knopf-Medaillons mit Goldrand, Ranken und Kirschblüten: ein Häuschen (Knopf „Zum Buchdeckel“) und zwei Zahnräder (Knopf „Elternbereich“) | Verspielte Märchen-UI-Buttons_ Haus und Zahnräder (neu) |
+| `oberflaeche_klatschhaende.png` | Zwei klatschende Kinderhände mit Strickbündchen und Blumenmanschetten, gelbe Klatsch-Striche und warmer Schein, für das Rätsel „Silben klatschen“ | Wasserfarben-Hände mit Blumenmanschetten klatschen (neu) |
+| `oberflaeche_schriftrolle.png` | Alte Pergamentrolle mit Band und rotem Wachssiegel (Baum), mit warmem Schein. Knopf zum Wiederaufklappen der Text-Karte | Alte Pergamentrolle mit rotem Wachssiegel (neu) |
 | `klickobjekte_und_szenen_bogen.png` | Spinne, Spieluhr mit Ballerina, Kuckuck im Häuschen mit Buchstabenschild (**A**), springender Fisch, Strickkorb mit Fäustlingen, Schriftzug **MUTIGES HERZ** in Leuchtbuchstaben, Kiste „Aufräumen“, Kiste „Sortieren“, Truhe mit Fragezeichen geschlossen und offen. Dazu drei Szenen: **Holunda und Brummbart beim Tee**, **Oma umarmt Silberwind**, **Familie in der Tür** (Papa, Mama, Oma, Ida) | Illustrierter Mutiges-Herz-Assetbogen (neu) |
 
 Die PNG-Bögen sind Sammelblätter. Für das Spiel müssen die einzelnen Figuren und Gegenstände noch ausgeschnitten werden. Dafür am besten die großen Originale aus `originale/` verwenden.
@@ -69,7 +71,7 @@ Alle Sammelbögen sind in einzelne PNG-Dateien mit transparentem Hintergrund zer
 | Ordner | Anzahl | Inhalt |
 | --- | --- | --- |
 | `figuren/einzeln/ida/` | 33 | 4 Ansichten (2 Bögen), 2 seitlich mit Rucksack, 16 Gesichter (davon 5 ängstlich), ängstlich als ganze Figur, mit Laterne, kniend mit Rabat, auf Silberwind, springend, im Bett mit Rabat |
-| `figuren/einzeln/rabat/` | 31 | Ohne Schal: sitzend aus allen Richtungen, laufend, schnüffelnd, springend, schleichend, eingerollt. Mit Schal: viele Posen. Mit Blütenkranz, mit Kirschblüten, gesträubt am Wasser, schlafend in der Decke |
+| `figuren/einzeln/rabat/` | 32 | Ohne Schal: sitzend aus allen Richtungen, laufend, schnüffelnd, springend, schleichend, eingerollt. Mit Schal: viele Posen. Mit Blütenkranz, mit Kirschblüten, gesträubt am Wasser, schlafend in der Decke. `rabat_eingerollt_schlaeft` ist `rabat_eingerollt_auf_decke` ohne Kissen (für Seite 1–2, Rabat auf dem Bett) |
 | `figuren/einzeln/oma/` | 9 | 3 Ansichten, 5 Gesichter, schlafend im Sessel |
 | `figuren/einzeln/mama/` | 9 | 3 Ansichten, 5 Gesichter, Mama umarmt Ida |
 | `figuren/einzeln/papa/` | 6 | 3 Ansichten, 2 Gesichter, mit Kompass |
@@ -83,7 +85,7 @@ Alle Sammelbögen sind in einzelne PNG-Dateien mit transparentem Hintergrund zer
 | `gegenstaende/einzeln/inventar/` | 21 | Silberfeder, Brief, Märchenbuch, Omas Tagebuch, Kompass, Schal, Laterne dunkel, halb und hell, Fäustling, Honigkekse, Mondperle, Wegweiser-Pfosten, 3 Schilder, Hängeschild, 4 Trittsteine |
 | `gegenstaende/einzeln/klickobjekte/` | 9 | Spinne, Spieluhr, Kuckuck, Fisch, Strickkorb, Kisten „Aufräumen“ und „Sortieren“, Truhe zu und offen |
 | `gegenstaende/einzeln/spielzeug/` | 3 | `ball`, `puppe`, `socke` |
-| `gegenstaende/einzeln/oberflaeche/` | 2 | Knopf-Bilder `haus` und `einstellungen` |
+| `gegenstaende/einzeln/oberflaeche/` | 4 | Knopf-Bilder `haus`, `einstellungen`, `klatschen` und `schriftrolle` |
 | `gegenstaende/einzeln/buchstaben/` | 12 | `buchstabe_01_m` bis `buchstabe_11_z` in der Reihenfolge von MUTIGES HERZ, dazu der ganze Schriftzug |
 | `gegenstaende/einzeln/kulissen/` | 455 | Alle Teile der 3 Kulissen-Blätter, nummeriert (`kulisse1_001` …). Welche Nummer was ist, zeigen `kulisse1_uebersicht.jpg` bis `kulisse3_uebersicht.jpg` |
 

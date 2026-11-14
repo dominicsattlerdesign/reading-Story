@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import { asset } from '../inhalt';
 
 /**
  * Text auf Pergament. Nach dem Lesen tippt das Kind auf "Gelesen", dann klappt die Karte zu
@@ -10,7 +11,7 @@ export function TextKarte(props: { text: string }) {
   if (zu) {
     return (
       <button class="textkarte-zu" onClick={() => setZu(false)} aria-label="Text wieder aufklappen">
-        <span aria-hidden="true">📜</span>
+        <img src={asset('gegenstaende/oberflaeche/schriftrolle')} alt="" draggable={false} />
       </button>
     );
   }

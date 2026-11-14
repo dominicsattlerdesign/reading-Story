@@ -33,6 +33,8 @@ export interface Objekt extends Rechteck {
   klick?: Aktion[];
   funkeln?: Bedingung; // leicht glitzern, wenn erfuellt (z. B. versteckter Buchstabe)
   ebene?: number; // hoeher = weiter vorne
+  /** Eigener Ort fuer die Sprechblase, falls sie sonst etwas Wichtiges verdeckt */
+  blaseAnker?: { x: number; y: number; unten?: boolean };
   /** Effekt ueber der ganzen Szene, solange sichtbar */
   effekt?: 'licht';
 }
@@ -88,6 +90,8 @@ export interface Seite {
   nummer: string; // Anzeige, z. B. "1–2"
   titel: string;
   hintergrund: string; // Pfad unter assets/ ohne Endung
+  /** Lichtstimmung: toent Figuren passend zum Hintergrund (z. B. warmes Nachtlicht) */
+  stimmung?: 'nacht';
   text: string;
   objekte: Objekt[];
   raetsel: Raetsel[];

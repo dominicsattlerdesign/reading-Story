@@ -11,6 +11,7 @@ export interface Blase {
 
 /** Ort fuer eine Sprechblase an einem Objekt. */
 export function blaseAn(o: Objekt, text: string): Blase {
+  if (o.blaseAnker) return { text, x: o.blaseAnker.x, y: o.blaseAnker.y, unten: !!o.blaseAnker.unten };
   const x = Math.min(Math.max(o.x + o.b / 2, 260), 1340);
   const unten = o.y < 180;
   return { text, x, y: unten ? o.y + o.h + 14 : o.y - 14, unten };
@@ -37,6 +38,7 @@ export function Szene(props: {
         const klassen = [
           'objekt',
           o.bild ? 'mit-bild' : 'flaeche',
+          o.bild?.startsWith('figuren/') && 'figur',
           klickbar && 'klickbar',
           o.funkeln && erfuellt(o.funkeln, props.merker) && 'funkeln',
           props.leuchtet === o.id && 'hinweis',
