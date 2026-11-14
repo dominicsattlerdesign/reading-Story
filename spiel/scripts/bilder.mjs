@@ -11,13 +11,15 @@ const ziel = join(spiel, 'public', 'assets');
 
 // Ordner -> maximale Kantenlaenge (px) und Qualitaet
 const regeln = [
-  { ordner: 'hintergruende', breite: 1600, hoehe: 900, qualitaet: 80, nurDateien: /^ort\d\d_.*\.jpg$/ },
+  { ordner: 'hintergruende', breite: 1600, hoehe: 900, qualitaet: 80, nurDateien: /^(ort\d\d_.*|start_.*)\.jpg$/ },
   { ordner: 'figuren/einzeln', max: 640, qualitaet: 82 },
   { ordner: 'gegenstaende/einzeln/inventar', max: 320, qualitaet: 85 },
   { ordner: 'gegenstaende/einzeln/klickobjekte', max: 400, qualitaet: 85 },
   { ordner: 'gegenstaende/einzeln/buchstaben', max: 240, qualitaet: 85 },
   { ordner: 'gegenstaende/einzeln/spielzeug', max: 320, qualitaet: 85 },
   { ordner: 'gegenstaende/einzeln/oberflaeche', max: 256, qualitaet: 88 },
+  { ordner: 'gegenstaende/einzeln/buch', max: 1100, qualitaet: 85 },
+  { ordner: 'gegenstaende/einzeln/knoepfe', max: 900, qualitaet: 88 },
   { ordner: 'gegenstaende/einzeln/kulissen', max: 400, qualitaet: 80, nurDateien: /^kulisse\d_\d+\.png$/ },
   { ordner: 'gegenstaende', max: 640, qualitaet: 85, nurDateien: /^omas_kinderfoto\.png$/, flach: true },
   { ordner: 'figuren', max: 900, qualitaet: 82, nurDateien: /^silberwind_liegend\.png$/, flach: true },

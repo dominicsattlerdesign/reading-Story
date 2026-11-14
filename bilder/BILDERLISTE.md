@@ -33,6 +33,7 @@ Die Nummern `ort01` bis `ort14` folgen der Liste „Orte“ in der Geschichte un
 | `ort13_flug_panorama.jpg` | 25–26 | Blick von oben über das Land: Berg mit Schloss, See mit Dorf, Höhlen, Wasserfälle, Brücke, schwebende Inseln | Ja. Links ist eine fliegende Schneeeule mitgemalt. | magisches reich unter dem sternenhimmel |
 | `ort14_garten_morgen.jpg` | 27–28 | Garten im Morgenlicht: Kirschblüten oben, Gewächshaus mit Gießkanne, Springbrunnen, Rosenbogen mit offenem Tor, Hängeschaukel mit Kissen, Trittsteine, Schmetterlinge | Weitgehend. Es ist kein Fuchs mehr zu sehen. Statt Brunnen und Reifenschaukel gibt es einen Springbrunnen und eine Bankschaukel, und die Haustür fehlt. | Malerischer Märchengarten im Morgenlicht (neu) |
 | `ort14_garten_morgen_alt.jpg` | (Reserve) | Garten im Morgenlicht mit Rosenbogen, Vogeltränke, Bank und einem schlafenden roten Fuchs | Ersetzt | maerchengarten im goldenen morgenlicht |
+| `start_tisch_tischdecke.jpg` | Startseite | Holztisch mit Spitzendeckchen und Kirschblüten-Stickerei, darauf liegt das geschlossene Buch | Ja | Vintage Blumenstickerei auf Leinentuch (neu) |
 
 ## Figuren
 
@@ -60,6 +61,8 @@ Im Ordner `originale/figuren/` liegt außerdem der ganze Bogen als `silberwind_l
 | `oberflaeche_haus_einstellungen_bogen.png` | Zwei runde Knopf-Medaillons mit Goldrand, Ranken und Kirschblüten: ein Häuschen (Knopf „Zum Buchdeckel“) und zwei Zahnräder (Knopf „Elternbereich“) | Verspielte Märchen-UI-Buttons_ Haus und Zahnräder (neu) |
 | `oberflaeche_klatschhaende.png` | Zwei klatschende Kinderhände mit Strickbündchen und Blumenmanschetten, gelbe Klatsch-Striche und warmer Schein, für das Rätsel „Silben klatschen“ | Wasserfarben-Hände mit Blumenmanschetten klatschen (neu) |
 | `oberflaeche_schriftrolle.png` | Alte Pergamentrolle mit Band und rotem Wachssiegel (Baum), mit warmem Schein. Knopf zum Wiederaufklappen der Text-Karte | Alte Pergamentrolle mit rotem Wachssiegel (neu) |
+| `buchdeckel_maerchenbuch.png` | Buchdeckel aus rotem Leder mit Buchrücken, Goldecken, Kirschblütenranken und leerem ovalem Pergamentfeld (ohne Text). Titel und Ida setzt das Spiel darauf | Verziertes Märchenbuch mit Blumenranken (neu) |
+| `oberflaeche_knopf_etiketten.png` | Zwei leere Etiketten-Knöpfe aus Filz mit Steppnaht, Holzknöpfen und Kirschblüten an beiden Enden: oben Gold (wichtige Knöpfe), unten Beige (zweitrangige Knöpfe) | Aquarell-Blütenetiketten in Gold und Beige (neu) |
 | `klickobjekte_und_szenen_bogen.png` | Spinne, Spieluhr mit Ballerina, Kuckuck im Häuschen mit Buchstabenschild (**A**), springender Fisch, Strickkorb mit Fäustlingen, Schriftzug **MUTIGES HERZ** in Leuchtbuchstaben, Kiste „Aufräumen“, Kiste „Sortieren“, Truhe mit Fragezeichen geschlossen und offen. Dazu drei Szenen: **Holunda und Brummbart beim Tee**, **Oma umarmt Silberwind**, **Familie in der Tür** (Papa, Mama, Oma, Ida) | Illustrierter Mutiges-Herz-Assetbogen (neu) |
 
 Die PNG-Bögen sind Sammelblätter. Für das Spiel müssen die einzelnen Figuren und Gegenstände noch ausgeschnitten werden. Dafür am besten die großen Originale aus `originale/` verwenden.
@@ -86,6 +89,8 @@ Alle Sammelbögen sind in einzelne PNG-Dateien mit transparentem Hintergrund zer
 | `gegenstaende/einzeln/klickobjekte/` | 9 | Spinne, Spieluhr, Kuckuck, Fisch, Strickkorb, Kisten „Aufräumen“ und „Sortieren“, Truhe zu und offen |
 | `gegenstaende/einzeln/spielzeug/` | 3 | `ball`, `puppe`, `socke` |
 | `gegenstaende/einzeln/oberflaeche/` | 4 | Knopf-Bilder `haus`, `einstellungen`, `klatschen` und `schriftrolle` |
+| `gegenstaende/einzeln/buch/` | 2 | `buchdeckel` für die Startseite (bis 1100 px groß), `deckel_foto`: Ausschnitt aus `omas_kinderfoto` ohne Rand und Fotoecken, für das Oval auf dem Deckel |
+| `gegenstaende/einzeln/knoepfe/` | 2 | `knopf_gold` und `knopf_beige` für alle Text-Knöpfe (Weiterlesen, Von vorne, Gelesen, Weiter, Fertig, Nochmal …) |
 | `gegenstaende/einzeln/buchstaben/` | 12 | `buchstabe_01_m` bis `buchstabe_11_z` in der Reihenfolge von MUTIGES HERZ, dazu der ganze Schriftzug |
 | `gegenstaende/einzeln/kulissen/` | 455 | Alle Teile der 3 Kulissen-Blätter, nummeriert (`kulisse1_001` …). Welche Nummer was ist, zeigen `kulisse1_uebersicht.jpg` bis `kulisse3_uebersicht.jpg` |
 

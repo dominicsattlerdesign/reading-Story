@@ -4,7 +4,7 @@ Ein Point-and-Click-Abenteuer im Buchstil für Kinder der 2. Klasse. Es läuft i
 
 ## 1. Was das Kind erlebt
 
-**Startbildschirm:** Ein Buchdeckel mit Titel, Silberwind und dem Schriftzug. Darunter zwei große Knöpfe: **„Weiterlesen“** (springt zur letzten Seite) und **„Von vorne“**.
+**Startbildschirm:** Ein geschlossenes Märchenbuch liegt auf einem Holztisch mit Tischdecke. Auf dem Deckel stehen der Titel und Omas altes Kinderfoto mit Silberwind. Das Ende (Idas Flug) wird nicht verraten. Daneben zwei große Knöpfe: **„Weiterlesen“** (springt zur letzten Seite) und **„Von vorne“**. Beim Tippen klappt der Deckel auf. Auf dem Titelblatt stehen kurz die Mitwirkenden (Idee und Konzept: Dominic Sattler, Bilder mit ChatGPT, programmiert mit Claude von Anthropic), dann taucht man ins Buch ein. Ein Tipp aufs offene Buch überspringt das Warten. Zwischen den Doppelseiten wird mit einer echten Umblätter-Bewegung geblättert.
 
 **Eine Doppelseite:**
 
@@ -113,6 +113,6 @@ Für Etappe 0 wird **Git** gebraucht. Das Programm `git` selbst ist auf dem Rech
 | Punkt | Vorschlag |
 | --- | --- |
 | **Geräusche und Musik** | Es gibt noch keine. Vorschlag: In Etappe 6 ein paar freie Geräusche (Funkeln, Umblättern, Klopfen) und leise Hintergrundmusik, beides abschaltbar. Bis dahin ist das Spiel stumm. |
-| **Startbild / Buchdeckel** | Es gibt kein eigenes Bild. Vorschlag: Ich setze den Deckel aus dem Flug-Panorama, Silberwind und dem Schriftzug zusammen. |
+| **Startbild / Buchdeckel** | Entschieden: geschlossenes Buch (`buchdeckel_maerchenbuch`) auf dem Tisch (`start_tisch_tischdecke`), auf dem Deckel Titel und Omas altes Kinderfoto mit Silberwind. Das Flug-Panorama mit Silberwind verrät das Ende und wird nicht verwendet. |
 | **Zweites Mädchen auf „Familie in der Tür“** | Das Bild nur verwenden, wenn es dich nicht stört. Sonst bleibt es weg, oder ein neues Bild wird erzeugt. |
 | **Kuckuck mit „A“** | Der Buchstabe U wird im Spiel über das Schild gelegt. |
