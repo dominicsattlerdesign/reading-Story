@@ -497,7 +497,7 @@ button:disabled { opacity: 0.45; cursor: default; }
 .luecken-text { padding: 26px 66px; }
 .reihe-geordnet { padding: 28px 64px; }
 .auswahl-text { padding: 30px 70px; }
-.textkarte { top: 72px; padding: 20px 26px 16px; max-height: none; }
+.textkarte { top: 72px; padding: 20px 26px 16px; max-height: none; box-sizing: border-box; left: 30px; width: 750px; } /* bleibt links vom Buchfalz (x = 800), sonst sieht man beim Umblaettern einen Streifen */
 .textkarte .textkarte-text { padding: 26px 34px 18px; }
 /* Tagebuch: Papier im Rahmen wie die anderen Kaesten, Heftlinien genau unter jeder Zeile (80px hoch) */
 .tagebuch { position: relative; padding: 52px 92px 48px; font-size: 38px; line-height: 80px; }

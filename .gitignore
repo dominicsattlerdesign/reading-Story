@@ -13,3 +13,6 @@ spiel/android/.gradle/
 Thumbs.db
 desktop.ini
 *.log
+
+# fertige App-Datei (wird lokal gebaut)
+*.apk
