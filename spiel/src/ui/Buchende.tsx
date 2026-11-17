@@ -52,6 +52,7 @@ export function Buchende(props: { zumAnfang: () => void }) {
               <br />
               und mutig sein wirst.
             </p>
+            <p class="widmung-gruss">Papa</p>
             <div class="widmung-zier" aria-hidden="true">✦</div>
           </div>
         </div>

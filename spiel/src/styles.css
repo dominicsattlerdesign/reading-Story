@@ -628,3 +628,4 @@ button:disabled { opacity: 0.45; cursor: default; }
 /* Rueckseite ganz zeigen (nicht zuschneiden), damit der Buchruecken rechts zu sehen ist */
 .buchende .deckel-bild { object-fit: fill; }
 .buchende .buch::before { left: -4px; }
+.widmung .widmung-gruss { font-size: 40px; font-style: italic; font-weight: 700; margin-top: 6px; align-self: flex-end; margin-right: 40px; }
