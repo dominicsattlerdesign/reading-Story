@@ -1,0 +1,448 @@
+{
+  "id": "s17",
+  "nummer": "17–18",
+  "titel": "Der Mondsee",
+  "hintergrund": "hintergruende/ort09_mondsee",
+  "stimmung": "nacht",
+  "musik": "mondsee",
+  "text": "Der Mondsee glänzt wie ein Spiegel. Am Steg liegt ein Boot. Ida will einsteigen. Aber Rabat bleibt stehen. Sein Fell ist gesträubt. „Ich … ich kann nicht. Ich habe Angst vor Wasser.“ Ida kniet sich zu ihm. „Du warst im Wald für mich mutig. Jetzt bin ich es für dich.“ Da taucht eine Nixe aus dem Wasser auf.",
+  "buchstabe": "I",
+  "naechste": "s19",
+  "fertig": "Alles geschafft! Das Boot gleitet über den See. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "boot",
+      "name": "Ruderboot",
+      "x": 900,
+      "y": 530,
+      "b": 280,
+      "h": 115,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:lied"
+          ],
+          "blase": "Das Boot wackelt. Rabat jault leise: „Uiii! Nein, nein, nein!“"
+        },
+        {
+          "blase": "Das Wasser ist spiegelglatt. Das Boot liegt ganz ruhig da."
+        }
+      ]
+    },
+    {
+      "id": "spiegelung",
+      "name": "Mondspiegelung",
+      "x": 1150,
+      "y": 420,
+      "b": 90,
+      "h": 300,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ida schaut ins glitzernde Wasser. Für einen Moment sieht sie Oma am Fenster. Oma lächelt."
+        }
+      ]
+    },
+    {
+      "id": "seerose",
+      "name": "Seerose",
+      "x": 670,
+      "y": 780,
+      "b": 95,
+      "h": 60,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Die Seerose öffnet sich langsam und leuchtet kurz auf. Wie schön!"
+        }
+      ]
+    },
+    {
+      "id": "buchstabe",
+      "name": "Versteck",
+      "x": 1230,
+      "y": 742,
+      "b": 105,
+      "h": 75,
+      "ebene": 2,
+      "sichtbar": [
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "bild": "gegenstaende/buchstaben/buchstabe_04_i",
+          "blase": "Ida tippt die größte Seerose an. Sie öffnet ihre Blätter, und in der Mitte liegt ein goldenes I!"
+        }
+      ]
+    },
+    {
+      "id": "perla",
+      "name": "Nixe Perla",
+      "bild": "figuren/perla/perla_springt_aus_wasser",
+      "x": 1063,
+      "y": 180,
+      "b": 213,
+      "h": 300,
+      "ebene": 3,
+      "funkeln": [
+        "!raetsel:lied"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!perla_kennt"
+          ],
+          "setze": [
+            "perla_kennt"
+          ],
+          "blase": "„Ich bin Perla. Ich bringe euch hinüber. Aber erst muss mein Lied wieder klingen. Mir fehlen ein paar Buchstaben.“"
+        },
+        {
+          "wenn": [
+            "inventar:honigkekse",
+            "!perla_keks"
+          ],
+          "setze": [
+            "perla_keks"
+          ],
+          "blase": "Ida gibt Perla einen von Holundas Honigkeksen. „Lecker! So etwas gibt es unter Wasser nicht.“"
+        },
+        {
+          "wenn": [
+            "!raetsel:lied"
+          ],
+          "raetsel": "lied"
+        },
+        {
+          "wenn": [
+            "!raetsel:kette"
+          ],
+          "raetsel": "kette"
+        },
+        {
+          "blase": "„Das war mutig, kleiner Fuchs“, sagt Perla und lacht."
+        }
+      ],
+      "blaseAnker": {
+        "x": 1100,
+        "y": 170
+      },
+      "spiegeln": true,
+      "sichtbar": [
+        "!raetsel:kette"
+      ]
+    },
+    {
+      "id": "perla_lacht",
+      "name": "Nixe Perla",
+      "bild": "figuren/perla/perla_lacht_im_wasser",
+      "x": 1070,
+      "y": 342,
+      "b": 200,
+      "h": 138,
+      "ebene": 3,
+      "klick": [
+        {
+          "wenn": [
+            "!perla_kennt"
+          ],
+          "setze": [
+            "perla_kennt"
+          ],
+          "blase": "„Ich bin Perla. Ich bringe euch hinüber. Aber erst muss mein Lied wieder klingen. Mir fehlen ein paar Buchstaben.“"
+        },
+        {
+          "wenn": [
+            "inventar:honigkekse",
+            "!perla_keks"
+          ],
+          "setze": [
+            "perla_keks"
+          ],
+          "blase": "Ida gibt Perla einen von Holundas Honigkeksen. „Lecker! So etwas gibt es unter Wasser nicht.“"
+        },
+        {
+          "wenn": [
+            "!raetsel:lied"
+          ],
+          "raetsel": "lied"
+        },
+        {
+          "wenn": [
+            "!raetsel:kette"
+          ],
+          "raetsel": "kette"
+        },
+        {
+          "blase": "„Das war mutig, kleiner Fuchs“, sagt Perla und lacht."
+        }
+      ],
+      "blaseAnker": {
+        "x": 1120,
+        "y": 330
+      },
+      "sichtbar": [
+        "raetsel:kette"
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_erschrocken_gestraeubt",
+      "x": 472,
+      "y": 448,
+      "b": 230,
+      "h": 150,
+      "ebene": 6,
+      "sichtbar": [
+        "!raetsel:lied"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:gefuehle"
+          ],
+          "raetsel": "gefuehle"
+        },
+        {
+          "blase": "Rabat zittert. „Ich habe Angst. Aber du bist ja bei mir.“"
+        }
+      ]
+    },
+    {
+      "id": "rabat_stolz",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_stolz",
+      "x": 698,
+      "y": 395,
+      "b": 165,
+      "h": 173,
+      "ebene": 4,
+      "sichtbar": [
+        "raetsel:lied"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:gefuehle"
+          ],
+          "raetsel": "gefuehle"
+        },
+        {
+          "blase": "Rabat hebt die Nase und strahlt. „Ich hatte Angst. Und ich hab es trotzdem geschafft!“"
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_kniet_hand",
+      "x": 250,
+      "y": 335,
+      "b": 285,
+      "h": 305,
+      "ebene": 5,
+      "sichtbar": [
+        "!raetsel:lied"
+      ],
+      "klick": [
+        {
+          "blase": "Ida streckt die Hand aus. „Komm her, Rabat. Ich halte dich ganz fest.“"
+        }
+      ]
+    },
+    {
+      "id": "ida_erleichtert",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_erleichtert",
+      "x": 290,
+      "y": 170,
+      "b": 224,
+      "h": 470,
+      "ebene": 5,
+      "sichtbar": [
+        "raetsel:lied"
+      ],
+      "klick": [
+        {
+          "blase": "Ida atmet tief aus. „Geschafft! Du warst so mutig, Rabat.“"
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "lied",
+      "typ": "luecken",
+      "titel": "Perlas Lied",
+      "aufgabe": "In Perlas Lied fehlen Buchstaben. Es sind Selbstlaute: a, e, i, o oder u. Zieh sie in die Lücken.",
+      "text": "Der M{o}nd ist hell, der S{e}e ist still, ich s{i}nge, w{e}nn ich s{i}ngen will.",
+      "falsche": [
+        "a",
+        "u"
+      ],
+      "tipps": [
+        "Sprich das Wort langsam: M – o – nd. Welchen Selbstlaut hörst du?",
+        "Der Mond ist hell, der See ist still, ich singe, wenn ich singen will."
+      ],
+      "erfolg": "Perlas Lied klingt wieder!",
+      "belohnung": {
+        "inventar": "mondperle",
+        "blase": "Perla singt. Das Wasser wird spiegelglatt, und das Boot gleitet ganz ruhig. Rabat zittert, aber er schafft es! Perla schenkt Ida die Mondperle. „Ihr Licht hilft dir oben am Berg.“"
+      }
+    },
+    {
+      "id": "kette",
+      "typ": "sortieren",
+      "titel": "Perlas Perlenkette",
+      "aufgabe": "Perlas Kette ist gerissen. In jedem Wort steckt ein Doppellaut: au, eu oder ei. Leg jede Perle in die richtige Muschel.",
+      "gruppen": [
+        {
+          "id": "au",
+          "name": "au"
+        },
+        {
+          "id": "eu",
+          "name": "eu"
+        },
+        {
+          "id": "ei",
+          "name": "ei"
+        }
+      ],
+      "karten": [
+        {
+          "id": "k_haus",
+          "text": "Haus",
+          "gruppe": "au"
+        },
+        {
+          "id": "k_feuer",
+          "text": "Feuer",
+          "gruppe": "eu"
+        },
+        {
+          "id": "k_stein",
+          "text": "Stein",
+          "gruppe": "ei"
+        },
+        {
+          "id": "k_traum",
+          "text": "Traum",
+          "gruppe": "au"
+        },
+        {
+          "id": "k_freund",
+          "text": "Freund",
+          "gruppe": "eu"
+        },
+        {
+          "id": "k_eis",
+          "text": "Eis",
+          "gruppe": "ei"
+        }
+      ],
+      "tipps": [
+        "Lies das Wort langsam und hör genau hin. Klingt es wie au, eu oder ei?",
+        "au: Haus, Traum. eu: Feuer, Freund. ei: Stein, Eis."
+      ],
+      "erfolg": "Die Perlenkette ist wieder ganz!",
+      "belohnung": {
+        "blase": "Perla legt die Kette um. „Danke, Ida! Jetzt glänzt sie wieder wie der Mond.“"
+      }
+    },
+    {
+      "id": "gefuehle",
+      "typ": "auswahl",
+      "titel": "Wie fühlt sich Rabat?",
+      "aufgabe": "Lies, was Rabat tut. Was fühlt er dabei? Tipp das passende Gefühl an.",
+      "fragen": [
+        {
+          "frage": "Rabat zittert am Steg. Was fühlt er?",
+          "antworten": [
+            "Angst",
+            "Freude",
+            "Stolz"
+          ],
+          "richtig": "Angst"
+        },
+        {
+          "frage": "Rabat jubelt am anderen Ufer. Was fühlt er?",
+          "antworten": [
+            "Angst",
+            "Freude",
+            "Stolz"
+          ],
+          "richtig": "Freude"
+        },
+        {
+          "frage": "Rabat hebt die Nase und strahlt. Was fühlt er?",
+          "antworten": [
+            "Angst",
+            "Freude",
+            "Stolz"
+          ],
+          "richtig": "Stolz"
+        }
+      ],
+      "tipps": [
+        "Wer zittert, hat oft Angst. Wer jubelt, freut sich.",
+        "Zittern: Angst. Jubeln: Freude. Nase hoch und strahlen: Stolz."
+      ],
+      "erfolg": "Du weißt genau, wie Rabat sich fühlt!",
+      "belohnung": {
+        "blase": "Rabat schmiegt sich an Ida. „Du verstehst mich einfach.“"
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!perla_kennt"
+      ],
+      "text": "Da ist eine Nixe im See! Sprich sie an.",
+      "zeige": "perla"
+    },
+    {
+      "wenn": [
+        "!raetsel:lied"
+      ],
+      "text": "Perlas Lied hat Lücken. Tipp Perla an und hilf ihr.",
+      "zeige": "perla"
+    },
+    {
+      "wenn": [
+        "!raetsel:kette"
+      ],
+      "text": "Perlas Perlenkette ist gerissen. Tipp Perla noch einmal an.",
+      "zeige": "perla"
+    },
+    {
+      "wenn": [
+        "!raetsel:gefuehle",
+        "!raetsel:lied"
+      ],
+      "text": "Rabat zittert am Steg. Wie geht es ihm wohl?",
+      "zeige": "rabat"
+    },
+    {
+      "wenn": [
+        "!raetsel:gefuehle"
+      ],
+      "text": "Wie geht es Rabat wohl? Tipp ihn an.",
+      "zeige": "rabat_stolz"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Die größte Seerose rechts im Wasser sieht so geheimnisvoll aus …",
+      "zeige": "buchstabe"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

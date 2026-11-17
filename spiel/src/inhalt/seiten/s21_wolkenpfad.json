@@ -1,0 +1,420 @@
+{
+  "id": "s21",
+  "nummer": "21–22",
+  "titel": "Der Wolkenpfad",
+  "hintergrund": "hintergruende/ort11_wolkenpfad",
+  "stimmung": "nacht",
+  "musik": "wolkenpfad_gipfel",
+  "text": "Der Wind pfeift. Ida friert an den Händen. Da fällt ihr Brummbarts Fäustling ein. Sie zieht ihn an. Ihre Hand verschwindet ganz darin. Rabat lacht. Auf einem Felsen sitzt eine Eule. „Ich bin Frau Flocke. Nur wer klug ist, darf weiter. Die Wörter hier haben ihr Ende vergessen.“",
+  "buchstabe": "T",
+  "naechste": "s23",
+  "fertig": "Alles geschafft! Die Wolken öffnen sich, und der Weg zum Gipfel ist frei. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "laterne",
+      "name": "Laterne am Steinbogen",
+      "x": 255,
+      "y": 195,
+      "b": 85,
+      "h": 135,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Eine Laterne am Steinbogen. Hier oben hat jemand ein Licht für Wanderer angezündet."
+        }
+      ]
+    },
+    {
+      "id": "fahne",
+      "name": "Fahne mit Pferd",
+      "x": 1420,
+      "y": 200,
+      "b": 160,
+      "h": 340,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Auf der Fahne springt ein Pferd. „Silberwind?“, flüstert Ida. „Wir kommen!“"
+        }
+      ]
+    },
+    {
+      "id": "schloss",
+      "name": "Leuchtender Berg",
+      "x": 1120,
+      "y": 50,
+      "b": 200,
+      "h": 200,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ganz oben auf dem Berg glitzert es. Dort ist der Gipfel. Dort wartet Silberwind."
+        }
+      ]
+    },
+    {
+      "id": "tal",
+      "name": "Blick ins Tal",
+      "x": 640,
+      "y": 300,
+      "b": 330,
+      "h": 160,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ida schaut ins Tal. Ganz klein sieht sie den Mondsee, den Wald und ganz hinten ihr Haus."
+        }
+      ]
+    },
+    {
+      "id": "wolke",
+      "name": "Wolke",
+      "x": 1020,
+      "y": 440,
+      "b": 300,
+      "h": 120,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ida greift in die Wolke. Sie ist kühl und feucht wie Nebel."
+        }
+      ]
+    },
+    {
+      "id": "runenstein",
+      "name": "Vereister Stein",
+      "x": 50,
+      "y": 540,
+      "b": 230,
+      "h": 220,
+      "ebene": 1,
+      "funkeln": [
+        "faeustling_an",
+        "!raetsel:abc"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!faeustling_an"
+          ],
+          "blase": "Der Stein ist voller Eis. Brrr! Ida kann ihn mit bloßen Händen nicht anfassen."
+        },
+        {
+          "wenn": [
+            "!raetsel:abc"
+          ],
+          "raetsel": "abc"
+        },
+        {
+          "blase": "Das goldene Zeichen auf dem Stein glänzt. Die Wörter stehen jetzt in der richtigen Reihenfolge."
+        }
+      ]
+    },
+    {
+      "id": "buchstabe",
+      "name": "Nest",
+      "x": 450,
+      "y": 370,
+      "b": 140,
+      "h": 70,
+      "ebene": 2,
+      "sichtbar": [
+        "raetsel:ende",
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "bild": "gegenstaende/buchstaben/buchstabe_03_t",
+          "blase": "Wo Frau Flocke gesessen hat, liegt ein kleines Nest aus Federn. Darin funkelt ein goldenes T!"
+        }
+      ]
+    },
+    {
+      "id": "flocke",
+      "name": "Frau Flocke",
+      "bild": "figuren/frau_flocke/frau_flocke_fluegel",
+      "x": 345,
+      "y": 233,
+      "b": 330,
+      "h": 168,
+      "ebene": 3,
+      "sichtbar": [
+        "!raetsel:ende"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!flocke_kennt"
+          ],
+          "setze": [
+            "flocke_kennt"
+          ],
+          "blase": "„Ich bin Frau Flocke. Ich hüte den Pfad zum Gipfel. Die Wörter hier haben ihr Ende vergessen. Hilfst du ihnen?“"
+        },
+        {
+          "raetsel": "ende"
+        }
+      ]
+    },
+    {
+      "id": "flocke_2",
+      "name": "Frau Flocke",
+      "bild": "figuren/frau_flocke/frau_flocke_stolz",
+      "x": 1085,
+      "y": 404,
+      "b": 300,
+      "h": 230,
+      "ebene": 3,
+      "spiegeln": true,
+      "sichtbar": [
+        "raetsel:ende"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:wiewoerter"
+          ],
+          "raetsel": "wiewoerter"
+        },
+        {
+          "wenn": [
+            "!raetsel:abc"
+          ],
+          "blase": "„Eine Prüfung fehlt noch. Schau dir den vereisten Stein mit dem goldenen Zeichen an.“"
+        },
+        {
+          "blase": "Frau Flocke nickt. „Du hast Geduld. Die wirst du oben brauchen.“"
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_friert",
+      "x": 582,
+      "y": 295,
+      "b": 215,
+      "h": 450,
+      "ebene": 4,
+      "sichtbar": [
+        "!faeustling_an"
+      ],
+      "klick": [
+        {
+          "setze": [
+            "faeustling_an"
+          ],
+          "blase": "„Brrr, meine Hände sind so kalt!“ Da fällt Ida Brummbarts Fäustling ein. Sie zieht ihn an. Ihre Hand verschwindet ganz darin. Rabat lacht."
+        }
+      ]
+    },
+    {
+      "id": "ida_warm",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_faeustling_froh",
+      "x": 588,
+      "y": 295,
+      "b": 205,
+      "h": 450,
+      "ebene": 4,
+      "sichtbar": [
+        "faeustling_an"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:ende"
+          ],
+          "blase": "„Schön warm! Jetzt kann ich sogar die vereisten Felsen anfassen.“"
+        },
+        {
+          "blase": "„Danke, Brummbart“, flüstert Ida in den Wind."
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_lachend",
+      "x": 790,
+      "y": 570,
+      "b": 160,
+      "h": 175,
+      "ebene": 5,
+      "sichtbar": [
+        "!rabat_warm"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!faeustling_an"
+          ],
+          "blase": "Rabats Fell ist voller Schneeflocken. Er zittert ein bisschen."
+        },
+        {
+          "setze": [
+            "rabat_warm"
+          ],
+          "blase": "Rabat lacht über den riesigen Fäustling. Dann wickelt Ida ihn in Mamas Schal. Jetzt sind beide warm."
+        }
+      ]
+    },
+    {
+      "id": "rabat_schal",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schal_sitzt",
+      "x": 805,
+      "y": 535,
+      "b": 133,
+      "h": 210,
+      "ebene": 5,
+      "sichtbar": [
+        "rabat_warm"
+      ],
+      "klick": [
+        {
+          "blase": "„Mamas Schal riecht nach zu Hause“, sagt Rabat und kuschelt sich hinein."
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "ende",
+      "typ": "luecken",
+      "titel": "Vergessene Enden",
+      "aufgabe": "Am Ende der Wörter fehlt ein Buchstabe. Frau Flockes Trick: Mach das Wort länger, dann hörst du ihn. Zieh die Buchstaben in die Lücken.",
+      "text": "der Hun{d}, der Ber{g}, der Wal{d}, der Die{b}, der Zwer{g}",
+      "falsche": [
+        "t",
+        "k",
+        "p"
+      ],
+      "tipps": [
+        "Mach das Wort länger: ein Hund, zwei Hun-de. Hörst du jetzt das d?",
+        "die Hunde, die Berge, die Wälder, die Diebe, die Zwerge. Also: Hund, Berg, Wald, Dieb, Zwerg."
+      ],
+      "erfolg": "Alle Wörter haben ihr Ende wieder!",
+      "belohnung": {
+        "blase": "„Sehr klug!“, ruft Frau Flocke. Sie breitet die Flügel aus und fliegt auf den nächsten Felsen."
+      }
+    },
+    {
+      "id": "wiewoerter",
+      "typ": "auswahl",
+      "titel": "Wiewörter",
+      "aufgabe": "Auf diesem Felsen stehen Sätze mit Wiewörtern. Welches Wort ist richtig geschrieben? Tipp es an.",
+      "fragen": [
+        {
+          "frage": "Der Mond ist _.",
+          "antworten": [
+            "gelb",
+            "gelp"
+          ],
+          "richtig": "gelb"
+        },
+        {
+          "frage": "Rabat ist _.",
+          "antworten": [
+            "liep",
+            "lieb"
+          ],
+          "richtig": "lieb"
+        },
+        {
+          "frage": "Der Stein ist _.",
+          "antworten": [
+            "rund",
+            "runt"
+          ],
+          "richtig": "rund"
+        },
+        {
+          "frage": "Der Wind ist _.",
+          "antworten": [
+            "kald",
+            "kalt"
+          ],
+          "richtig": "kalt"
+        }
+      ],
+      "tipps": [
+        "Schau dir beide Wörter genau an. Welches hast du schon oft gelesen?",
+        "Der Mond ist gelb. Rabat ist lieb. Der Stein ist rund. Der Wind ist kalt."
+      ],
+      "erfolg": "Alle Wiewörter sind richtig!",
+      "belohnung": {
+        "blase": "Frau Flocke klappert zufrieden mit dem Schnabel. „Nur noch eine Prüfung. Sie steht auf dem vereisten Stein.“"
+      }
+    },
+    {
+      "id": "abc",
+      "typ": "reihenfolge",
+      "stil": "steine",
+      "titel": "Frau Flockes letzte Prüfung",
+      "aufgabe": "Mit dem Fäustling wischt Ida das Eis vom Stein. Darunter stehen Wörter, die alle mit B anfangen. Ordne sie nach dem ABC. Schau dafür auf den zweiten Buchstaben.",
+      "karten": [
+        "Baum",
+        "Berg",
+        "Blume",
+        "Brücke"
+      ],
+      "tipps": [
+        "Alle fangen mit B an. Schau auf den zweiten Buchstaben: a, e, l, r. Welcher kommt im ABC zuerst?",
+        "a kommt vor e, e vor l, l vor r. Also: Baum, Berg, Blume, Brücke."
+      ],
+      "erfolg": "Richtig nach dem ABC geordnet!",
+      "belohnung": {
+        "blase": "Das Eis glitzert, und das goldene Zeichen auf dem Stein leuchtet auf. Frau Flocke nickt. „Du hast Geduld. Die wirst du oben brauchen.“"
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!faeustling_an"
+      ],
+      "text": "Ida friert an den Händen. Tipp sie an!",
+      "zeige": "ida"
+    },
+    {
+      "wenn": [
+        "!raetsel:ende"
+      ],
+      "text": "Frau Flocke auf dem Felsen hat eine Aufgabe für dich.",
+      "zeige": "flocke"
+    },
+    {
+      "wenn": [
+        "!raetsel:wiewoerter"
+      ],
+      "text": "Frau Flocke sitzt jetzt auf dem nächsten Felsen. Tipp sie an.",
+      "zeige": "flocke_2"
+    },
+    {
+      "wenn": [
+        "!raetsel:abc"
+      ],
+      "text": "Mit dem Fäustling kann Ida den vereisten Stein mit dem goldenen Zeichen anfassen.",
+      "zeige": "runenstein"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Wo hat Frau Flocke am Anfang gesessen? Schau dort genau hin …",
+      "zeige": "buchstabe"
+    },
+    {
+      "wenn": [
+        "!rabat_warm"
+      ],
+      "text": "Rabat friert. Tipp ihn an!",
+      "zeige": "rabat"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

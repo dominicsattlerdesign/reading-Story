@@ -1,0 +1,384 @@
+{
+  "id": "s11",
+  "nummer": "11–12",
+  "titel": "Brummbarts Brücke",
+  "hintergrund": "hintergruende/ort06_brummbarts_bruecke",
+  "stimmung": "nacht",
+  "musik": "nachtlied",
+  "text": "Unter der Brücke sitzt ein Troll. Er ist riesig. Ida hält die Luft an. „Wer will über meine Brücke?“, brummt er. „Ich bin Ida. Und das ist Rabat.“ Der Troll schaut traurig. „Niemand redet mit mir. Alle laufen weg. Dabei mag ich so gern reimen.“ Ida lächelt. „Ich reime mit dir!“",
+  "buchstabe": "E",
+  "naechste": "s13",
+  "fertig": "Alles geschafft! Ida darf über die Brücke. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "feuer",
+      "name": "Lagerfeuer",
+      "x": 250,
+      "y": 590,
+      "b": 210,
+      "h": 150,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Rabat wärmt sich die Pfoten. „Der ist ja gar nicht gefährlich.“"
+        }
+      ]
+    },
+    {
+      "id": "bach",
+      "name": "Plätschernder Bach",
+      "x": 840,
+      "y": 620,
+      "b": 380,
+      "h": 240,
+      "ebene": 1,
+      "klick": [
+        {
+          "setze": [
+            "fisch"
+          ],
+          "blase": "Ein Fisch springt aus dem Wasser. Blubb, blubb!"
+        }
+      ]
+    },
+    {
+      "id": "fisch",
+      "name": "Fisch",
+      "bild": "gegenstaende/klickobjekte/fisch",
+      "x": 1000,
+      "y": 650,
+      "b": 165,
+      "h": 110,
+      "ebene": 2,
+      "sichtbar": [
+        "fisch"
+      ],
+      "klick": [
+        {
+          "blase": "Blubb! Der Fisch winkt mit der Flosse."
+        }
+      ]
+    },
+    {
+      "id": "steine",
+      "name": "Steine mit Zeichen",
+      "x": 1200,
+      "y": 475,
+      "b": 360,
+      "h": 360,
+      "ebene": 1,
+      "funkeln": [
+        "raetsel:reime",
+        "!raetsel:steinschrift"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:reime"
+          ],
+          "blase": "Überall ist eingeritzt: „Brummbart war hier.“ Und noch viel mehr, aber ohne Lücken."
+        },
+        {
+          "wenn": [
+            "!raetsel:steinschrift"
+          ],
+          "raetsel": "steinschrift"
+        },
+        {
+          "blase": "„Brummbart strickt warme Fäustlinge.“ Das hat er selbst eingeritzt."
+        }
+      ]
+    },
+    {
+      "id": "strickkorb",
+      "name": "Strickkorb",
+      "bild": "gegenstaende/klickobjekte/strickkorb_faeustlinge",
+      "x": 62,
+      "y": 490,
+      "b": 200,
+      "h": 150,
+      "ebene": 3,
+      "klick": [
+        {
+          "blase": "Riesige Fäustlinge in allen Farben. Die hat bestimmt Brummbart gestrickt."
+        }
+      ]
+    },
+    {
+      "id": "buchstabe",
+      "name": "Versteck",
+      "x": 1195,
+      "y": 0,
+      "b": 125,
+      "h": 115,
+      "ebene": 4,
+      "sichtbar": [
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "blase": "Ida schaut zum Mond. Dahinter blitzt etwas golden hervor: ein leuchtendes E!",
+          "bild": "gegenstaende/buchstaben/buchstabe_09_e"
+        }
+      ]
+    },
+    {
+      "id": "brummbart",
+      "name": "Brummbart",
+      "bild": "figuren/brummbart/brummbart_sitzt_fels_bruecke",
+      "x": 1005,
+      "y": 205,
+      "b": 380,
+      "h": 440,
+      "ebene": 2,
+      "funkeln": [
+        "!raetsel:reime"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!brummbart_kennt"
+          ],
+          "setze": [
+            "brummbart_kennt"
+          ],
+          "blase": "„Ich heiße Brummbart. Und ich stricke Fäustlinge. Aber niemand will sie.“"
+        },
+        {
+          "wenn": [
+            "!raetsel:reime"
+          ],
+          "raetsel": "reime"
+        },
+        {
+          "wenn": [
+            "!raetsel:steinschrift"
+          ],
+          "blase": "„Auf meinen Steinen habe ich etwas geschrieben. Kannst du es lesen?“"
+        },
+        {
+          "wenn": [
+            "!raetsel:gedicht"
+          ],
+          "raetsel": "gedicht"
+        },
+        {
+          "blase": "„Du bist meine erste Freundin!“"
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
+      "x": 360,
+      "y": 560,
+      "b": 173,
+      "h": 200,
+      "ebene": 4,
+      "klick": [
+        {
+          "setze": [
+            "rabat_liegt"
+          ],
+          "blase": "Rabat legt sich vor das Feuer. „Ahh, wie warm! Der Troll sieht gar nicht böse aus.“"
+        }
+      ],
+      "sichtbar": [
+        "!rabat_liegt"
+      ]
+    },
+    {
+      "id": "rabat_liegt",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_eingerollt_schlaeft",
+      "x": 336,
+      "y": 662,
+      "b": 220,
+      "h": 98,
+      "ebene": 4,
+      "sichtbar": [
+        "rabat_liegt"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:reime"
+          ],
+          "blase": "„Der Troll sieht gar nicht böse aus. Eher traurig.“"
+        },
+        {
+          "blase": "„Reimen ist wie Zaubern. Maus, Haus, raus!“"
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_erschrocken",
+      "x": 585,
+      "y": 250,
+      "b": 200,
+      "h": 469,
+      "ebene": 5,
+      "sichtbar": [
+        "!raetsel:gedicht"
+      ],
+      "klick": [
+        {
+          "blase": "Ida hält die Luft an. Ein echter Troll!"
+        }
+      ]
+    },
+    {
+      "id": "ida_froh",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_faeustling_froh",
+      "x": 577,
+      "y": 250,
+      "b": 213,
+      "h": 469,
+      "ebene": 5,
+      "sichtbar": [
+        "raetsel:gedicht"
+      ],
+      "klick": [
+        {
+          "blase": "„Danke, Brummbart! Der Fäustling ist so schön warm.“"
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "reime",
+      "typ": "auswahl",
+      "titel": "Reime finden",
+      "aufgabe": "Brummbart sagt ein Wort. Welches Wort reimt sich darauf? Tipp es an.",
+      "fragen": [
+        {
+          "frage": "Was reimt sich auf Maus?",
+          "antworten": [
+            "Haus",
+            "Hund",
+            "Mond"
+          ],
+          "richtig": "Haus"
+        },
+        {
+          "frage": "Was reimt sich auf Stein?",
+          "antworten": [
+            "Stern",
+            "Bein",
+            "Ast"
+          ],
+          "richtig": "Bein"
+        },
+        {
+          "frage": "Was reimt sich auf Bart?",
+          "antworten": [
+            "Brot",
+            "Wald",
+            "zart"
+          ],
+          "richtig": "zart"
+        },
+        {
+          "frage": "Was reimt sich auf Schnee?",
+          "antworten": [
+            "See",
+            "Schal",
+            "Nacht"
+          ],
+          "richtig": "See"
+        },
+        {
+          "frage": "Was reimt sich auf Troll?",
+          "antworten": [
+            "traurig",
+            "toll",
+            "Tür"
+          ],
+          "richtig": "toll"
+        }
+      ],
+      "tipps": [
+        "Sprich beide Wörter laut. Klingen sie am Ende gleich?",
+        "Maus – Haus, Stein – Bein, Bart – zart, Schnee – See, Troll – toll."
+      ],
+      "erfolg": "Brummbart klatscht in die Hände. „Du kannst ja reimen!“",
+      "belohnung": {
+        "blase": "„Du kannst ja reimen! Auf meinen Steinen habe ich auch etwas geschrieben.“"
+      }
+    },
+    {
+      "id": "steinschrift",
+      "typ": "wortschlange",
+      "titel": "Die Steinschrift",
+      "aufgabe": "Brummbart hat einen Satz in den Stein geritzt, aber ohne Lücken. Tipp zwischen die Buchstaben, wo ein Wort aufhört.",
+      "satz": "Brummbart strickt warme Fäustlinge",
+      "tipps": [
+        "Lies ganz langsam: B – R – U – M – M … Wie heißt der Troll?",
+        "Brummbart | strickt | warme | Fäustlinge. Setz einen Strich nach BRUMMBART."
+      ],
+      "erfolg": "Brummbart strickt warme Fäustlinge!",
+      "belohnung": {
+        "blase": "Brummbart kratzt sich am Bart. „Jetzt will ich ein Gedicht schreiben. Hilfst du mir?“"
+      }
+    },
+    {
+      "id": "gedicht",
+      "typ": "luecken",
+      "titel": "Brummbarts Gedicht",
+      "aufgabe": "Brummbart schreibt sein erstes Gedicht. Ihm fehlen Wörter. Zieh die Wörter in die Lücken.",
+      "text": "Ich bin ein Troll, das Stricken find ich {toll}. Am Bach, da bin ich nachts noch {wach}. Mit Ida hab ich {laut} gelacht.",
+      "falsche": [
+        "Brot",
+        "Stein"
+      ],
+      "tipps": [
+        "Das Wort in der ersten Lücke reimt sich auf Troll. Das in der zweiten auf Bach.",
+        "Ich bin ein Troll, das Stricken find ich toll. Am Bach, da bin ich nachts noch wach. Mit Ida hab ich laut gelacht."
+      ],
+      "erfolg": "Brummbarts erstes Gedicht ist fertig!",
+      "belohnung": {
+        "inventar": "faeustling",
+        "blase": "Brummbart lacht so laut, dass Blätter von den Bäumen rieseln. „Du bist meine erste Freundin!“ Er schenkt Ida einen Riesen-Fäustling. „Für die Kälte oben am Berg.“"
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!raetsel:reime"
+      ],
+      "text": "Der Troll mag Reime. Tipp ihn an!",
+      "zeige": "brummbart"
+    },
+    {
+      "wenn": [
+        "!raetsel:steinschrift"
+      ],
+      "text": "Auf den großen Steinen ist etwas eingeritzt. Schau mal!",
+      "zeige": "steine"
+    },
+    {
+      "wenn": [
+        "!raetsel:gedicht"
+      ],
+      "text": "Brummbart will ein Gedicht schreiben. Hilf ihm!",
+      "zeige": "brummbart"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Der Mond leuchtet heute so hell … Ist da etwas dahinter?",
+      "zeige": "buchstabe"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

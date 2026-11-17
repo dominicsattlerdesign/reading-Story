@@ -1,0 +1,509 @@
+{
+  "id": "s15",
+  "nummer": "15–16",
+  "titel": "Holundas Hexenhaus",
+  "hintergrund": "hintergruende/ort08_hexenhaus_innen",
+  "stimmung": "nacht",
+  "musik": "hexenhaus",
+  "text": "Die Tür knarrt. Drinnen sitzt eine Hexe auf einem Stuhl vor ihrem Kessel. Sie hat eine lange, krumme Nase. „Wer stört?“, krächzt sie. Ida will weglaufen. Aber dann sieht sie den Tisch. Er ist für zwei gedeckt. Doch niemand sitzt daran. „Wartest du auf jemanden?“, fragt Ida leise. Die Hexe seufzt. „Schon sehr lange.“",
+  "buchstabe": "H",
+  "naechste": "s17",
+  "fertig": "Alles geschafft! Holunda winkt zum Abschied. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "kessel",
+      "name": "Blubbernder Kessel",
+      "x": 210,
+      "y": 420,
+      "b": 200,
+      "h": 190,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Blubb, blubb! Der Kessel dampft grün und riecht nach Pfefferminz. „Das ist nur Tee, Kind“, sagt Holunda."
+        }
+      ]
+    },
+    {
+      "id": "minze",
+      "name": "Kräuterglas",
+      "x": 20,
+      "y": 280,
+      "b": 160,
+      "h": 90,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Auf dem Glas steht: „Mutmach-Minze“. Holunda zwinkert Ida zu."
+        }
+      ]
+    },
+    {
+      "id": "glaeser",
+      "name": "Regal mit Gläsern",
+      "x": 580,
+      "y": 225,
+      "b": 140,
+      "h": 280,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:kraeuter"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:kraeuter"
+          ],
+          "raetsel": "kraeuter"
+        },
+        {
+          "blase": "Jetzt stimmen alle Schilder. Kamille, Pfeffer, Honig und Zucker."
+        }
+      ]
+    },
+    {
+      "id": "tisch",
+      "name": "Gedeckter Tisch",
+      "x": 900,
+      "y": 510,
+      "b": 240,
+      "h": 100,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:rezept"
+          ],
+          "blase": "Zwei Tassen, zwei Teller. Aber niemand sitzt am Tisch. Wen erwartet Holunda wohl?"
+        },
+        {
+          "blase": "Auf dem Tisch duften frische Honigkekse. Gleich setzen sich Holunda und Ida zusammen hin."
+        }
+      ]
+    },
+    {
+      "id": "rezeptbuch",
+      "name": "Rezeptbuch",
+      "x": 1140,
+      "y": 560,
+      "b": 350,
+      "h": 120,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:rezept"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:rezept"
+          ],
+          "raetsel": "rezept"
+        },
+        {
+          "blase": "Holundas Rezept für Honigkekse. Jetzt kann man es wieder lesen."
+        }
+      ]
+    },
+    {
+      "id": "fenster",
+      "name": "Fenster",
+      "x": 870,
+      "y": 210,
+      "b": 180,
+      "h": 180,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Draußen scheint der Mond. Hinter den Bäumen glitzert etwas. Ist das ein See?"
+        }
+      ]
+    },
+    {
+      "id": "katze",
+      "name": "Katze",
+      "bild": "figuren/holunda/katze",
+      "x": 110,
+      "y": 615,
+      "b": 115,
+      "h": 168,
+      "ebene": 3,
+      "klick": [
+        {
+          "wenn": [
+            "!katze_faucht"
+          ],
+          "setze": [
+            "katze_faucht"
+          ],
+          "blase": "„Fffff!“ Die Katze faucht Rabat an. Schwupp, versteckt sich Rabat hinter Ida."
+        },
+        {
+          "blase": "Die Katze putzt sich. Jetzt schnurrt sie sogar ein bisschen."
+        }
+      ]
+    },
+    {
+      "id": "kasimir",
+      "name": "Rabe Kasimir",
+      "bild": "figuren/holunda/rabe_kasimir",
+      "x": 1030,
+      "y": 198,
+      "b": 104,
+      "h": 97,
+      "ebene": 3,
+      "klick": [
+        {
+          "wenn": [
+            "!kasimir_kennt"
+          ],
+          "setze": [
+            "kasimir_kennt"
+          ],
+          "blase": "„Krah! Ich bin Kasimir. Sie ist gar nicht böse! Krah!“ Kasimir drückt einen Flügel ganz fest an sich."
+        },
+        {
+          "wenn": [
+            "!buchstabe"
+          ],
+          "buchstabe": true,
+          "bild": "gegenstaende/buchstaben/buchstabe_08_h",
+          "blase": "Kasimir hebt den Flügel. Darunter hat er etwas versteckt: ein goldenes H! „Krah! Für dich!“"
+        },
+        {
+          "blase": "„Krah! Komm bald wieder, Ida! Krah!“"
+        }
+      ]
+    },
+    {
+      "id": "holunda",
+      "name": "Holunda",
+      "bild": "figuren/holunda/holunda_sitzt",
+      "x": 400,
+      "y": 255,
+      "b": 343,
+      "h": 480,
+      "ebene": 3,
+      "klick": [
+        {
+          "wenn": [
+            "!holunda_kennt"
+          ],
+          "setze": [
+            "holunda_kennt"
+          ],
+          "blase": "„Ich bin Holunda. Früher kamen Leute zu mir. Heute haben alle Angst vor mir.“"
+        },
+        {
+          "wenn": [
+            "!raetsel:rezept"
+          ],
+          "blase": "„Ich wollte Honigkekse backen. Aber mein Rezeptbuch ist ganz durcheinander. Kannst du es lesen?“"
+        },
+        {
+          "wenn": [
+            "!raetsel:karte"
+          ],
+          "raetsel": "karte"
+        },
+        {
+          "wenn": [
+            "!kekse_bekommen"
+          ],
+          "setze": [
+            "kekse_bekommen"
+          ],
+          "bild": "gegenstaende/inventar/honigkekse",
+          "blase": "„Pass gut auf die Honigkekse auf! Vielleicht freut sich unterwegs noch jemand darüber.“"
+        },
+        {
+          "blase": "„Hol dir den Schein des Mondes im Mondsee, Kind. Dann findest du deinen Pegasus.“"
+        }
+      ],
+      "spiegeln": true,
+      "sichtbar": [
+        "!raetsel:rezept"
+      ]
+    },
+    {
+      "id": "holunda_keks",
+      "name": "Holunda",
+      "bild": "figuren/holunda/holunda_keks",
+      "x": 426,
+      "y": 263,
+      "b": 390,
+      "h": 500,
+      "ebene": 6,
+      "klick": [
+        {
+          "wenn": [
+            "!holunda_kennt"
+          ],
+          "setze": [
+            "holunda_kennt"
+          ],
+          "blase": "„Ich bin Holunda. Früher kamen Leute zu mir. Heute haben alle Angst vor mir.“"
+        },
+        {
+          "wenn": [
+            "!raetsel:rezept"
+          ],
+          "blase": "„Ich wollte Honigkekse backen. Aber mein Rezeptbuch ist ganz durcheinander. Kannst du es lesen?“"
+        },
+        {
+          "wenn": [
+            "!raetsel:karte"
+          ],
+          "raetsel": "karte"
+        },
+        {
+          "wenn": [
+            "!kekse_bekommen"
+          ],
+          "setze": [
+            "kekse_bekommen"
+          ],
+          "bild": "gegenstaende/inventar/honigkekse",
+          "blase": "„Pass gut auf die Honigkekse auf! Vielleicht freut sich unterwegs noch jemand darüber.“"
+        },
+        {
+          "blase": "„Hol dir den Schein des Mondes im Mondsee, Kind. Dann findest du deinen Pegasus.“"
+        }
+      ],
+      "sichtbar": [
+        "raetsel:rezept"
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
+      "x": 540,
+      "y": 630,
+      "b": 200,
+      "h": 231,
+      "ebene": 5,
+      "sichtbar": [
+        "!katze_faucht",
+        "!raetsel:rezept"
+      ],
+      "klick": [
+        {
+          "blase": "Rabat flüstert: „Eine echte Hexe! Aber sie hat einen Tisch für zwei gedeckt.“"
+        }
+      ],
+      "spiegeln": true
+    },
+    {
+      "id": "rabat_keks",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
+      "spiegeln": true,
+      "x": 640,
+      "y": 640,
+      "b": 200,
+      "h": 231,
+      "ebene": 7,
+      "sichtbar": [
+        "raetsel:rezept"
+      ],
+      "klick": [
+        {
+          "blase": "Rabat schnuppert. „Bekomme ich auch einen Keks?“ Holunda lacht und gibt ihm einen Krümel."
+        }
+      ]
+    },
+    {
+      "id": "rabat_versteckt",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schleicht",
+      "x": 640,
+      "y": 718,
+      "b": 320,
+      "h": 147,
+      "ebene": 4,
+      "sichtbar": [
+        "katze_faucht",
+        "!raetsel:rezept"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:karte"
+          ],
+          "blase": "Rabat lugt hinter Idas Beinen hervor. „Ist die Katze noch da?“"
+        },
+        {
+          "blase": "„Weißt du was? Die Katze ist eigentlich ganz nett.“"
+        }
+      ],
+      "spiegeln": true
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_erschrocken",
+      "x": 730,
+      "y": 300,
+      "b": 239,
+      "h": 560,
+      "ebene": 5,
+      "sichtbar": [
+        "!raetsel:rezept"
+      ],
+      "klick": [
+        {
+          "blase": "Ida schluckt. Eine echte Hexe! Aber sie sieht eher traurig aus als böse."
+        }
+      ],
+      "spiegeln": true
+    },
+    {
+      "id": "ida_froh",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_keks",
+      "x": 850,
+      "y": 370,
+      "b": 291,
+      "h": 680,
+      "ebene": 5,
+      "sichtbar": [
+        "raetsel:rezept"
+      ],
+      "klick": [
+        {
+          "blase": "„Mmmh! Die Honigkekse schmecken so gut wie bei Oma!“"
+        }
+      ],
+      "spiegeln": true
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "rezept",
+      "typ": "satzbau",
+      "titel": "Holundas Rezept",
+      "aufgabe": "Im Rezept sind die Wörter durcheinander. Tipp die Wörter der Reihe nach an. Am Anfang groß, am Ende ein Punkt!",
+      "saetze": [
+        "Gib Mehl in die Schüssel.",
+        "Rühre den Teig um.",
+        "Backe die Kekse im Ofen."
+      ],
+      "tipps": [
+        "Womit fängt der Satz an? Mit dem Wort, das sagt, was man tun soll. Zum Schluss kommt der Punkt.",
+        "Gib Mehl in die Schüssel. Rühre den Teig um. Backe die Kekse im Ofen."
+      ],
+      "erfolg": "Das Rezept stimmt wieder!",
+      "belohnung": {
+        "blase": "Holunda und Ida backen Honigkekse. Holunda lächelt zum ersten Mal seit vielen Jahren."
+      }
+    },
+    {
+      "id": "kraeuter",
+      "typ": "auswahl",
+      "titel": "Die Kräutergläser",
+      "aufgabe": "Holundas Gläser sind falsch beschriftet. Welches Schild ist richtig geschrieben? Tipp es an.",
+      "fragen": [
+        {
+          "frage": "Gelbe Blüten für Tee:",
+          "antworten": [
+            "Kamile",
+            "Kamille"
+          ],
+          "richtig": "Kamille"
+        },
+        {
+          "frage": "Scharf und schwarz:",
+          "antworten": [
+            "Pfeffer",
+            "Feffer"
+          ],
+          "richtig": "Pfeffer"
+        },
+        {
+          "frage": "Süß, von den Bienen:",
+          "antworten": [
+            "Honik",
+            "Honig"
+          ],
+          "richtig": "Honig"
+        },
+        {
+          "frage": "Weiß und süß:",
+          "antworten": [
+            "Zuker",
+            "Zucker"
+          ],
+          "richtig": "Zucker"
+        }
+      ],
+      "tipps": [
+        "Sprich das Wort langsam. Bei Honig hilft Verlängern: die Honige – da hörst du das g.",
+        "Kamille mit zwei l, Pfeffer mit Pf, Honig mit g, Zucker mit ck."
+      ],
+      "erfolg": "Alle Gläser sind richtig beschriftet!",
+      "belohnung": {
+        "blase": "„Danke, Kind! Meine Augen sind nicht mehr so gut.“ Holunda stellt die Gläser ordentlich ins Regal."
+      }
+    },
+    {
+      "id": "karte",
+      "typ": "reihenfolge",
+      "titel": "Eine Karte für Holunda",
+      "aufgabe": "Holunda hat seit Jahren keine Post bekommen. Ida schreibt ihr eine Karte. Tipp die Teile in der richtigen Reihenfolge an.",
+      "karten": [
+        "Liebe Holunda,",
+        "danke für die Kekse. Ich komme dich wieder besuchen.",
+        "Deine Ida"
+      ],
+      "tipps": [
+        "Ein Brief beginnt mit der Anrede. Am Ende steht, wer ihn geschrieben hat.",
+        "Zuerst: Liebe Holunda. Dann: danke für die Kekse. Zum Schluss: Deine Ida."
+      ],
+      "erfolg": "Die Karte ist fertig!",
+      "belohnung": {
+        "blase": "Holunda liest die Karte und wischt sich eine Träne weg. „Dein Pegasus sitzt oben auf dem Wolkenberg. Er ist müde und friert. Hol dir den Schein des Mondes im Mondsee.“ Dann gibt sie Ida eine Tüte Honigkekse mit.",
+        "inventar": "honigkekse"
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!holunda_kennt"
+      ],
+      "text": "Die Hexe sieht gar nicht so böse aus. Sprich sie an!",
+      "zeige": "holunda"
+    },
+    {
+      "wenn": [
+        "!raetsel:rezept"
+      ],
+      "text": "Auf dem Tisch liegt Holundas Rezeptbuch. Schau mal hinein!",
+      "zeige": "rezeptbuch"
+    },
+    {
+      "wenn": [
+        "!raetsel:kraeuter"
+      ],
+      "text": "Im Regal stehen viele Gläser. Stimmen die Schilder?",
+      "zeige": "glaeser"
+    },
+    {
+      "wenn": [
+        "!raetsel:karte"
+      ],
+      "text": "Holunda bekommt nie Post. Vielleicht freut sie sich über eine Karte?",
+      "zeige": "holunda_keks"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Der Rabe drückt seinen Flügel so fest an sich … Versteckt er etwas?",
+      "zeige": "kasimir"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "id": "s23",
+  "nummer": "23–24",
+  "titel": "Der Gipfel",
+  "hintergrund": "hintergruende/ort12_gipfel_nacht",
+  "stimmung": "nacht",
+  "musik": "wolkenpfad_gipfel",
+  "text": "Da liegt er. Silberwind. Er ist noch schöner als auf Omas Foto. Aber er ist müde und friert. Ganz vorsichtig geht Ida zu ihm. „Ich bin Ida. Lenes Enkelin.“ Silberwind öffnet die Augen. Er sieht die weiße Strähne in Idas Haar. Ida hebt die Laterne. Sie leuchtet. Aber nur ein bisschen.",
+  "naechste": "s25",
+  "fertig": "Alle Sterne leuchten wieder! Silberwind ist bereit. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "himmel_hell",
+      "name": "Heller Sternenhimmel",
+      "bild": "hintergruende/ort12_gipfel_sterne",
+      "x": 0,
+      "y": 0,
+      "b": 1600,
+      "h": 900,
+      "ebene": 0,
+      "einblenden": true,
+      "sichtbar": [
+        "raetsel:zauberwort"
+      ]
+    },
+    {
+      "id": "sterne",
+      "name": "Sterne",
+      "x": 560,
+      "y": 20,
+      "b": 520,
+      "h": 200,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:zauberwort"
+          ],
+          "blase": "Die Sterne flackern nur ganz schwach. Es ist so dunkel hier oben."
+        },
+        {
+          "blase": "Alle Sterne leuchten wieder! Jetzt findet Silberwind den Weg."
+        }
+      ]
+    },
+    {
+      "id": "kompassrose",
+      "name": "Kompassrose",
+      "x": 1060,
+      "y": 500,
+      "b": 390,
+      "h": 120,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Eine Kompassrose aus Stein. Genau wie auf Papas Kompass: Norden, Osten, Süden, Westen."
+        }
+      ]
+    },
+    {
+      "id": "silberwind",
+      "name": "Silberwind",
+      "bild": "figuren/silberwind_liegend_ohne_schnee",
+      "x": 360,
+      "y": 450,
+      "b": 460,
+      "h": 156,
+      "ebene": 3,
+      "spiegeln": true,
+      "sichtbar": [
+        "!raetsel:zauberwort"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!sw_kennt"
+          ],
+          "setze": [
+            "sw_kennt"
+          ],
+          "blase": "Silberwind öffnet die Augen. „Mein Zeichen“, flüstert er und schaut auf Idas weiße Strähne. „Ich habe es Lene geschenkt, als sie so klein war wie du. Wer es trägt, gehört zu meiner Familie.“"
+        },
+        {
+          "wenn": [
+            "inventar:silberfeder",
+            "!feder_geschenkt"
+          ],
+          "setze": [
+            "feder_geschenkt"
+          ],
+          "blase": "Ida steckt Silberwind die Silberfeder ins Fell. Er lächelt."
+        },
+        {
+          "wenn": [
+            "!raetsel:waermen"
+          ],
+          "raetsel": "waermen"
+        },
+        {
+          "blase": "Silberwind legt den Kopf in Idas Arme. „Ich habe Lenes Licht gesucht. Aber es war überall dunkel.“"
+        }
+      ]
+    },
+    {
+      "id": "silberwind_steht",
+      "name": "Silberwind",
+      "bild": "figuren/silberwind/silberwind_steht_gross",
+      "x": 120,
+      "y": 250,
+      "b": 600,
+      "h": 432,
+      "ebene": 3,
+      "einblenden": true,
+      "sichtbar": [
+        "raetsel:zauberwort"
+      ],
+      "klick": [
+        {
+          "blase": "Silberwind schüttelt seine Flügel. „Steigt auf. Wir fliegen nach Hause.“"
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_laterne_schuechtern",
+      "x": 760,
+      "y": 310,
+      "b": 178,
+      "h": 440,
+      "ebene": 4,
+      "spiegeln": true,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:gedanken"
+          ],
+          "raetsel": "gedanken"
+        },
+        {
+          "wenn": [
+            "!raetsel:zauberwort"
+          ],
+          "blase": "„Ich habe so viel geschafft heute“, sagt Ida leise. Die Laterne leuchtet schon heller."
+        }
+      ],
+      "sichtbar": [
+        "!raetsel:zauberwort"
+      ]
+    },
+    {
+      "id": "ida_jubel",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_laterne_springt",
+      "x": 700,
+      "y": 315,
+      "b": 395,
+      "h": 440,
+      "ebene": 4,
+      "einblenden": true,
+      "sichtbar": [
+        "raetsel:zauberwort"
+      ],
+      "klick": [
+        {
+          "blase": "„Mutiges Herz!“, jubelt Ida und hält die Laterne hoch. Sie strahlt hell wie ein Stern."
+        }
+      ]
+    },
+    {
+      "id": "laterne",
+      "name": "Laterne",
+      "x": 772,
+      "y": 460,
+      "b": 80,
+      "h": 105,
+      "ebene": 5,
+      "funkeln": [
+        "raetsel:gedanken",
+        "!raetsel:zauberwort"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:gedanken"
+          ],
+          "blase": "Der Glühwürmchen-Funke und die Mondperle leuchten in der Laterne. Aber das Licht reicht nicht. Ein Licht fehlt noch."
+        },
+        {
+          "wenn": [
+            "!raetsel:zauberwort"
+          ],
+          "raetsel": "zauberwort"
+        }
+      ],
+      "sichtbar": [
+        "!raetsel:zauberwort"
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schal_sitzt",
+      "x": 620,
+      "y": 560,
+      "b": 126,
+      "h": 200,
+      "ebene": 5,
+      "sichtbar": [
+        "!raetsel:zauberwort"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:gedanken"
+          ],
+          "blase": "„Ein Licht fehlt noch“, sagt Rabat. „Und ich glaube, es ist in dir.“"
+        },
+        {
+          "blase": "„Schau, die goldenen Buchstaben!“, ruft Rabat. „Es sind zwei Wörter. Und sie sagen, was du heute gezeigt hast.“"
+        }
+      ]
+    },
+    {
+      "id": "rabat_froh",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schal_springt_lacht",
+      "x": 520,
+      "y": 480,
+      "b": 223,
+      "h": 190,
+      "ebene": 5,
+      "sichtbar": [
+        "raetsel:zauberwort"
+      ],
+      "klick": [
+        {
+          "blase": "„Wir fliegen nach Hause!“, jubelt Rabat und wedelt mit dem Schwanz."
+        }
+      ],
+      "einblenden": true
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "gedanken",
+      "typ": "satzbau",
+      "titel": "Idas Gedanken",
+      "aufgabe": "Das letzte Licht ist Idas Mut. Sie erzählt Silberwind, was sie heute geschafft hat. Doch ihre Gedanken sind durcheinander. Tipp die Wörter in der richtigen Reihenfolge an.",
+      "saetze": [
+        "Im Wald hatte ich große Angst.",
+        "Aber ich bin trotzdem gegangen.",
+        "Rabat war immer bei mir.",
+        "Ich habe dich gefunden!"
+      ],
+      "tipps": [
+        "Lies alle Wörter. Welches Wort passt an den Anfang? Am Ende steht das Satzzeichen.",
+        "Im Wald hatte ich große Angst. Aber ich bin trotzdem gegangen. Rabat war immer bei mir. Ich habe dich gefunden!"
+      ],
+      "erfolg": "Ida hat alles erzählt!",
+      "belohnung": {
+        "blase": "Die Laterne leuchtet heller! Und um sie herum schweben auf einmal goldene Buchstaben. Tipp die Laterne an."
+      }
+    },
+    {
+      "id": "waermen",
+      "typ": "paare",
+      "titel": "Silberwind wärmen",
+      "aufgabe": "Silberwind friert. Ida legt ihm Mamas Schal um und erzählt, wer ihr unterwegs etwas geschenkt hat. Finde zu jedem Fundstück, von wem es ist.",
+      "paare": [
+        [
+          "Schal",
+          "Mama"
+        ],
+        [
+          "Kompass",
+          "Papa"
+        ],
+        [
+          "Laterne",
+          "Oma"
+        ],
+        [
+          "Fäustling",
+          "Brummbart"
+        ],
+        [
+          "Mondperle",
+          "Perla"
+        ]
+      ],
+      "tipps": [
+        "Denk an die Reise zurück. Wer hat Ida den Fäustling geschenkt? Wer die Mondperle?",
+        "Schal – Mama, Kompass – Papa, Laterne – Oma, Fäustling – Brummbart, Mondperle – Perla."
+      ],
+      "erfolg": "Silberwind ist schon viel wärmer!",
+      "belohnung": {
+        "blase": "Silberwind kuschelt sich in Mamas Schal. „So viele Menschen und Wesen haben dir geholfen“, sagt er leise."
+      }
+    },
+    {
+      "id": "zauberwort",
+      "typ": "zauberwort",
+      "titel": "Das Zauberwort",
+      "aufgabe": "Die goldenen Buchstaben von der ganzen Reise schweben um die Laterne. Rabat sagt: „Es sind zwei Wörter. Sie sagen, was du heute gezeigt hast.“ Tipp die Buchstaben in der richtigen Reihenfolge an.",
+      "woerter": [
+        "MUTIGES",
+        "HERZ"
+      ],
+      "tipps": [
+        "Das erste Wort fängt mit M an. Wie warst du heute, als du trotz Angst weitergegangen bist? Ganz m…",
+        "Das Zauberwort heißt MUTIGES HERZ."
+      ],
+      "erfolg": "MUTIGES HERZ!",
+      "belohnung": {
+        "blase": "„Mutiges Herz!“, sagt Ida laut. Die Laterne strahlt hell wie ein Stern. Einer nach dem anderen leuchten die Sterne wieder auf. Silberwind steht auf und schüttelt seine Flügel."
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!sw_kennt"
+      ],
+      "text": "Da liegt Silberwind im Schnee! Tipp ihn ganz vorsichtig an.",
+      "zeige": "silberwind"
+    },
+    {
+      "wenn": [
+        "!raetsel:gedanken"
+      ],
+      "text": "Ida möchte Silberwind erzählen, was sie geschafft hat. Tipp Ida an.",
+      "zeige": "ida"
+    },
+    {
+      "wenn": [
+        "!raetsel:waermen"
+      ],
+      "text": "Silberwind friert noch. Tipp ihn an und wärm ihn.",
+      "zeige": "silberwind"
+    },
+    {
+      "wenn": [
+        "!raetsel:zauberwort"
+      ],
+      "text": "Um die Laterne schweben goldene Buchstaben. Tipp die Laterne an!",
+      "zeige": "laterne"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

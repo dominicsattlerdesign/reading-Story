@@ -6,8 +6,9 @@
   "description": "Point-and-Click-Abenteuer im Buchstil für die 2. Klasse",
   "scripts": {
     "bilder": "node scripts/bilder.mjs",
-    "dev": "npm run bilder && vite",
-    "build": "npm run bilder && tsc --noEmit && vite build",
+    "musik": "node scripts/musik.mjs",
+    "dev": "npm run bilder && npm run musik && vite",
+    "build": "npm run bilder && npm run musik && tsc --noEmit && vite build",
     "vorschau": "vite preview",
     "test": "vitest run",
     "pruefen": "tsc --noEmit && vitest run"
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",
     "@types/node": "^26.6.6",
+    "ffmpeg-static": "^5.2.0",
     "jsdom": "^31.0.1",
     "sharp": "^0.35.5",
     "typescript": "^7.0.2",

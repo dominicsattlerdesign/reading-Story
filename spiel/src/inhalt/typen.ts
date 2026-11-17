@@ -22,6 +22,7 @@ export interface Aktion {
   raetsel?: string; // Raetsel oeffnen
   inventar?: string; // Fundstueck ins Inventar legen
   buchstabe?: boolean; // versteckten Buchstaben dieser Seite einsammeln
+  bild?: string; // Bild gross zeigen (z. B. ein Foto), die Blase steht darunter
 }
 
 export interface Objekt extends Rechteck {
@@ -37,6 +38,8 @@ export interface Objekt extends Rechteck {
   blaseAnker?: { x: number; y: number; unten?: boolean };
   /** Effekt ueber der ganzen Szene, solange sichtbar */
   effekt?: 'licht';
+  /** Beim Erscheinen langsam einblenden (z. B. ein zweites Hintergrundbild, wenn die Sterne aufleuchten) */
+  einblenden?: boolean;
 }
 
 export interface Tipp {
@@ -83,7 +86,71 @@ export interface SilbenRaetsel extends RaetselBasis {
   woerter: string[];
 }
 
-export type Raetsel = LueckenRaetsel | SortierRaetsel | SilbenRaetsel;
+export interface ReihenfolgeRaetsel extends RaetselBasis {
+  typ: 'reihenfolge';
+  /** Saetze oder Woerter in der RICHTIGEN Reihenfolge; das Spiel mischt sie */
+  karten: string[];
+  /** "steine": kurze Woerter auf gemalten Trittsteinen nebeneinander (z. B. ABC ordnen) */
+  stil?: 'steine';
+}
+
+export interface PaareRaetsel extends RaetselBasis {
+  typ: 'paare';
+  /** Zusammengehoerige Paare, z. B. ["groß", "klein"]; das erste Wort steht fest, das zweite wird gesucht */
+  paare: [string, string][];
+}
+
+export interface WortschlangeRaetsel extends RaetselBasis {
+  typ: 'wortschlange';
+  /** Der Satz mit Leerzeichen; angezeigt wird er in Grossbuchstaben ohne Luecken */
+  satz: string;
+}
+
+export interface WoerterRaetsel extends RaetselBasis {
+  typ: 'woerter';
+  /** Zwei Wortteile, die zusammen ein Wort ergeben, z. B. ["Schaukel", "Pferd"] -> Schaukelpferd */
+  paare: [string, string][];
+}
+
+export interface FehlerRaetsel extends RaetselBasis {
+  typ: 'fehler';
+  /** Text, falsche Woerter als {falsch|richtig}, z. B. "{heute|Heute} kam {silberwind|Silberwind}." */
+  text: string;
+}
+
+export interface AuswahlFrage {
+  /** Frage oder Satz; "_" ist die Luecke, z. B. "_ein" oder "Die Schnecke _ (kriechen)." */
+  frage: string;
+  antworten: string[];
+  richtig: string;
+}
+
+export interface AuswahlRaetsel extends RaetselBasis {
+  typ: 'auswahl';
+  /** Lesetext ueber den Fragen (z. B. was Rabat gerochen hat) */
+  text?: string;
+  fragen: AuswahlFrage[];
+}
+
+export interface SilbenbauRaetsel extends RaetselBasis {
+  typ: 'silbenbau';
+  /** Woerter mit Silbentrennung, z. B. "Ne-bel-wald"; die Silben werden in der richtigen Reihenfolge angetippt */
+  woerter: string[];
+}
+
+export interface SatzbauRaetsel extends RaetselBasis {
+  typ: 'satzbau';
+  /** Richtige Saetze mit Punkt, z. B. "Gib Mehl in die Schüssel."; die Woerter kommen gemischt, das erste klein */
+  saetze: string[];
+}
+
+export interface ZauberwortRaetsel extends RaetselBasis {
+  typ: 'zauberwort';
+  /** Die Woerter in Grossbuchstaben, z. B. ["MUTIGES", "HERZ"]; die Buchstaben kommen gemischt */
+  woerter: string[];
+}
+
+export type Raetsel = ZauberwortRaetsel | SatzbauRaetsel | SilbenbauRaetsel | AuswahlRaetsel | LueckenRaetsel | SortierRaetsel | SilbenRaetsel | ReihenfolgeRaetsel | PaareRaetsel | WortschlangeRaetsel | WoerterRaetsel | FehlerRaetsel;
 
 export interface Seite {
   id: string; // z. B. "s01"
@@ -92,13 +159,17 @@ export interface Seite {
   hintergrund: string; // Pfad unter assets/ ohne Endung
   /** Lichtstimmung: toent Figuren passend zum Hintergrund (z. B. warmes Nachtlicht) */
   stimmung?: 'nacht';
+  /** Name des Musik-Loops unter assets/musik (ohne Endung), z. B. "nachtlied" */
+  musik?: string;
   text: string;
   objekte: Objekt[];
   raetsel: Raetsel[];
-  buchstabe: string; // versteckter Buchstabe dieser Seite
+  buchstabe?: string; // versteckter Buchstabe dieser Seite (die letzten Seiten haben keinen mehr)
   tipps: Tipp[]; // Rabat-Hilfe ausserhalb der Raetsel, erste passende gilt
   fertig: string; // Satz, wenn alle Raetsel geloest sind
   naechste: string | null; // ID der naechsten Seite
+  /** Letzte Seite: Schlussbild und Schlusstext nach dem letzten Weiter */
+  schluss?: { bild: string; text: string };
 }
 
 export interface InventarDing {

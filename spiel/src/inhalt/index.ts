@@ -10,7 +10,7 @@ export function seiteMitId(id: string | null): Seite | undefined {
   return seiten.find((s) => s.id === id);
 }
 
-/** Die sieben Fundstuecke in der Reihenfolge der Inventar-Leiste */
+/** Die acht Fundstuecke in der Reihenfolge der Inventar-Leiste (die Honigkekse braucht Ida am Mondsee fuer Perla) */
 export const inventar: InventarDing[] = [
   { id: 'silberfeder', name: 'Silberfeder', bild: 'gegenstaende/inventar/silberfeder' },
   { id: 'laterne', name: 'Laterne', bild: 'gegenstaende/inventar/laterne_dunkel' },
@@ -18,6 +18,7 @@ export const inventar: InventarDing[] = [
   { id: 'schal', name: 'Mamas Schal', bild: 'gegenstaende/inventar/schal_rot' },
   { id: 'faeustling', name: 'Brummbarts Fäustling', bild: 'gegenstaende/inventar/faeustling' },
   { id: 'gluehwuermchen', name: 'Glühwürmchen-Funke', bild: 'figuren/tiere/gluehwuermchen_an_1' },
+  { id: 'honigkekse', name: 'Holundas Honigkekse', bild: 'gegenstaende/inventar/honigkekse' },
   { id: 'mondperle', name: 'Mondperle', bild: 'gegenstaende/inventar/mondperle' },
 ];
 

@@ -1,0 +1,657 @@
+{
+  "id": "s13",
+  "nummer": "13–14",
+  "titel": "Der Nebelwald",
+  "hintergrund": "hintergruende/ort07_nebelwald",
+  "stimmung": "nacht",
+  "musik": "nebelwald",
+  "text": "Im Nebelwald sieht Ida fast nichts. Die Bäume sehen aus wie Hände. Ida bleibt stehen. Sie hat Angst. Ihre Knie zittern. Rabat setzt sich vor sie. „Weißt du, was Oma sagt? Mut heißt nicht, keine Angst zu haben. Mut heißt, trotzdem einen Schritt zu machen.“ Ida macht einen Schritt. Dann noch einen. Da glimmt etwas im Nebel.",
+  "buchstabe": "S",
+  "naechste": "s15",
+  "fertig": "Alles geschafft! Das Licht zeigt den Weg. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "baum",
+      "name": "Umgestürzter Baum",
+      "x": 760,
+      "y": 430,
+      "b": 620,
+      "h": 160,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:wortarten"
+          ],
+          "blase": "Unter dem Baum schlafen Glühwürmchen. Sie leuchten nicht."
+        },
+        {
+          "blase": "Ein alter Baum. Er ist schon lange umgefallen."
+        }
+      ]
+    },
+    {
+      "id": "stein",
+      "name": "Stein mit Spirale",
+      "x": 1215,
+      "y": 565,
+      "b": 265,
+      "h": 200,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ein alter Stein. Jemand hat eine Spirale hineingeritzt."
+        }
+      ]
+    },
+    {
+      "id": "pilze",
+      "name": "Pilzkreis",
+      "x": 85,
+      "y": 590,
+      "b": 450,
+      "h": 180,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Hihihi! Die Pilze kichern."
+        }
+      ]
+    },
+    {
+      "id": "pilz_gesicht",
+      "name": "Lachender Fliegenpilz",
+      "bild": "figuren/tiere/fliegenpilz_2",
+      "x": 245,
+      "y": 632,
+      "b": 64,
+      "h": 72,
+      "ebene": 2,
+      "klick": [
+        {
+          "blase": "„Hihihi! Das kitzelt!“"
+        }
+      ]
+    },
+    {
+      "id": "wurzel",
+      "name": "Wurzeln",
+      "x": 330,
+      "y": 470,
+      "b": 240,
+      "h": 140,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:wurzelweg"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!gestolpert"
+          ],
+          "setze": [
+            "gestolpert"
+          ],
+          "blase": "Ida stolpert fast über eine Wurzel. Rabat ruft: „Vorsicht!“ Auf den Wurzeln stehen Wörter."
+        },
+        {
+          "wenn": [
+            "!raetsel:wurzelweg"
+          ],
+          "raetsel": "wurzelweg"
+        },
+        {
+          "blase": "Jetzt kennt Ida den Weg über die Wurzeln."
+        }
+      ]
+    },
+    {
+      "id": "wurzel_dunkel",
+      "name": "Höhle in den Wurzeln",
+      "bild": "gegenstaende/klickobjekte/wurzel_ohne_augen",
+      "x": 145,
+      "y": 470,
+      "b": 90,
+      "h": 65,
+      "ebene": 2,
+      "sichtbar": [
+        "eule_schlaeft"
+      ],
+      "klick": [
+        {
+          "blase": "Pssst! Hier schläft eine Eule."
+        }
+      ]
+    },
+    {
+      "id": "augen_baum",
+      "name": "Leuchtende Augen im Baum",
+      "x": 150,
+      "y": 470,
+      "b": 90,
+      "h": 60,
+      "ebene": 2,
+      "klick": [
+        {
+          "setze": [
+            "eule_schlaeft"
+          ],
+          "blase": "Huch, zwei Augen! Es ist nur eine Eule. Sie gähnt, macht die Augen zu und schläft wieder ein."
+        }
+      ],
+      "sichtbar": [
+        "!eule_schlaeft"
+      ]
+    },
+    {
+      "id": "augen_busch",
+      "name": "Leuchtende Augen im Gebüsch",
+      "x": 450,
+      "y": 355,
+      "b": 80,
+      "h": 50,
+      "ebene": 2,
+      "klick": [
+        {
+          "blase": "„Huhu!“, macht es aus dem Busch. Auch hier wohnt eine Eule."
+        }
+      ]
+    },
+    {
+      "id": "busch_leer",
+      "name": "Busch",
+      "bild": "gegenstaende/klickobjekte/nebelbusch_ohne_augen",
+      "x": 1385,
+      "y": 440,
+      "b": 140,
+      "h": 100,
+      "ebene": 1,
+      "sichtbar": [
+        "eulen_da"
+      ],
+      "klick": [
+        {
+          "blase": "Der Busch ist jetzt leer. Die Eulen sitzen auf dem Stein."
+        }
+      ]
+    },
+    {
+      "id": "augen_rechts",
+      "name": "Leuchtende Augen",
+      "x": 1395,
+      "y": 450,
+      "b": 120,
+      "h": 85,
+      "ebene": 2,
+      "funkeln": [
+        "!eulen_da"
+      ],
+      "sichtbar": [
+        "!eulen_da"
+      ],
+      "klick": [
+        {
+          "setze": [
+            "eulen_da"
+          ],
+          "blase": "Zwei kleine Eulen hüpfen aus dem Busch. „Huhu! Entschuldigung, haben wir dich erschreckt?“"
+        }
+      ]
+    },
+    {
+      "id": "eule_1",
+      "name": "Kleine Eule",
+      "bild": "figuren/tiere/eule_wach",
+      "x": 1355,
+      "y": 460,
+      "b": 125,
+      "h": 138,
+      "ebene": 2,
+      "sichtbar": [
+        "eulen_da"
+      ],
+      "funkeln": [
+        "!raetsel:satzzeichen"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:satzzeichen"
+          ],
+          "raetsel": "satzzeichen"
+        },
+        {
+          "blase": "„Huhu! Gute Reise, Ida!“"
+        }
+      ]
+    },
+    {
+      "id": "eule_2",
+      "name": "Kleine Eule",
+      "bild": "figuren/tiere/eule_wach",
+      "spiegeln": true,
+      "x": 1290,
+      "y": 470,
+      "b": 115,
+      "h": 128,
+      "ebene": 3,
+      "sichtbar": [
+        "eulen_da"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:satzzeichen"
+          ],
+          "raetsel": "satzzeichen"
+        },
+        {
+          "blase": "„Huhu! Wir passen auf den Wald auf.“"
+        }
+      ]
+    },
+    {
+      "id": "gw_aus_1",
+      "name": "Schlafendes Glühwürmchen",
+      "bild": "figuren/tiere/gluehwuermchen_aus_1",
+      "x": 1025,
+      "y": 452,
+      "b": 74,
+      "h": 70,
+      "ebene": 2,
+      "sichtbar": [
+        "!raetsel:wortarten"
+      ],
+      "funkeln": [
+        "!raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "raetsel": "wortarten"
+        }
+      ]
+    },
+    {
+      "id": "gw_aus_2",
+      "name": "Schlafendes Glühwürmchen",
+      "bild": "figuren/tiere/gluehwuermchen_aus_2",
+      "x": 1135,
+      "y": 425,
+      "b": 74,
+      "h": 68,
+      "ebene": 2,
+      "sichtbar": [
+        "!raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "raetsel": "wortarten"
+        }
+      ]
+    },
+    {
+      "id": "gw_aus_3",
+      "name": "Schlafendes Glühwürmchen",
+      "bild": "figuren/tiere/gluehwuermchen_aus_3",
+      "x": 1245,
+      "y": 398,
+      "b": 80,
+      "h": 61,
+      "ebene": 2,
+      "sichtbar": [
+        "!raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "raetsel": "wortarten"
+        }
+      ]
+    },
+    {
+      "id": "gw_an_1",
+      "name": "Leuchtendes Glühwürmchen",
+      "bild": "figuren/tiere/gluehwuermchen_an_1",
+      "x": 1040,
+      "y": 360,
+      "b": 60,
+      "h": 62,
+      "ebene": 2,
+      "sichtbar": [
+        "raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "blase": "Die Glühwürmchen tanzen im Nebel. Jetzt ist es gar nicht mehr so dunkel."
+        }
+      ]
+    },
+    {
+      "id": "gw_an_2",
+      "name": "Leuchtendes Glühwürmchen",
+      "bild": "figuren/tiere/gluehwuermchen_an_2",
+      "x": 1150,
+      "y": 320,
+      "b": 62,
+      "h": 55,
+      "ebene": 2,
+      "sichtbar": [
+        "raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "blase": "„Danke, Ida! Wir leuchten dir den Weg.“"
+        }
+      ]
+    },
+    {
+      "id": "gw_an_3",
+      "name": "Leuchtendes Glühwürmchen",
+      "bild": "figuren/tiere/gluehwuermchen_an_3",
+      "x": 1265,
+      "y": 300,
+      "b": 50,
+      "h": 60,
+      "ebene": 2,
+      "sichtbar": [
+        "raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "blase": "Das Glühwürmchen summt leise und blinkt."
+        }
+      ]
+    },
+    {
+      "id": "buchstabe",
+      "name": "Versteck",
+      "x": 1275,
+      "y": 605,
+      "b": 115,
+      "h": 100,
+      "ebene": 3,
+      "sichtbar": [
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "bild": "gegenstaende/buchstaben/buchstabe_07_s",
+          "blase": "Ida fährt mit dem Finger die Spirale nach. Da leuchtet sie auf und wird zu einem goldenen S!"
+        }
+      ]
+    },
+    {
+      "id": "rabat_knurrt",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_knurrt",
+      "x": 800,
+      "y": 592,
+      "b": 250,
+      "h": 147,
+      "ebene": 5,
+      "sichtbar": [
+        "!eulen_da"
+      ],
+      "klick": [
+        {
+          "blase": "„Grrr!“ Rabat sträubt das Fell. „Da drüben im Busch leuchtet etwas!“"
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
+      "x": 880,
+      "y": 559,
+      "b": 156,
+      "h": 180,
+      "ebene": 5,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:wortarten"
+          ],
+          "blase": "„Mut heißt nicht, keine Angst zu haben. Mut heißt, trotzdem einen Schritt zu machen.“"
+        },
+        {
+          "blase": "„Siehst du? Du hast es geschafft. Ein Schritt nach dem anderen.“"
+        }
+      ],
+      "sichtbar": [
+        "eulen_da"
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_aengstlich",
+      "x": 605,
+      "y": 140,
+      "b": 190,
+      "h": 470,
+      "ebene": 4,
+      "sichtbar": [
+        "!raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "blase": "Ida schaut auf Papas Kompass. Die Nadel dreht sich wild. Hier hilft er nicht weiter."
+        }
+      ]
+    },
+    {
+      "id": "ida_mutig",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_mutig_rucksack",
+      "x": 602,
+      "y": 140,
+      "b": 195,
+      "h": 470,
+      "ebene": 4,
+      "sichtbar": [
+        "raetsel:wortarten"
+      ],
+      "klick": [
+        {
+          "blase": "„Schau, Rabat! Da vorne ist ein Pfad. Und ein schiefes Haus!“"
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "wortarten",
+      "typ": "sortieren",
+      "titel": "Die Glühwürmchen",
+      "aufgabe": "Die Glühwürmchen wachen nur auf, wenn jedes Wort im richtigen Korb liegt. Nomen, Verb oder Adjektiv? Zieh die Wörter in die Körbe.",
+      "gruppen": [
+        {
+          "id": "namen",
+          "name": "Nomen"
+        },
+        {
+          "id": "tun",
+          "name": "Verben"
+        },
+        {
+          "id": "wie",
+          "name": "Adjektive"
+        }
+      ],
+      "karten": [
+        {
+          "id": "k_leuchten",
+          "text": "leuchten",
+          "gruppe": "tun"
+        },
+        {
+          "id": "k_baum",
+          "text": "Baum",
+          "gruppe": "namen"
+        },
+        {
+          "id": "k_dunkel",
+          "text": "dunkel",
+          "gruppe": "wie"
+        },
+        {
+          "id": "k_laufen",
+          "text": "laufen",
+          "gruppe": "tun"
+        },
+        {
+          "id": "k_eule",
+          "text": "Eule",
+          "gruppe": "namen"
+        },
+        {
+          "id": "k_leise",
+          "text": "leise",
+          "gruppe": "wie"
+        },
+        {
+          "id": "k_nebel",
+          "text": "Nebel",
+          "gruppe": "namen"
+        },
+        {
+          "id": "k_fluestern",
+          "text": "flüstern",
+          "gruppe": "tun"
+        },
+        {
+          "id": "k_mutig",
+          "text": "mutig",
+          "gruppe": "wie"
+        }
+      ],
+      "tipps": [
+        "Nomen schreibt man groß. Verben sagen, was man tut. Adjektive sagen, wie etwas ist.",
+        "Nomen: Baum, Nebel, Eule. Verben: laufen, leuchten, flüstern. Adjektive: dunkel, leise, mutig."
+      ],
+      "erfolg": "Alle Wörter liegen im richtigen Korb!",
+      "belohnung": {
+        "inventar": "gluehwuermchen",
+        "blase": "Die Glühwürmchen erwachen! Eines setzt sich in Idas Laterne. Das erste Licht! Im Schein sieht Ida einen schmalen Pfad zu einem schiefen Haus."
+      }
+    },
+    {
+      "id": "satzzeichen",
+      "typ": "auswahl",
+      "titel": "Die Eulen fragen",
+      "aufgabe": "Die Eulen reden mit Ida. Aber am Ende der Sätze fehlt das Zeichen. Punkt oder Fragezeichen? Tipp es an.",
+      "fragen": [
+        {
+          "frage": "Wer bist du_",
+          "antworten": [
+            ".",
+            "?"
+          ],
+          "richtig": "?"
+        },
+        {
+          "frage": "Ich heiße Ida_",
+          "antworten": [
+            ".",
+            "?"
+          ],
+          "richtig": "."
+        },
+        {
+          "frage": "Hast du Angst_",
+          "antworten": [
+            ".",
+            "?"
+          ],
+          "richtig": "?"
+        },
+        {
+          "frage": "Wir sind deine Freunde_",
+          "antworten": [
+            ".",
+            "?"
+          ],
+          "richtig": "."
+        },
+        {
+          "frage": "Wohin gehst du_",
+          "antworten": [
+            ".",
+            "?"
+          ],
+          "richtig": "?"
+        }
+      ],
+      "tipps": [
+        "Wenn jemand etwas wissen will, ist es eine Frage. Dann kommt ein Fragezeichen.",
+        "Wer bist du? Ich heiße Ida. Hast du Angst? Wir sind deine Freunde. Wohin gehst du?"
+      ],
+      "erfolg": "Alle Zeichen stimmen! Die Eulen klappern mit den Schnäbeln.",
+      "belohnung": {
+        "blase": "„Huhu! Ein weißes Pferd mit Flügeln ist hier vorbeigeflogen. Es sah sehr müde aus.“"
+      }
+    },
+    {
+      "id": "wurzelweg",
+      "typ": "silben",
+      "titel": "Der Wurzelweg",
+      "aufgabe": "Auf den Wurzeln stehen Wörter. Klatsch für jede Silbe einmal auf die Hände. Dann tipp auf Fertig. So kommt Ida sicher über die Wurzeln.",
+      "woerter": [
+        "Ne-bel",
+        "Wur-zel",
+        "Eu-le",
+        "Pil-ze",
+        "Glüh-würm-chen"
+      ],
+      "tipps": [
+        "Sprich das Wort langsam und klatsch dabei: Ne – bel. Wie oft hast du geklatscht?",
+        "Ne-bel: 2. Wur-zel: 2. Eu-le: 2. Pil-ze: 2. Glüh-würm-chen: 3."
+      ],
+      "erfolg": "Ida kommt sicher über alle Wurzeln!",
+      "belohnung": {
+        "blase": "Ida hüpft von Wurzel zu Wurzel. Kein Stolpern mehr!"
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!raetsel:wortarten"
+      ],
+      "text": "Auf dem umgefallenen Baum schlafen Glühwürmchen. Kannst du sie wecken?",
+      "zeige": "gw_aus_1"
+    },
+    {
+      "wenn": [
+        "!eulen_da"
+      ],
+      "text": "Da leuchten Augen im Gebüsch! Keine Angst, tipp sie an.",
+      "zeige": "augen_rechts"
+    },
+    {
+      "wenn": [
+        "!raetsel:satzzeichen"
+      ],
+      "text": "Die kleinen Eulen wollen mit dir reden.",
+      "zeige": "eule_1"
+    },
+    {
+      "wenn": [
+        "!raetsel:wurzelweg"
+      ],
+      "text": "Pass auf die Wurzeln am großen Baum auf!",
+      "zeige": "wurzel"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Der Stein mit der Spirale sieht geheimnisvoll aus …",
+      "zeige": "buchstabe"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

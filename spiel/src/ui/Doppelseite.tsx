@@ -6,10 +6,20 @@ import { asset, seiteMitId } from '../inhalt';
 import { TextKarte } from './TextKarte';
 import { Leiste } from './Leiste';
 import { Halteknopf } from './Halteknopf';
+import { MusikKnopf } from './MusikKnopf';
+import { NeustartKnopf } from './NeustartKnopf';
 import { Szene, blaseAn, type Blase } from './Szene';
 import { Lueckentext } from './raetsel/Lueckentext';
 import { Sortieren } from './raetsel/Sortieren';
 import { Silben } from './raetsel/Silben';
+import { Reihenfolge } from './raetsel/Reihenfolge';
+import { Paare } from './raetsel/Paare';
+import { Wortschlange } from './raetsel/Wortschlange';
+import { FehlerFinden } from './raetsel/FehlerFinden';
+import { Auswahl } from './raetsel/Auswahl';
+import { Silbenbau } from './raetsel/Silbenbau';
+import { Satzbau } from './raetsel/Satzbau';
+import { Zauberwort } from './raetsel/Zauberwort';
 import type { RaetselHelfer } from './raetsel/gemeinsam';
 
 /** Eine aufgeschlagene Doppelseite: Szene zum Antippen, Text, Raetsel, Leiste. */
@@ -18,8 +28,16 @@ export function Doppelseite(props: {
   stand: Spielstand;
   aendern: (f: (s: Spielstand) => Spielstand) => void;
   zurStartseite: () => void;
+  /** nach dem Schlussbild der letzten Seite: Schriftzug „Ende“, das Buch klappt zu */
+  buchZu?: () => void;
   oeffneEltern: () => void;
   weiterZu: (id: string) => void;
+  /** Seite von vorne beginnen (Fortschritt dieser Seite weg) */
+  neuStarten: () => void;
+  /** eine Seite zurueckblaettern, fehlt auf der ersten Seite */
+  zurueck?: () => void;
+  /** waehrend umgeblaettert wird, sind die Figuren ausgeblendet (sonst saehe man sie nur halb) */
+  blaettert?: boolean;
 }) {
   const { seite, stand } = props;
   const m = useMemo(() => merker(stand, seite.id), [stand, seite.id]);
@@ -29,6 +47,7 @@ export function Doppelseite(props: {
   const [rabatBlase, setRabatBlase] = useState<string | null>(null);
   const [leuchtet, setLeuchtet] = useState<string | null>(null);
   const [ende, setEnde] = useState(false);
+  const [bildKarte, setBildKarte] = useState<{ bild: string; text?: string; buchstabe?: boolean } | null>(null);
   const hilfeStufe = useRef(0);
   const uhren = useRef<Record<string, number>>({});
 
@@ -41,12 +60,10 @@ export function Doppelseite(props: {
 
   const zeigeBlase = (b: Blase) => {
     setBlase(b);
-    spaeter('blase', 6000, () => setBlase(null));
   };
 
   const rabatSagt = (text: string) => {
     setRabatBlase(text);
-    spaeter('rabat', 6000, () => setRabatBlase(null));
   };
 
   const leuchten = (id: string) => {
@@ -64,6 +81,11 @@ export function Doppelseite(props: {
       setBlase(null);
       hilfeStufe.current = 0;
       setOffen({ raetsel, von: o });
+      return;
+    }
+    if (a.bild) {
+      setBlase(null);
+      setBildKarte({ bild: a.bild, text: a.blase, buchstabe: a.buchstabe });
       return;
     }
     if (a.blase) zeigeBlase(blaseAn(o, a.blase));
@@ -95,7 +117,9 @@ export function Doppelseite(props: {
         if (raetsel.belohnung) neu = wendeAn(neu, seite.id, raetsel.belohnung);
         return neu;
       });
-      if (raetsel.belohnung?.blase && von) zeigeBlase(blaseAn(von, raetsel.belohnung.blase));
+      // eine Belohnung mit Bild zeigt das Bild gross, der Text steht darunter
+      if (raetsel.belohnung?.bild) setBildKarte({ bild: raetsel.belohnung.bild, text: raetsel.belohnung.blase, buchstabe: raetsel.belohnung.buchstabe });
+      else if (raetsel.belohnung?.blase && von) zeigeBlase(blaseAn(von, raetsel.belohnung.blase));
     },
   };
 
@@ -117,7 +141,7 @@ export function Doppelseite(props: {
   const gefundeneBuchstaben = stand.buchstaben.map((id) => seiteMitId(id)?.buchstabe).filter(Boolean);
 
   return (
-    <div class={`doppelseite aufblaettern ${seite.stimmung ? `stimmung-${seite.stimmung}` : ''}`}>
+    <div class={`doppelseite aufblaettern ${seite.stimmung ? `stimmung-${seite.stimmung}` : ''} ${props.blaettert ? 'blaettert' : ''}`}>
       <img class="hintergrund" src={asset(seite.hintergrund)} alt={seite.titel} draggable={false} />
       <Szene objekte={seite.objekte} merker={m} leuchtet={leuchtet} antippen={antippen} blase={blase} blaseZu={() => setBlase(null)} />
       <div class="buchfalz" aria-hidden="true" />
@@ -127,7 +151,8 @@ export function Doppelseite(props: {
       </button>
       <div class="seitenzahl">
         Seite {seite.nummer}
-        {gefundeneBuchstaben.length > 0 && (
+        {/* Seiten ohne eigenen Buchstaben (ab dem Zauberwort) zeigen nur die Seitenzahl */}
+        {gefundeneBuchstaben.length > 0 && seite.buchstabe && (
           <span class="buchstaben-leiste" aria-label="Gefundene Buchstaben">
             {gefundeneBuchstaben.map((b, i) => (
               <span key={i} class="buchstaben-kachel">{b}</span>
@@ -135,6 +160,8 @@ export function Doppelseite(props: {
           </span>
         )}
       </div>
+      <NeustartKnopf neuStarten={props.neuStarten} zurueck={props.zurueck} />
+      <MusikKnopf />
       <Halteknopf class="ecke-oben-rechts bild-knopf" label="Elternbereich" ausloesen={props.oeffneEltern}>
         <img src={asset('gegenstaende/oberflaeche/einstellungen')} alt="" draggable={false} />
       </Halteknopf>
@@ -144,6 +171,24 @@ export function Doppelseite(props: {
       {offen && helfer && offen.raetsel.typ === 'luecken' && <Lueckentext raetsel={offen.raetsel} helfer={helfer} />}
       {offen && helfer && offen.raetsel.typ === 'sortieren' && <Sortieren raetsel={offen.raetsel} helfer={helfer} />}
       {offen && helfer && offen.raetsel.typ === 'silben' && <Silben raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'reihenfolge' && <Reihenfolge raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && (offen.raetsel.typ === 'paare' || offen.raetsel.typ === 'woerter') && <Paare raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'silbenbau' && <Silbenbau raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'zauberwort' && <Zauberwort raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'satzbau' && <Satzbau raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'auswahl' && <Auswahl raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'fehler' && <FehlerFinden raetsel={offen.raetsel} helfer={helfer} />}
+      {offen && helfer && offen.raetsel.typ === 'wortschlange' && <Wortschlange raetsel={offen.raetsel} helfer={helfer} />}
+
+      {bildKarte && (
+        <button class="bild-karte-hintergrund" onClick={() => setBildKarte(null)} aria-label="Bild schließen">
+          <div class={`bild-karte ${bildKarte.buchstabe ? 'buchstabe-karte' : ''}`}>
+            <img src={asset(bildKarte.bild)} alt="" draggable={false} />
+            {bildKarte.text && <p>{bildKarte.text}</p>}
+            <div class="bild-karte-hinweis">Tippen zum Schließen</div>
+          </div>
+        </button>
+      )}
 
       <Leiste
         inventar={stand.inventar}
@@ -157,13 +202,28 @@ export function Doppelseite(props: {
 
       {ende && (
         <div class="raetsel-hintergrund">
-          <div class="erfolg-karte ende-karte">
+          <div class={`erfolg-karte ende-karte ${seite.schluss ? 'schluss' : ''}`}>
             <div class="erfolg-sterne" aria-hidden="true">✦ ✧ ✦</div>
-            <h2>Fortsetzung folgt …</h2>
-            <p>Hier endet die Probeseite. Bald geht Idas Reise weiter!</p>
-            <button class="gross-knopf primaer" onClick={props.zurStartseite}>
-              Zum Buchdeckel
-            </button>
+            {seite.schluss ? (
+              <>
+                <img class="schluss-bild" src={asset(seite.schluss.bild)} alt="" draggable={false} />
+                <p>{seite.schluss.text}</p>
+              </>
+            ) : (
+              <>
+                <h2>Fortsetzung folgt …</h2>
+                <p>Weiter sind wir noch nicht. Bald geht Idas Reise weiter!</p>
+              </>
+            )}
+            {seite.schluss && props.buchZu ? (
+              <button class="gross-knopf primaer" onClick={props.buchZu}>
+                Weiter
+              </button>
+            ) : (
+              <button class="gross-knopf primaer" onClick={props.zurStartseite}>
+                Zum Buchdeckel
+              </button>
+            )}
           </div>
         </div>
       )}

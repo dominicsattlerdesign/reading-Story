@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { merker, erfuellt, ersteAktion, passenderTipp, wendeAn, loese, alleGeloest, zerlegeLuecken, silben, ohneTrennung, mischen } from './logik';
+import { merker, erfuellt, ersteAktion, passenderTipp, wendeAn, loese, alleGeloest, zerlegeLuecken, silben, ohneTrennung, mischen, wortschlange, zerlegeFehlertext, verbinde, fuelleLuecke, silbenAuswahl, seiteZuruecksetzen, satzBausteine } from './logik';
 import { neuerSpielstand } from './speicher';
 import type { Seite } from '../inhalt/typen';
 
@@ -68,5 +68,81 @@ describe('Silben und Mischen', () => {
     for (let i = 0; i < 50; i++) expect(mischen(liste)).not.toEqual(liste);
     expect(mischen(liste, () => 0.999)).not.toEqual(liste); // "Zufall", der nichts aendert
     expect(mischen([1])).toEqual([1]);
+  });
+});
+
+describe('Wortschlange', () => {
+  it('findet Buchstaben und Trennstellen', () => {
+    const w = wortschlange('Oma wartet auf Silberwind');
+    expect(w.buchstaben.join('')).toBe('OMAWARTETAUFSILBERWIND');
+    // nach OMA (Index 2), nach WARTET (8), nach AUF (11)
+    expect(w.stellen).toEqual([2, 8, 11]);
+  });
+
+  it('kommt mit Umlauten und doppelten Leerzeichen zurecht', () => {
+    const w = wortschlange('  Käse  über  ');
+    expect(w.buchstaben.join('')).toBe('KÄSEÜBER');
+    expect(w.stellen).toEqual([3]);
+  });
+});
+
+describe('Fehler antippen', () => {
+  it('zerlegt den Text in Woerter, Fehler und Zwischenraeume', () => {
+    const t = zerlegeFehlertext('{heute|Heute} kam {silberwind|Silberwind}. Er lacht!');
+    const woerter = t.filter((x) => x.art === 'wort');
+    expect(woerter.map((w) => w.text)).toEqual(['heute', 'kam', 'silberwind', 'Er', 'lacht']);
+    expect(woerter.filter((w) => w.art === 'wort' && w.richtig).map((w) => (w as { richtig: string }).richtig)).toEqual(['Heute', 'Silberwind']);
+    expect(t.map((x) => x.text).join('')).toBe('heute kam silberwind. Er lacht!');
+  });
+});
+
+describe('Woerter bauen', () => {
+  it('verbindet zwei Wortteile zu einem Namenwort', () => {
+    expect(verbinde('Schaukel', 'Pferd')).toBe('Schaukelpferd');
+    expect(verbinde('Tage', 'Buch')).toBe('Tagebuch');
+  });
+});
+
+describe('Auswahl', () => {
+  it('fuellt die Luecke und entfernt den Hinweis in Klammern', () => {
+    expect(fuelleLuecke('_ein', 'St')).toBe('Stein');
+    expect(fuelleLuecke('Die Schnecke _ (kriechen).', 'kriecht')).toBe('Die Schnecke kriecht.');
+  });
+});
+
+describe('Silben zusammensetzen', () => {
+  it('liefert die eigenen Silben und zwei fremde', () => {
+    const w = ['Ne-bel-wald', 'Mond-see', 'Brü-cke'];
+    expect(silbenAuswahl(w, 1)).toEqual(['Mond', 'see', 'Ne', 'bel']);
+    expect(silbenAuswahl(w, 0, 3)).toEqual(['Ne', 'bel', 'wald', 'Mond', 'see', 'Brü']);
+  });
+});
+
+describe('Seite neu starten', () => {
+  it('nimmt nur die Fortschritte dieser Seite zurueck', () => {
+    const seite = {
+      id: 's13', objekte: [{ id: 'x', klick: [{ inventar: 'laterne' }] }],
+      raetsel: [{ id: 'r', belohnung: { inventar: 'gluehwuermchen' } }],
+    } as unknown as Seite;
+    const s = {
+      ...neuerSpielstand(), seite: 's13',
+      geloest: { s11: ['a'], s13: ['r'] }, merker: { s11: ['m'], s13: ['eulen_da'] },
+      buchstaben: ['s11', 's13'], inventar: ['faeustling', 'gluehwuermchen', 'laterne'],
+    };
+    const neu = seiteZuruecksetzen(s, seite);
+    expect(neu.geloest).toEqual({ s11: ['a'] });
+    expect(neu.merker).toEqual({ s11: ['m'] });
+    expect(neu.buchstaben).toEqual(['s11']);
+    expect(neu.inventar).toEqual(['faeustling']);
+    expect(neu.seite).toBe('s13');
+  });
+});
+
+describe('Satz bauen', () => {
+  it('macht das erste Wort klein und den Punkt zu einem eigenen Kaertchen', () => {
+    expect(satzBausteine('Gib Mehl in die Schüssel.')).toEqual({
+      richtig: ['Gib', 'Mehl', 'in', 'die', 'Schüssel', '.'],
+      karten: ['gib', 'Mehl', 'in', 'die', 'Schüssel', '.'],
+    });
   });
 });

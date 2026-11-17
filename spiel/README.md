@@ -21,6 +21,7 @@ npm run dev
 | Befehl | Was er macht |
 | --- | --- |
 | `npm run bilder` | Wandelt die Bilder aus `../bilder` in WebP um und legt sie in `public/assets` ab. Das passiert automatisch bei `dev` und `build`. |
+| `npm run musik` | Macht aus den Stücken in `../musik/originale` nahtlose Loops (`../musik/loops`) und legt sie in `public/assets/musik`. Braucht **ffmpeg** (im PATH, über die Umgebungsvariable `FFMPEG` oder als Paket `ffmpeg-static`). Läuft auch bei `dev` und `build` mit. |
 | `npm run build` | Baut das fertige Spiel in den Ordner `dist/` |
 | `npm run pruefen` | Typprüfung und Tests |
 

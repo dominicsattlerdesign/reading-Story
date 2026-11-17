@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { Objekt } from '../inhalt/typen';
 import { asset } from '../inhalt';
 import { erfuellt } from '../engine/logik';
@@ -40,8 +41,8 @@ export function Szene(props: {
           o.bild ? 'mit-bild' : 'flaeche',
           o.bild?.startsWith('figuren/') && 'figur',
           klickbar && 'klickbar',
-          o.funkeln && erfuellt(o.funkeln, props.merker) && 'funkeln',
           props.leuchtet === o.id && 'hinweis',
+          o.einblenden && 'einblenden',
         ]
           .filter(Boolean)
           .join(' ');
@@ -59,16 +60,45 @@ export function Szene(props: {
           </div>
         );
       })}
-      {props.blase && (
-        <button
-          class={`sprechblase szenen-blase ${props.blase.unten ? 'unten' : 'oben'}`}
-          style={{ left: `${props.blase.x}px`, top: `${props.blase.y}px` }}
-          onClick={props.blaseZu}
-          aria-live="polite"
-        >
-          {props.blase.text}
-        </button>
-      )}
+      {props.blase && <SzenenBlase key={props.blase.text} blase={props.blase} zu={props.blaseZu} />}
     </>
+  );
+}
+
+/** Oberer und unterer Rand, den eine Blase nicht ueberschreiten darf (Seitenzahl oben, Leiste unten) */
+const OBEN_FREI = 70;
+const UNTEN_FREI = 770;
+
+/**
+ * Sprechblase in der Szene. Sie misst sich nach dem Erscheinen: Wuerde ein langer Text oben
+ * oder unten aus dem Bild ragen, rueckt sie ins Bild (dann ohne Spitze, die nicht mehr passen wuerde).
+ */
+function SzenenBlase(props: { blase: Blase; zu: () => void }) {
+  const { blase } = props;
+  const ref = useRef<HTMLButtonElement>(null);
+  const [top, setTop] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const h = el.offsetHeight;
+    const oben = blase.unten ? blase.y : blase.y - h;
+    let neu = oben;
+    if (neu < OBEN_FREI) neu = OBEN_FREI;
+    if (neu + h > UNTEN_FREI) neu = Math.max(OBEN_FREI, UNTEN_FREI - h);
+    setTop(neu === oben ? null : neu);
+  }, [blase]);
+
+  const verschoben = top !== null;
+  return (
+    <button
+      ref={ref}
+      class={`sprechblase szenen-blase ${verschoben ? 'verschoben' : blase.unten ? 'unten' : 'oben'}`}
+      style={{ left: `${blase.x}px`, top: `${verschoben ? top : blase.y}px` }}
+      onClick={props.zu}
+      aria-live="polite"
+    >
+      {blase.text}
+    </button>
   );
 }

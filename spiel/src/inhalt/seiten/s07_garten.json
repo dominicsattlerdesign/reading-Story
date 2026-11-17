@@ -1,0 +1,450 @@
+{
+  "id": "s07",
+  "nummer": "7–8",
+  "titel": "Der Garten",
+  "hintergrund": "hintergruende/ort04_garten_nacht",
+  "stimmung": "nacht",
+  "musik": "garten_waldrand",
+  "text": "Ida zieht ihre gelben Gummistiefel an. Leise öffnet sie die Gartentür. Alles ist still und duftet nach Blüten. Rabat springt ins nasse Gras und niest. Im Boden sind viele Spuren. Welche gehören zu Silberwind?",
+  "buchstabe": "Z",
+  "naechste": "s09",
+  "fertig": "Alles geschafft! Das Gartentor ist offen. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "kirschbaum",
+      "name": "Kirschbaum",
+      "x": 0,
+      "y": 0,
+      "b": 1000,
+      "h": 210,
+      "klick": [
+        {
+          "wenn": [
+            "!rabat_blueten"
+          ],
+          "setze": [
+            "rabat_blueten"
+          ],
+          "blase": "Blüten rieseln herunter, direkt auf Rabat. „Jetzt bin ich ein rosa Fuchs!“"
+        },
+        {
+          "blase": "Omas Kirschbaum blüht und duftet. Ein paar Blüten tanzen durch die Luft."
+        }
+      ]
+    },
+    {
+      "id": "brunnen",
+      "name": "Brunnen",
+      "x": 40,
+      "y": 220,
+      "b": 320,
+      "h": 460,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:brunnen"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:brunnen"
+          ],
+          "raetsel": "brunnen"
+        },
+        {
+          "blase": "Ida schaut in den Brunnen. Unten spiegelt sich der Mond."
+        }
+      ]
+    },
+    {
+      "id": "schaukel",
+      "name": "Reifenschaukel",
+      "x": 475,
+      "y": 100,
+      "b": 150,
+      "h": 380,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ida schaukelt einmal hin und her. Ein kurzer Moment Ruhe."
+        }
+      ]
+    },
+    {
+      "id": "tor",
+      "name": "Gartentor",
+      "x": 715,
+      "y": 305,
+      "b": 260,
+      "h": 150,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:abc"
+          ],
+          "blase": "Das Gartentor ist zu. Wohin ist Silberwind wohl gelaufen?"
+        },
+        {
+          "blase": "Das Tor ist offen. Dahinter beginnt der Weg zum Wald."
+        }
+      ]
+    },
+    {
+      "id": "gewaechshaus",
+      "name": "Gewächshaus",
+      "x": 1080,
+      "y": 200,
+      "b": 250,
+      "h": 240,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:schnecke"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:schnecke"
+          ],
+          "raetsel": "schnecke"
+        },
+        {
+          "blase": "Papas Tomatenpflanzen. Die Schnecke winkt mit ihren Fühlern."
+        }
+      ]
+    },
+    {
+      "id": "schnecke",
+      "name": "Schnecke",
+      "bild": "figuren/tiere/schnecke",
+      "x": 1150,
+      "y": 438,
+      "b": 96,
+      "h": 63,
+      "ebene": 2,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:schnecke"
+          ],
+          "raetsel": "schnecke"
+        },
+        {
+          "blase": "Die Schnecke winkt mit ihren Fühlern. „Danke!“"
+        }
+      ]
+    },
+    {
+      "id": "vogelhaus",
+      "name": "Vogelhaus",
+      "x": 1295,
+      "y": 220,
+      "b": 115,
+      "h": 115,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!vogel_da"
+          ],
+          "setze": [
+            "vogel_da"
+          ],
+          "blase": "Ein Rotkehlchen piept: „Das große Flügelpferd? Es flog Richtung Wald!“"
+        },
+        {
+          "blase": "Das Rotkehlchen piept fröhlich."
+        }
+      ]
+    },
+    {
+      "id": "rotkehlchen",
+      "name": "Rotkehlchen",
+      "bild": "figuren/tiere/rotkehlchen",
+      "x": 1378,
+      "y": 262,
+      "b": 74,
+      "h": 71,
+      "ebene": 3,
+      "sichtbar": [
+        "vogel_da"
+      ],
+      "klick": [
+        {
+          "blase": "„Piep! Zum Wald, zum Wald!“"
+        }
+      ]
+    },
+    {
+      "id": "buchstabe",
+      "name": "Versteck",
+      "x": 1285,
+      "y": 233,
+      "b": 100,
+      "h": 100,
+      "ebene": 3,
+      "sichtbar": [
+        "vogel_da",
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "blase": "Neben dem Rotkehlchen lag ein leuchtendes Z!",
+          "bild": "gegenstaende/buchstaben/buchstabe_11_z"
+        }
+      ]
+    },
+    {
+      "id": "trittsteine",
+      "name": "Trittsteine",
+      "x": 600,
+      "y": 455,
+      "b": 420,
+      "h": 420,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:abc"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:abc"
+          ],
+          "raetsel": "abc"
+        },
+        {
+          "blase": "Hüpf, hüpf! Die Steine führen zum Gartentor."
+        }
+      ]
+    },
+    {
+      "id": "hufspuren",
+      "name": "Hufspuren",
+      "x": 1100,
+      "y": 650,
+      "b": 300,
+      "h": 220,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Große Hufspuren! Und daneben viele kleine Spuren von anderen Tieren."
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_entdeckt_etwas",
+      "x": 478,
+      "y": 300,
+      "b": 352,
+      "h": 530,
+      "ebene": 4,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:abc"
+          ],
+          "blase": "„Papas Kompass zeigt gar nicht nach Norden. Die Nadel zeigt zum Wald!“"
+        },
+        {
+          "blase": "„Silberwind ist zum Wald geflogen. Hinterher!“"
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schnueffelt",
+      "x": 990,
+      "y": 600,
+      "b": 170,
+      "h": 185,
+      "ebene": 4,
+      "sichtbar": [
+        "!rabat_blueten"
+      ],
+      "klick": [
+        {
+          "blase": "„Hatschi! Das Gras ist nass. Hier riecht es nach Pferd!“"
+        }
+      ]
+    },
+    {
+      "id": "rabat_blueten",
+      "name": "Rabat mit Blüten",
+      "bild": "figuren/rabat/rabat_bluetenkranz",
+      "x": 1000,
+      "y": 585,
+      "b": 143,
+      "h": 200,
+      "ebene": 4,
+      "sichtbar": [
+        "rabat_blueten"
+      ],
+      "klick": [
+        {
+          "blase": "„Schau mal, ich bin ein rosa Fuchs!“"
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "abc",
+      "typ": "reihenfolge",
+      "stil": "steine",
+      "titel": "Die Trittsteine",
+      "aufgabe": "Ida darf nur in ABC-Reihenfolge auf die Steine springen. Tipp den Stein an, der als Nächstes kommt.",
+      "karten": [
+        "Apfel",
+        "Blüte",
+        "Fuchs",
+        "Igel",
+        "Mond",
+        "Wald"
+      ],
+      "tipps": [
+        "Welches Wort fängt mit A an? Das kommt zuerst.",
+        "A, B, F, I, M, W: Apfel, Blüte, Fuchs, Igel, Mond, Wald."
+      ],
+      "erfolg": "Hüpf, hüpf! Alle Steine in der richtigen Reihenfolge.",
+      "belohnung": {
+        "blase": "Am letzten Stein ist eine große Hufspur. Sie führt zum Gartentor – und das Tor geht auf!"
+      }
+    },
+    {
+      "id": "brunnen",
+      "typ": "auswahl",
+      "titel": "Der Brunnen",
+      "aufgabe": "Ida zieht den Eimer hoch. Auf den Wassertropfen stehen Wörter ohne Anfang. Sp oder St?",
+      "fragen": [
+        {
+          "frage": "_ein",
+          "antworten": [
+            "Sp",
+            "St"
+          ],
+          "richtig": "St"
+        },
+        {
+          "frage": "_ur",
+          "antworten": [
+            "Sp",
+            "St"
+          ],
+          "richtig": "Sp"
+        },
+        {
+          "frage": "_iefel",
+          "antworten": [
+            "Sp",
+            "St"
+          ],
+          "richtig": "St"
+        },
+        {
+          "frage": "_iel",
+          "antworten": [
+            "Sp",
+            "St"
+          ],
+          "richtig": "Sp"
+        },
+        {
+          "frage": "_ern",
+          "antworten": [
+            "Sp",
+            "St"
+          ],
+          "richtig": "St"
+        }
+      ],
+      "tipps": [
+        "Sprich das Wort laut. Hörst du am Anfang Sp oder St?",
+        "Stein, Stiefel und Stern fangen mit St an. Spur und Spiel mit Sp."
+      ],
+      "erfolg": "Platsch! Alle Wörter sind wieder ganz."
+    },
+    {
+      "id": "schnecke",
+      "typ": "auswahl",
+      "titel": "Die Schnecke im Gewächshaus",
+      "aufgabe": "Die Schnecke kennt nur die Grundform der Verben. Hilf ihr: Welches Wort passt in den Satz?",
+      "fragen": [
+        {
+          "frage": "Die Schnecke _ (kriechen).",
+          "antworten": [
+            "kriechen",
+            "kriecht",
+            "krieche"
+          ],
+          "richtig": "kriecht"
+        },
+        {
+          "frage": "Ida _ (gießen) die Tomaten.",
+          "antworten": [
+            "gießen",
+            "gießt",
+            "gieße"
+          ],
+          "richtig": "gießt"
+        },
+        {
+          "frage": "Rabat _ (schnüffeln).",
+          "antworten": [
+            "schnüffeln",
+            "schnüffelt",
+            "schnüffle"
+          ],
+          "richtig": "schnüffelt"
+        }
+      ],
+      "tipps": [
+        "Wer macht etwas? Die Schnecke. Dann heißt es: Die Schnecke kriech…",
+        "Die Schnecke kriecht. Ida gießt. Rabat schnüffelt."
+      ],
+      "erfolg": "Danke! Jetzt kann die Schnecke wieder ganze Sätze sagen."
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!raetsel:abc"
+      ],
+      "text": "Im Gras liegen Trittsteine mit Wörtern. Hüpfen wir drüber?",
+      "zeige": "trittsteine"
+    },
+    {
+      "wenn": [
+        "!raetsel:brunnen"
+      ],
+      "text": "Schau mal in den Brunnen! Da hängt ein Eimer.",
+      "zeige": "brunnen"
+    },
+    {
+      "wenn": [
+        "!raetsel:schnecke"
+      ],
+      "text": "Im Gewächshaus sitzt eine Schnecke. Sie braucht Hilfe.",
+      "zeige": "gewaechshaus"
+    },
+    {
+      "wenn": [
+        "!vogel_da"
+      ],
+      "text": "Hörst du das Piepen? Es kommt aus dem Vogelhaus.",
+      "zeige": "vogelhaus"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Am Vogelhaus glitzert etwas …",
+      "zeige": "buchstabe"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

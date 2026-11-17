@@ -51,7 +51,7 @@ export function Lueckentext({ raetsel, helfer }: { raetsel: LueckenRaetsel; helf
             <button
               key={i}
               data-ziel={`${t.nr}`}
-              class={`luecke ${gefuellt[t.nr] ? 'voll' : ''} ${wackelt === `l${t.nr}` ? 'wackeln' : ''} ${gewaehlt && !gefuellt[t.nr] ? 'bereit' : ''}`}
+              class={`luecke ${luecken[t.nr].wort.length === 1 ? 'buchstabe' : ''} ${gefuellt[t.nr] ? 'voll' : ''} ${wackelt === `l${t.nr}` ? 'wackeln' : ''} ${gewaehlt && !gefuellt[t.nr] ? 'bereit' : ''}`}
               aria-label={gefuellt[t.nr] ? luecken[t.nr].wort : `Lücke ${t.nr + 1}`}
               onClick={() => gewaehlt && versuche(gewaehlt, t.nr)}
             >

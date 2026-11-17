@@ -36,6 +36,7 @@ export function Ziehkarte(props: {
     const dx = (e.clientX - s.x) / skala;
     const dy = (e.clientY - s.y) / skala;
     if (!zieht.current && Math.hypot(dx, dy) < 12) return; // kleine Wackler zaehlen als Antippen
+    if (!zieht.current) document.body.classList.add('ziehen-aktiv'); // Ziele zeigen, wo die Karte hin kann
     zieht.current = true;
     setVersatz({ x: dx, y: dy });
   };
@@ -44,6 +45,7 @@ export function Ziehkarte(props: {
     const s = start.current;
     if (!s || s.id !== e.pointerId) return;
     start.current = null;
+    document.body.classList.remove('ziehen-aktiv');
     const el = e.currentTarget as HTMLElement;
     if (!zieht.current) {
       setVersatz(null);
@@ -62,6 +64,7 @@ export function Ziehkarte(props: {
 
   const abbrechen = () => {
     start.current = null;
+    document.body.classList.remove('ziehen-aktiv');
     zieht.current = false;
     setVersatz(null);
   };

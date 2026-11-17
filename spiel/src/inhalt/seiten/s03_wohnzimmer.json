@@ -1,0 +1,371 @@
+{
+  "id": "s03",
+  "nummer": "3–4",
+  "titel": "Das Wohnzimmer",
+  "hintergrund": "hintergruende/ort02_wohnzimmer",
+  "stimmung": "nacht",
+  "musik": "titel_zuhause",
+  "text": "Ida schleicht ins Wohnzimmer. Oma schläft im Sessel. Ihre Brille ist auf die Nase gerutscht. Ida möchte sie nicht wecken. Auf dem Tisch liegt das Märchenbuch. Ganz vorne steht: „Silberwind und das Licht“. Aber die Seiten sind durcheinander.",
+  "buchstabe": "U",
+  "naechste": "s05",
+  "fertig": "Alles geschafft! Auf zum Dachboden – tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "fenster",
+      "name": "Fenster",
+      "x": 300,
+      "y": 60,
+      "b": 240,
+      "h": 270,
+      "klick": [
+        {
+          "blase": "Draußen leuchtet der Mond. Der Himmel ist noch leer."
+        }
+      ]
+    },
+    {
+      "id": "oma",
+      "name": "Oma schläft im Sessel",
+      "bild": "figuren/oma/oma_schlaeft_im_sessel",
+      "x": 80,
+      "y": 192,
+      "b": 770,
+      "h": 654,
+      "ebene": 2,
+      "klick": [
+        {
+          "blase": "Oma murmelt im Schlaf: „Das Licht … er braucht ein Licht …“"
+        }
+      ]
+    },
+    {
+      "id": "decke",
+      "name": "Omas Decke",
+      "x": 158,
+      "y": 516,
+      "b": 424,
+      "h": 257,
+      "ebene": 3,
+      "funkeln": [
+        "!raetsel:decke"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:decke"
+          ],
+          "raetsel": "decke"
+        },
+        {
+          "blase": "Die Decke hält Oma schön warm."
+        }
+      ]
+    },
+    {
+      "id": "foto_bild",
+      "name": "Gerahmtes Foto (Bild)",
+      "bild": "gegenstaende/buch/foto_oma_pegasus_gerahmt",
+      "x": 718,
+      "y": 174,
+      "b": 144,
+      "h": 108,
+      "ebene": 1
+    },
+    {
+      "id": "foto",
+      "name": "Foto auf dem Kaminsims",
+      "x": 710,
+      "y": 166,
+      "b": 160,
+      "h": 124,
+      "ebene": 6,
+      "klick": [
+        {
+          "bild": "gegenstaende/buch/foto_oma_pegasus_gerahmt",
+          "blase": "Oma als kleines Mädchen – mit einem silbernen Pferd mit Flügeln! Sie hat dieselbe weiße Strähne wie Ida. Ida fasst nach ihrer eigenen Strähne und staunt."
+        }
+      ]
+    },
+    {
+      "id": "ofen",
+      "name": "Ofen",
+      "x": 940,
+      "y": 320,
+      "b": 210,
+      "h": 190,
+      "klick": [
+        {
+          "wenn": [
+            "!rabat_ofen"
+          ],
+          "setze": [
+            "rabat_ofen"
+          ],
+          "blase": "Rabat legt sich vor den Ofen. „Hier ist es schön. Müssen wir wirklich raus?“"
+        },
+        {
+          "blase": "Das Feuer glimmt nur noch. Es knistert leise."
+        }
+      ]
+    },
+    {
+      "id": "kuckucksuhr",
+      "name": "Kuckucksuhr",
+      "x": 1280,
+      "y": 30,
+      "b": 175,
+      "h": 175,
+      "klick": [
+        {
+          "wenn": [
+            "!kuckuck_raus"
+          ],
+          "setze": [
+            "kuckuck_raus"
+          ],
+          "blase": "Kuckuck! Kuckuck! Zwölf Mal ruft der Kuckuck. Mitternacht!"
+        },
+        {
+          "blase": "Tick, tack. Es ist schon nach Mitternacht."
+        }
+      ]
+    },
+    {
+      "id": "kuckuck",
+      "name": "Kuckuck mit Schild",
+      "bild": "gegenstaende/klickobjekte/kuckuck_u",
+      "x": 1250,
+      "y": 8,
+      "b": 232,
+      "h": 203,
+      "ebene": 3,
+      "sichtbar": [
+        "kuckuck_raus",
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "blase": "Der Kuckuck bringt dir ein leuchtendes U!",
+          "bild": "gegenstaende/buchstaben/buchstabe_02_u"
+        }
+      ]
+    },
+    {
+      "id": "pendel",
+      "name": "Pendel der Kuckucksuhr",
+      "x": 1320,
+      "y": 200,
+      "b": 90,
+      "h": 130,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:schlange"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:schlange"
+          ],
+          "raetsel": "schlange"
+        },
+        {
+          "blase": "Oma wartet auf Silberwind. Das Pendel schwingt hin und her."
+        }
+      ]
+    },
+    {
+      "id": "buch",
+      "name": "Märchenbuch",
+      "x": 1015,
+      "y": 560,
+      "b": 245,
+      "h": 135,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:geschichte"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:geschichte"
+          ],
+          "raetsel": "geschichte"
+        },
+        {
+          "blase": "„Silberwind und das Licht“ – jetzt stimmt die Geschichte wieder."
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_krabbelt",
+      "x": 545,
+      "y": 412,
+      "b": 411,
+      "h": 420,
+      "ebene": 4,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:geschichte"
+          ],
+          "blase": "„Psst! Oma schläft.“"
+        },
+        {
+          "blase": "„Omas Laterne … die hole ich vom Dachboden!“"
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_vorne",
+      "x": 282,
+      "y": 62,
+      "b": 130,
+      "h": 177,
+      "ebene": 3,
+      "sichtbar": [
+        "!rabat_ofen"
+      ],
+      "klick": [
+        {
+          "blase": "„Hier riecht es nach Omas Keksen!“"
+        }
+      ]
+    },
+    {
+      "id": "rabat_ofen",
+      "name": "Rabat vor dem Ofen",
+      "bild": "figuren/rabat/rabat_eingerollt_schlaeft",
+      "x": 935,
+      "y": 427,
+      "b": 220,
+      "h": 98,
+      "ebene": 2,
+      "sichtbar": [
+        "rabat_ofen"
+      ],
+      "klick": [
+        {
+          "blase": "„Nur noch fünf Minuten …“"
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "geschichte",
+      "typ": "reihenfolge",
+      "titel": "Das Märchenbuch",
+      "aufgabe": "Die Seiten der Geschichte sind durcheinander. Tipp den Satz an, der als Nächstes kommt.",
+      "karten": [
+        "Jedes Jahr, wenn der Kirschbaum blüht, kommt Silberwind.",
+        "Er sucht das Licht in Lenes Fenster.",
+        "Das Licht zeigt ihm den Weg.",
+        "Dann landet er im Garten und Lene streichelt ihn."
+      ],
+      "tipps": [
+        "Was passiert zuerst? Der Kirschbaum blüht – dann kommt Silberwind.",
+        "Erst kommt Silberwind. Dann sucht er das Licht. Das Licht zeigt ihm den Weg. Zum Schluss landet er."
+      ],
+      "erfolg": "Jetzt stimmt die Geschichte: Silberwind und das Licht!",
+      "belohnung": {
+        "setze": [
+          "hinweis_laterne"
+        ],
+        "blase": "Unten im Buch steht noch etwas: „Omas Laterne liegt auf dem Dachboden.“"
+      }
+    },
+    {
+      "id": "decke",
+      "typ": "paare",
+      "titel": "Omas Strickdecke",
+      "aufgabe": "Auf der Decke sind Musterpaare. Immer fehlt ein Teil. Finde zu jedem Wort das Gegenteil.",
+      "paare": [
+        [
+          "groß",
+          "klein"
+        ],
+        [
+          "hell",
+          "dunkel"
+        ],
+        [
+          "alt",
+          "jung"
+        ],
+        [
+          "warm",
+          "kalt"
+        ],
+        [
+          "laut",
+          "leise"
+        ]
+      ],
+      "tipps": [
+        "Das Gegenteil von groß ist etwas ganz Kleines.",
+        "groß – klein, hell – dunkel. Was ist das Gegenteil von alt?"
+      ],
+      "erfolg": "Die Decke ist fertig! Ida legt sie Oma über die Beine.",
+      "belohnung": {
+        "blase": "Oma lächelt im Schlaf."
+      }
+    },
+    {
+      "id": "schlange",
+      "typ": "wortschlange",
+      "titel": "Die Wortschlange",
+      "aufgabe": "Auf dem Pendel steht ein Spruch ohne Lücken. Tipp zwischen die Buchstaben, wo ein Wort aufhört.",
+      "satz": "Oma wartet auf Silberwind",
+      "tipps": [
+        "Lies ganz langsam: O – M – A. Das ist schon ein Wort!",
+        "Oma | wartet | auf | Silberwind. Setz einen Strich nach OMA."
+      ],
+      "erfolg": "Oma wartet auf Silberwind! Tick, tack."
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!raetsel:geschichte"
+      ],
+      "text": "Auf dem Tisch liegt Omas Märchenbuch. Die Seiten sind durcheinander!",
+      "zeige": "buch"
+    },
+    {
+      "wenn": [
+        "!raetsel:decke"
+      ],
+      "text": "Schau mal, Omas Decke! Da fehlt etwas im Muster.",
+      "zeige": "decke"
+    },
+    {
+      "wenn": [
+        "!raetsel:schlange"
+      ],
+      "text": "Auf dem Pendel der Kuckucksuhr steht etwas. Tipp drauf!",
+      "zeige": "pendel"
+    },
+    {
+      "wenn": [
+        "!kuckuck_raus"
+      ],
+      "text": "Hör mal, die Kuckucksuhr! Gleich kommt jemand heraus.",
+      "zeige": "kuckucksuhr"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "Der Kuckuck hat etwas für dich. Tipp ihn an!",
+      "zeige": "kuckuck"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

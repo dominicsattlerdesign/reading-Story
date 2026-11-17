@@ -22,7 +22,9 @@ const regeln = [
   { ordner: 'gegenstaende/einzeln/knoepfe', max: 900, qualitaet: 88 },
   { ordner: 'gegenstaende/einzeln/kulissen', max: 400, qualitaet: 80, nurDateien: /^kulisse\d_\d+\.png$/ },
   { ordner: 'gegenstaende', max: 640, qualitaet: 85, nurDateien: /^omas_kinderfoto\.png$/, flach: true },
-  { ordner: 'figuren', max: 900, qualitaet: 82, nurDateien: /^silberwind_liegend\.png$/, flach: true },
+  { ordner: 'figuren', max: 900, qualitaet: 82, nurDateien: /^silberwind_liegend(_ohne_schnee)?\.png$/, flach: true },
+  // grosse Figurenbilder fuer die letzten Seiten (Flug-Panorama, Oma und Silberwind im Garten)
+  { ordner: 'figuren', max: 1100, qualitaet: 82, nurDateien: /^(ida_silberwind_flug|frau_flocke_fliegt|oma_silberwind_umarmung)\.png$/, flach: true },
 ];
 
 async function* dateien(dir, flach) {

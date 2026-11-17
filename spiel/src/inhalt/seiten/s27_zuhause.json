@@ -1,0 +1,356 @@
+{
+  "id": "s27",
+  "nummer": "27–28",
+  "titel": "Wieder zu Hause",
+  "hintergrund": "hintergruende/ort14_garten_morgen_neu",
+  "musik": "titel_zuhause",
+  "text": "Silberwind landet im Garten. Die Tür geht auf. Da steht Oma. Sie hat Tränen in den Augen. „Silberwind! Du bist da!“ Sie umarmt seinen Hals. Mama nimmt Ida in die Arme. „Wo warst du denn?“ Ida lacht. „Das ist eine lange Geschichte.“ Oma streicht Ida sanft über die weiße Strähne. „Du warst sehr mutig.“ „Ich war nicht allein“, sagt Ida. Rabat wedelt stolz mit dem Schwanz.",
+  "naechste": null,
+  "fertig": "Was für ein Tag! Tipp unten auf Weiter, dann geht Ida schlafen.",
+  "schluss": {
+    "bild": "figuren/ida/ida_im_bett_mit_rabat",
+    "text": "Ida liegt im Bett. Rabat rollt sich auf ihren Füßen zusammen. Draußen steht ein heller Stern, der aussieht wie ein Pferd mit Flügeln. „Gute Nacht, Rabat.“ „Gute Nacht, Ida.“ Zum ersten Mal hat sie keine Angst vor der Dunkelheit."
+  },
+  "objekte": [
+    {
+      "id": "kirschbaum",
+      "name": "Kirschbaum",
+      "x": 0,
+      "y": 0,
+      "b": 1100,
+      "h": 190,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Silberwind schüttelt sanft die Äste. Ein Blütenregen fällt auf die ganze Familie."
+        }
+      ]
+    },
+    {
+      "id": "tor",
+      "name": "Gartentor",
+      "x": 708,
+      "y": 306,
+      "b": 259,
+      "h": 144,
+      "ebene": 1,
+      "klick": [
+        {
+          "wenn": [
+            "!familie_gesehen"
+          ],
+          "setze": [
+            "familie_gesehen"
+          ],
+          "bild": "figuren/mama/mama_umarmt_ida",
+          "blase": "Mama läuft durchs Gartentor und nimmt Ida fest in die Arme. „Wo warst du denn?“ Ida lacht. „Das ist eine lange Geschichte.“"
+        },
+        {
+          "wenn": [
+            "!schal_zurueck"
+          ],
+          "setze": [
+            "schal_zurueck"
+          ],
+          "blase": "Ida gibt Mama den roten Schal zurück. „Behalte ihn“, sagt Mama."
+        },
+        {
+          "blase": "Ida gibt Papa den Kompass. Die Nadel zeigt wieder nach Norden. „Und auf Zuhause“, sagt Papa."
+        }
+      ]
+    },
+    {
+      "id": "laterne",
+      "name": "Laterne",
+      "x": 1462,
+      "y": 160,
+      "b": 62,
+      "h": 125,
+      "ebene": 2,
+      "klick": [
+        {
+          "blase": "Oma stellt Idas Laterne ins Fenster. „Jetzt findet Silberwind immer den Weg.“"
+        }
+      ]
+    },
+    {
+      "id": "tagebuch",
+      "name": "Idas Fenster",
+      "x": 1530,
+      "y": 115,
+      "b": 70,
+      "h": 270,
+      "ebene": 2,
+      "funkeln": [
+        "!raetsel:tagebuch"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:tagebuch"
+          ],
+          "raetsel": "tagebuch"
+        },
+        {
+          "blase": "Hinter diesem Fenster ist Idas Zimmer. Dort liegt jetzt ihr Tagebuch mit der ganzen Reise."
+        }
+      ]
+    },
+    {
+      "id": "tasse",
+      "name": "Haus",
+      "x": 1390,
+      "y": 0,
+      "b": 140,
+      "h": 420,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Aus dem Haus duftet es nach Kakao und frischen Brötchen."
+        }
+      ]
+    },
+    {
+      "id": "schaukel",
+      "name": "Reifenschaukel",
+      "x": 478,
+      "y": 364,
+      "b": 144,
+      "h": 114,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:freundebuch"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:freundebuch"
+          ],
+          "raetsel": "freundebuch"
+        },
+        {
+          "blase": "An der Reifenschaukel liegt Idas Freundebuch. Es ist jetzt ganz voll."
+        }
+      ]
+    },
+    {
+      "id": "brunnen",
+      "name": "Brunnen",
+      "x": 53,
+      "y": 220,
+      "b": 290,
+      "h": 420,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:reise"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:reise"
+          ],
+          "raetsel": "reise"
+        },
+        {
+          "blase": "Der alte Brunnen. Hier hat Ida der Familie die ganze Reise erzählt."
+        }
+      ]
+    },
+    {
+      "id": "hufeisen",
+      "name": "Hufeisenstein",
+      "x": 1250,
+      "y": 540,
+      "b": 185,
+      "h": 130,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ein Stein mit einem Hufeisen. Oma sagt, er bringt Glück. Silberwind schnuppert daran."
+        }
+      ]
+    },
+    {
+      "id": "oma",
+      "name": "Oma und Silberwind",
+      "bild": "figuren/oma_silberwind_umarmung",
+      "x": 825,
+      "y": 185,
+      "b": 510,
+      "h": 585,
+      "ebene": 3,
+      "klick": [
+        {
+          "blase": "Oma flüstert Silberwind etwas ins Ohr. Er wiehert leise."
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_lacht_freut_sich",
+      "x": 560,
+      "y": 355,
+      "b": 160,
+      "h": 415,
+      "ebene": 4,
+      "klick": [
+        {
+          "blase": "„Ich war nicht allein“, sagt Ida und lächelt Rabat an."
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schal_wedelt",
+      "x": 410,
+      "y": 565,
+      "b": 124,
+      "h": 205,
+      "ebene": 5,
+      "klick": [
+        {
+          "blase": "Rabat wedelt stolz mit dem Schwanz."
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "tagebuch",
+      "typ": "fehler",
+      "titel": "Idas Tagebuch",
+      "aufgabe": "Am Abend schreibt Ida in ihr Tagebuch, genau wie Oma früher. Aber sie ist so müde, dass Fehler drin sind. Tipp die falschen Wörter an, dann werden sie richtig.",
+      "text": "{heute|Heute} habe ich {silberwind|Silberwind} gefunden. {rabat|Rabat} war bei {mir|mir.} Ich hatte {angst|Angst}, aber ich war mutig.",
+      "tipps": [
+        "Am Satzanfang schreibt man groß. Namen und Nomen auch. Und am Satzende steht ein Punkt.",
+        "Heute, Silberwind, Rabat und Angst schreibt man groß. Nach „mir“ fehlt der Punkt."
+      ],
+      "erfolg": "Das Tagebuch ist fertig!",
+      "belohnung": {
+        "blase": "Ida klappt das Tagebuch zu. Morgen liest sie es Oma vor."
+      }
+    },
+    {
+      "id": "reise",
+      "typ": "reihenfolge",
+      "stil": "steine",
+      "titel": "Die Reise erzählen",
+      "aufgabe": "Am Brunnen erzählt Ida der Familie alles. Wo war sie zuerst, wo danach? Tipp die Orte in der richtigen Reihenfolge an.",
+      "karten": [
+        "Zimmer",
+        "Dachboden",
+        "Garten",
+        "Brücke",
+        "Nebelwald",
+        "Hexenhaus",
+        "Mondsee",
+        "Höhle",
+        "Wolkenberg"
+      ],
+      "tipps": [
+        "Denk an die Reise: Sie fing in Idas Zimmer an und endete ganz oben am Berg.",
+        "Zimmer, Dachboden, Garten, Brücke, Nebelwald, Hexenhaus, Mondsee, Höhle, Wolkenberg."
+      ],
+      "erfolg": "Ida hat die ganze Reise erzählt!",
+      "belohnung": {
+        "blase": "Papa staunt. Mama lacht. Und Oma sagt leise: „Genau so war es bei mir auch.“"
+      }
+    },
+    {
+      "id": "freundebuch",
+      "typ": "auswahl",
+      "titel": "Das Freundebuch",
+      "aufgabe": "Ida schreibt in ihr Freundebuch. Zu jedem Freund passt ein Wiewort. Lies den Satz und tipp das passende Wort an.",
+      "fragen": [
+        {
+          "frage": "Brummbart strickt Fäustlinge für alle. Er ist _.",
+          "antworten": [
+            "fleißig",
+            "faul",
+            "frech"
+          ],
+          "richtig": "fleißig"
+        },
+        {
+          "frage": "Holunda kennt viele Rezepte und Rätsel. Sie ist _.",
+          "antworten": [
+            "laut",
+            "klug",
+            "wild"
+          ],
+          "richtig": "klug"
+        },
+        {
+          "frage": "Perla singt leise und hilft gern. Sie ist _.",
+          "antworten": [
+            "grob",
+            "böse",
+            "sanft"
+          ],
+          "richtig": "sanft"
+        },
+        {
+          "frage": "Frau Flocke kennt jeden Weg auf dem Berg. Sie ist _.",
+          "antworten": [
+            "weise",
+            "müde",
+            "nass"
+          ],
+          "richtig": "weise"
+        },
+        {
+          "frage": "Rabat lässt Ida nie allein. Er ist _.",
+          "antworten": [
+            "feige",
+            "treu",
+            "frech"
+          ],
+          "richtig": "treu"
+        }
+      ],
+      "tipps": [
+        "Lies den ersten Satz genau. Er verrät, welches Wort passt.",
+        "fleißig, klug, sanft, weise, treu."
+      ],
+      "erfolg": "Das Freundebuch ist voll!",
+      "belohnung": {
+        "blase": "Ida malt neben jeden Namen ein kleines Herz."
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!familie_gesehen"
+      ],
+      "text": "Wer läuft denn da durchs Gartentor? Tipp es an!",
+      "zeige": "tor"
+    },
+    {
+      "wenn": [
+        "!raetsel:reise"
+      ],
+      "text": "Am Brunnen will Ida der Familie alles erzählen. Tipp den Brunnen an.",
+      "zeige": "brunnen"
+    },
+    {
+      "wenn": [
+        "!raetsel:freundebuch"
+      ],
+      "text": "An der Reifenschaukel liegt Idas Freundebuch.",
+      "zeige": "schaukel"
+    },
+    {
+      "wenn": [
+        "!raetsel:tagebuch"
+      ],
+      "text": "Am Abend schreibt Ida in ihrem Zimmer Tagebuch. Tipp ihr Fenster am Haus an.",
+      "zeige": "tagebuch"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

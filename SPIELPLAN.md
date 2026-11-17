@@ -26,7 +26,7 @@ Ein Point-and-Click-Abenteuer im Buchstil für Kinder der 2. Klasse. Es läuft i
 - **Kein Vorlesen:** Das Kind liest alle Texte selbst. Darum sind die Texte kurz, in großer Schrift und in einfacher Sprache geschrieben.
 - **Dinge zum Antippen** reagieren mit einer kleinen Animation und einer Sprechblase, die vorgelesen werden kann. Einige öffnen ein Rätsel.
 - **Unten links Rabat als Hilfe-Knopf:** Einmal tippen gibt einen Tipp, zweimal tippen einen deutlicheren Tipp.
-- **Inventar-Leiste** mit den sieben Fundstücken. Die Laterne zeigt, wie viele Lichter schon darin sind.
+- **Inventar-Leiste** mit acht Fundstücken: den sieben aus der Geschichte und Holundas Honigkeksen (Seite 15–16, für Perla am Mondsee). Die Laterne zeigt, wie viele Lichter schon darin sind.
 - **Drei Punkte** zeigen die drei Rätsel der Seite. Wenn alle gelöst sind, leuchtet **„Weiter“** auf, und die Seite blättert mit einer Animation um.
 - **Versteckter Buchstabe:** Er glitzert leicht, ein Antippen sammelt ihn ein. Er ist freiwillig.
 
@@ -55,15 +55,16 @@ Die über 40 Rätsel der Geschichte lassen sich auf 10 wiederverwendbare Rätsel
 | Typ | So funktioniert er | Rätsel aus der Geschichte |
 | --- | --- | --- |
 | **Lücken füllen** | Wortkarten in Lücken ziehen | S1 Brief, S11 Gedicht, S25 Brummbarts Brief |
-| **Reihenfolge** | Karten in die richtige Reihenfolge schieben | S3 Sätze, S7 ABC, S15 Karte an Holunda, S21 ABC nach dem 2. Buchstaben, S27 Reise erzählen, Zauberwort |
-| **Sortieren** | Karten in Körbe oder Kisten ziehen | S1 Aufräumen, S5 Kisten, S9 der/die/das, S13 Wortarten, S19 Wortfamilien, S23 Fundstück zu Person, S25 Wer wohnt wo, S27 Freundebuch |
-| **Auswahl** | Aus 2–3 Antworten die richtige antippen | S7 Sp/St, S7 Tunwörter, S9 Ja/Nein, S11 Reime, S13 Punkt oder Fragezeichen, S13 Silbentrennung, S15 Kräutergläser, S17 au/eu/ei, S17 Gefühle, S19 Mehrzahl, S19 Gänge, S21 Verlängern ×2, S25 Abschiedsrätsel |
-| **Paare finden** | Zwei zusammengehörige Karten antippen | S3 Gegenteile, S11 Reimpaare |
+| **Reihenfolge** | Karten in die richtige Reihenfolge schieben | S3 Sätze, S7 ABC, S15 Karte an Holunda, S21 ABC nach dem 2. Buchstaben, S27 Reise erzählen |
+| **Sortieren** | Karten in Körbe oder Kisten ziehen | S1 Aufräumen, S5 Kisten, S9 der/die/das, S13 Wortarten, S19 Wortfamilien |
+| **Auswahl** | Aus 2–3 Antworten die richtige antippen | S7 Sp/St, S7 Verben, S9 Ja/Nein, S11 Reime, S13 Punkt oder Fragezeichen, S13 Silbentrennung, S15 Kräutergläser, S17 au/eu/ei, S17 Gefühle, S19 Mehrzahl, S19 Gänge, S21 Wiewörter, S25 Abschiedsrätsel, S27 Freundebuch |
+| **Paare finden** | Zwei zusammengehörige Karten antippen (bei langen Sätzen als Liste) | S3 Gegenteile, S11 Reimpaare, S23 Fundstück zu Person, S25 Wer wohnt wo |
 | **Fehler antippen** | Falsche Wörter antippen, sie werden dann richtig geschrieben | S5 Omas Tagebuch, S27 Idas Tagebuch |
 | **Silben** | Silben zählen (Klatsch-Knopf) oder Silbenkarten zusammensetzen | S1 Spieluhr, S9 Wegweiser |
 | **Wörter bauen** | Zwei Wortteile verbinden oder Buchstaben einsetzen | S5 Kofferschloss, S17 Perlas Lied |
 | **Wortschlange** | Zwischen die Buchstaben Trennstriche tippen | S3 Kuckucksuhr |
-| **Satz bauen** | Wortkarten zu einem Satz ordnen, mit großem Anfang und Punkt | S15 Rezept, S23 Gedanken ordnen |
+| **Satz bauen** | Wortkarten der Reihe nach antippen; das erste Wort wird beim Einrasten groß, zum Schluss kommt der Punkt (Typ `satzbau`) | S15 Rezept, S23 Gedanken ordnen |
+| **Zauberwort** | Die goldenen Buchstaben der Reise der Reihe nach antippen, sie rasten in zwei Wortfelder ein (Typ `zauberwort`) | S23 MUTIGES HERZ |
 
 Welche Rätsel zusammengehören, steht in Datendateien (JSON), eine pro Doppelseite. Wörter austauschen oder einen leichteren oder schwereren Modus nachrüsten heißt dann: nur die Datei ändern.
 
@@ -108,11 +109,50 @@ Für Etappe 7 sind noch nötig: **Android Studio mit Java (JDK)**. Ein Android-S
 
 Für Etappe 0 wird **Git** gebraucht. Das Programm `git` selbst ist auf dem Rechner noch nicht installiert. Das Repo existiert schon auf GitHub.
 
+## 6a. Musik
+
+Vor dem Buch erscheint nur ein großer **Start-Knopf** über dem unscharfen Tisch. Das Antippen ist nötig, weil Browser erst danach Ton abspielen dürfen.
+
+Jede Szene hat einen Musik-Loop, der endlos läuft. Beim Umblättern blendet die Musik in 2,5 Sekunden weich zur nächsten über. Im Elternbereich lässt sich die Musik ausschalten.
+
+Die Originale liegen unverändert in `musik/originale/`. `npm run musik` schneidet die ersten 10 Sekunden ab, sucht gegen Ende die Stelle, die am besten zum Anfang passt, blendet dort 3 Sekunden weich über und speichert die Loops als MP3 in `musik/loops/`.
+
+| Loop | Original | Wo |
+| --- | --- | --- |
+| `titel_zuhause` | titel melodie und zuhause | Startseite, Seite 1–6 (Zimmer, Wohnzimmer, Dachboden), Seite 27–28 |
+| `nachtlied` | Spring Night Lullaby | Seite 11–12 (Brücke) |
+| `garten_waldrand` | garten und waldrand | Seite 7–10 (Garten, Waldrand) |
+| `nebelwald` | Nebelwald | Seite 13–14 (Nebelwald) |
+| `hexenhaus` | holundas hexenhaus | Seite 15–16 |
+| `mondsee` | mondsee | Seite 17–18 |
+| `echohoehle` | echohöhle | Seite 19–20 |
+| `wolkenpfad_gipfel` | wolkenpfad und gipfel | Seite 21–24 |
+| `flug_finale` | flugnachhause und finale | Seite 25–26 |
+
+## 6b. Versteckte Buchstaben
+
+Die goldenen Buchstaben erscheinen bewusst **nicht** in der Reihenfolge von MUTIGES HERZ, damit das Kind am Ende daraus das Zauberwort zusammensetzen muss. Ein Test prüft, dass alle Buchstaben zusammen genau aus MUTIGES HERZ stammen.
+
+| Seite | Buchstabe | Versteck |
+| --- | --- | --- |
+| 1–2 | E | auf dem Bett, wo Rabat geschlafen hat |
+| 3–4 | U | Schild des Kuckucks |
+| 5–6 | R | Sattel des Schaukelpferds |
+| 7–8 | Z | am Vogelhaus beim Rotkehlchen |
+| 9–10 | M | in der Laterne am Gartentor |
+| 11–12 | E | hinter dem Mond (erscheint beim Antippen) |
+| 13–14 | S | in der Spirale auf dem Stein (erscheint beim Antippen) |
+| 15–16 | H | unter dem Flügel von Rabe Kasimir (beim zweiten Antippen) |
+| 17–18 | I | in der größten Seerose (Geschichte nennt E, das ist aber schon zweimal vergeben) |
+| 19–20 | G | im blauen Kristall am Höhlenausgang (Geschichte nennt R, das ist schon vergeben) |
+| 21–22 | T | im Nest auf dem Felsen am Steinbogen, sichtbar, wenn Frau Flocke weitergeflogen ist |
+| 23–24 | – | kein Buchstabe mehr: hier legt das Kind aus allen elf Buchstaben das Zauberwort MUTIGES HERZ (Rätseltyp `zauberwort`) |
+
 ## 7. Was es noch nicht gibt (Entscheidungen mit Vorschlag)
 
 | Punkt | Vorschlag |
 | --- | --- |
-| **Geräusche und Musik** | Es gibt noch keine. Vorschlag: In Etappe 6 ein paar freie Geräusche (Funkeln, Umblättern, Klopfen) und leise Hintergrundmusik, beides abschaltbar. Bis dahin ist das Spiel stumm. |
+| **Geräusche und Musik** | Musik ist da (siehe 6a). Geräusche (Funkeln, Umblättern, Klopfen) fehlen noch. |
 | **Startbild / Buchdeckel** | Entschieden: geschlossenes Buch (`buchdeckel_maerchenbuch`) auf dem Tisch (`start_tisch_tischdecke`), auf dem Deckel Titel und Omas altes Kinderfoto mit Silberwind. Das Flug-Panorama mit Silberwind verrät das Ende und wird nicht verwendet. |
 | **Zweites Mädchen auf „Familie in der Tür“** | Das Bild nur verwenden, wenn es dich nicht stört. Sonst bleibt es weg, oder ein neues Bild wird erzeugt. |
-| **Kuckuck mit „A“** | Der Buchstabe U wird im Spiel über das Schild gelegt. |
+| **Kuckuck mit „A“** | Erledigt: `kuckuck_u` hat ein übermaltes Schild mit **U**. |

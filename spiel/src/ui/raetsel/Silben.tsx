@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { SilbenRaetsel } from '../../inhalt/typen';
-import { ohneTrennung, silben } from '../../engine/logik';
+import { mischen, ohneTrennung, silben } from '../../engine/logik';
 import { asset } from '../../inhalt';
 
 const klatschBild = asset('gegenstaende/oberflaeche/klatschen');
@@ -18,15 +18,17 @@ export function Silben({ raetsel, helfer }: { raetsel: SilbenRaetsel; helfer: Ra
 
   useEffect(() => () => { if (uhr.current) window.clearTimeout(uhr.current); }, []);
 
-  const fertigAlle = nr >= raetsel.woerter.length;
-  const wort = raetsel.woerter[Math.min(nr, raetsel.woerter.length - 1)];
+  // Woerter gemischt, damit nicht erst alle kurzen und dann alle langen kommen
+  const woerter = useMemo(() => mischen(raetsel.woerter), [raetsel.id]);
+  const fertigAlle = nr >= woerter.length;
+  const wort = woerter[Math.min(nr, woerter.length - 1)];
   const teile = silben(wort);
 
   const pruefen = () => {
     if (richtig || klatscher === 0) return;
     if (klatscher === teile.length) {
       setRichtig(true);
-      if (nr < raetsel.woerter.length - 1) fb.richtig();
+      if (nr < woerter.length - 1) fb.richtig();
       uhr.current = window.setTimeout(() => {
         setNr((n) => n + 1);
         setKlatscher(0);
@@ -44,8 +46,8 @@ export function Silben({ raetsel, helfer }: { raetsel: SilbenRaetsel; helfer: Ra
   return (
     <RaetselRahmen titel={raetsel.titel} aufgabe={raetsel.aufgabe} geloest={fertigAlle} helfer={helfer} erfolgText={raetsel.erfolg}>
       <div class="silben">
-        <div class="silben-fortschritt" aria-label={`Wort ${Math.min(nr + 1, raetsel.woerter.length)} von ${raetsel.woerter.length}`}>
-          {raetsel.woerter.map((_, i) => (
+        <div class="silben-fortschritt" aria-label={`Wort ${Math.min(nr + 1, woerter.length)} von ${woerter.length}`}>
+          {woerter.map((_, i) => (
             <span key={i} class={i < nr || (i === nr && richtig) ? 'punkt an' : 'punkt'} />
           ))}
         </div>

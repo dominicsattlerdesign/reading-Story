@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { asset } from '../inhalt';
 import { Halteknopf } from './Halteknopf';
+import { MusikKnopf } from './MusikKnopf';
 
 /** So lange dauert das Aufschlagen: Deckel klappt auf, Titelblatt mit Mitwirkenden bleibt kurz liegen, dann Zoom ins Buch */
 export const AUFSCHLAGEN_MS = 4800;
@@ -79,6 +80,7 @@ export function Startseite(props: { kannWeiterlesen: boolean; weiterlesen: () =>
         </div>
       </div>
 
+      <MusikKnopf />
       <Halteknopf class="ecke-oben-rechts bild-knopf" label="Elternbereich" ausloesen={props.oeffneEltern}>
         <img src={asset('gegenstaende/oberflaeche/einstellungen')} alt="" draggable={false} />
       </Halteknopf>

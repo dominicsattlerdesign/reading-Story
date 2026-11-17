@@ -1,0 +1,373 @@
+{
+  "id": "s09",
+  "nummer": "9–10",
+  "titel": "Am Waldrand",
+  "hintergrund": "hintergruende/ort05_waldrand",
+  "stimmung": "nacht",
+  "musik": "garten_waldrand",
+  "text": "Ida steht am Waldrand. Sie war noch nie nachts hier. Hinter ihr leuchtet das Haus. Vor ihr ist der Wald. „Wir können noch umdrehen“, sagt Rabat leise. Ida schaut zurück. Sie denkt an Oma. „Nein. Silberwind braucht uns.“",
+  "buchstabe": "M",
+  "naechste": "s11",
+  "fertig": "Alles geschafft! Der Weg zur Brücke ist frei. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "tor",
+      "name": "Gartentor",
+      "x": 225,
+      "y": 360,
+      "b": 255,
+      "h": 330,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Hinter dem Tor liegt Omas Garten. Jetzt geht es in den Wald."
+        }
+      ]
+    },
+    {
+      "id": "haus",
+      "name": "Haus in der Ferne",
+      "x": 1400,
+      "y": 260,
+      "b": 150,
+      "h": 110,
+      "klick": [
+        {
+          "blase": "„Wie es wohl Louisa geht?“"
+        }
+      ]
+    },
+    {
+      "id": "wegweiser",
+      "name": "Wegweiser",
+      "x": 880,
+      "y": 205,
+      "b": 230,
+      "h": 370,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:wegweiser"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:wegweiser"
+          ],
+          "raetsel": "wegweiser"
+        },
+        {
+          "blase": "Nebelwald, Mondsee, Wolkenberg – und die Brücke. Der Kompass zeigt zur Brücke."
+        }
+      ]
+    },
+    {
+      "id": "baumstumpf",
+      "name": "Baumstumpf",
+      "x": 1175,
+      "y": 480,
+      "b": 300,
+      "h": 320,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:nuesse"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:nuesse"
+          ],
+          "raetsel": "nuesse"
+        },
+        {
+          "blase": "Ein alter Baumstumpf mit Pilzen. Das Eichhörnchen ist weg."
+        }
+      ]
+    },
+    {
+      "id": "eichhoernchen",
+      "name": "Eichhörnchen",
+      "bild": "figuren/tiere/eichhoernchen_schlafend",
+      "x": 1250,
+      "y": 432,
+      "b": 147,
+      "h": 100,
+      "ebene": 2,
+      "sichtbar": [
+        "!raetsel:nuesse"
+      ],
+      "klick": [
+        {
+          "raetsel": "nuesse"
+        }
+      ]
+    },
+    {
+      "id": "buchstabe",
+      "name": "Versteck",
+      "x": 254,
+      "y": 249,
+      "b": 100,
+      "h": 100,
+      "ebene": 3,
+      "sichtbar": [
+        "!buchstabe"
+      ],
+      "klick": [
+        {
+          "buchstabe": true,
+          "blase": "In der Laterne lag ein leuchtendes M!",
+          "bild": "gegenstaende/buchstaben/buchstabe_01_m"
+        }
+      ]
+    },
+    {
+      "id": "ida_schal",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_laechelt",
+      "x": 560,
+      "y": 262,
+      "b": 220,
+      "h": 560,
+      "ebene": 4,
+      "sichtbar": [
+        "!raetsel:wegweiser"
+      ],
+      "klick": [
+        {
+          "blase": "Ida zieht Mamas Schal enger. Er ist warm."
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "bild": "figuren/ida/ida_schal_mutig_zeigt",
+      "x": 530,
+      "y": 262,
+      "b": 310,
+      "h": 560,
+      "ebene": 4,
+      "sichtbar": [
+        "raetsel:wegweiser"
+      ],
+      "klick": [
+        {
+          "blase": "„Zur Brücke! Silberwind braucht uns.“"
+        }
+      ]
+    },
+    {
+      "id": "rabat",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_schnueffelt",
+      "x": 1000,
+      "y": 588,
+      "b": 160,
+      "h": 175,
+      "ebene": 4,
+      "funkeln": [
+        "!raetsel:spuernase"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:spuernase"
+          ],
+          "setze": [
+            "rabat_ruhig"
+          ],
+          "raetsel": "spuernase"
+        },
+        {
+          "setze": [
+            "rabat_ruhig"
+          ],
+          "blase": "„Riechst du das? Hier war ein Pferd. Und ein Troll.“"
+        }
+      ],
+      "sichtbar": [
+        "!rabat_ruhig"
+      ]
+    },
+    {
+      "id": "rabat_ruhig",
+      "name": "Rabat",
+      "bild": "figuren/rabat/rabat_sitzt_lachend",
+      "x": 1005,
+      "y": 575,
+      "b": 172,
+      "h": 188,
+      "ebene": 4,
+      "sichtbar": [
+        "rabat_ruhig"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:spuernase"
+          ],
+          "raetsel": "spuernase"
+        },
+        {
+          "blase": "„Riechst du das? Hier war ein Pferd. Und ein Troll.“"
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "wegweiser",
+      "typ": "silbenbau",
+      "titel": "Der Wegweiser",
+      "aufgabe": "Die Schilder sind zerbrochen. Tipp die Silben in der richtigen Reihenfolge an. Dann ist das Schild wieder ganz.",
+      "woerter": [
+        "Ne-bel-wald",
+        "Mond-see",
+        "Wol-ken-berg",
+        "Brü-cke"
+      ],
+      "tipps": [
+        "Sprich das Wort langsam: Ne – bel – wald. Welche Silbe kommt zuerst?",
+        "Ne-bel-wald, Mond-see, Wol-ken-berg, Brü-cke."
+      ],
+      "erfolg": "Alle Schilder sind wieder ganz!",
+      "belohnung": {
+        "setze": [
+          "weg_frei"
+        ],
+        "blase": "Der Wegweiser dreht sich. Papas Kompass zeigt auf das Schild „Brücke“. Dort geht es zur alten Steinbrücke!"
+      }
+    },
+    {
+      "id": "nuesse",
+      "typ": "sortieren",
+      "titel": "Die Nüsse des Eichhörnchens",
+      "aufgabe": "Das Eichhörnchen wacht nur auf, wenn seine Nüsse sortiert sind. Heißt es der, die oder das? Zieh jedes Wort in das passende Körbchen.",
+      "gruppen": [
+        {
+          "id": "der",
+          "name": "der"
+        },
+        {
+          "id": "die",
+          "name": "die"
+        },
+        {
+          "id": "das",
+          "name": "das"
+        }
+      ],
+      "karten": [
+        {
+          "id": "k_baum",
+          "text": "Baum",
+          "gruppe": "der"
+        },
+        {
+          "id": "k_weg",
+          "text": "Weg",
+          "gruppe": "der"
+        },
+        {
+          "id": "k_tanne",
+          "text": "Tanne",
+          "gruppe": "die"
+        },
+        {
+          "id": "k_nuss",
+          "text": "Nuss",
+          "gruppe": "die"
+        },
+        {
+          "id": "k_tor",
+          "text": "Tor",
+          "gruppe": "das"
+        },
+        {
+          "id": "k_haus",
+          "text": "Haus",
+          "gruppe": "das"
+        }
+      ],
+      "tipps": [
+        "Sag das Wort mit der, die oder das davor. Was klingt richtig?",
+        "der Baum, der Weg – die Tanne, die Nuss – das Tor, das Haus."
+      ],
+      "erfolg": "Alle Nüsse sind sortiert!",
+      "belohnung": {
+        "blase": "Das Eichhörnchen wacht auf, schnappt sich eine Nuss und hüpft davon. Im Baumstumpf glitzert etwas!"
+      }
+    },
+    {
+      "id": "spuernase",
+      "typ": "auswahl",
+      "titel": "Rabats Spürnase",
+      "aufgabe": "Lies, was Rabat gerochen hat. Dann tipp auf Ja oder Nein.",
+      "text": "Hier war ein großes Pferd mit Flügeln. Es war müde. Es ist über den Bach geflogen. Dann hat es sich bei einem Troll ausgeruht.",
+      "fragen": [
+        {
+          "frage": "War das Pferd müde?",
+          "antworten": [
+            "Ja",
+            "Nein"
+          ],
+          "richtig": "Ja"
+        },
+        {
+          "frage": "Ist es zum Haus zurückgeflogen?",
+          "antworten": [
+            "Ja",
+            "Nein"
+          ],
+          "richtig": "Nein"
+        },
+        {
+          "frage": "Hat es sich bei einem Troll ausgeruht?",
+          "antworten": [
+            "Ja",
+            "Nein"
+          ],
+          "richtig": "Ja"
+        }
+      ],
+      "tipps": [
+        "Lies den Text noch einmal langsam. Steht die Antwort darin?",
+        "Das Pferd war müde: Ja. Es ist über den Bach geflogen, nicht zum Haus: Nein. Es hat sich bei einem Troll ausgeruht: Ja."
+      ],
+      "erfolg": "Super gelesen! Silberwind hat sich bei einem Troll ausgeruht."
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!raetsel:wegweiser"
+      ],
+      "text": "Der Wegweiser ist kaputt. Die Schilder müssen wieder ganz werden!",
+      "zeige": "wegweiser"
+    },
+    {
+      "wenn": [
+        "!raetsel:nuesse"
+      ],
+      "text": "Im Baumstumpf schläft ein Eichhörnchen. Es hat viele Nüsse.",
+      "zeige": "baumstumpf"
+    },
+    {
+      "wenn": [
+        "!raetsel:spuernase"
+      ],
+      "text": "Ich habe etwas gerochen! Tipp mich an.",
+      "zeige": "rabat"
+    },
+    {
+      "wenn": [
+        "!buchstabe"
+      ],
+      "text": "In der Laterne am Tor glitzert etwas …",
+      "zeige": "buchstabe"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}

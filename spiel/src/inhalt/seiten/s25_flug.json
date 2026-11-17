@@ -1,0 +1,307 @@
+{
+  "id": "s25",
+  "nummer": "25–26",
+  "titel": "Der Flug nach Hause",
+  "hintergrund": "hintergruende/ort13_flug_panorama_ohne_eule",
+  "stimmung": "nacht",
+  "musik": "flug_finale",
+  "text": "Silberwind fliegt. Der Wind saust in Idas Haaren. Rabat hält sich mit den Pfoten am Schal fest und jubelt. Unter ihnen liegt alles, was sie erlebt haben. Und überall winkt jemand.",
+  "naechste": "s27",
+  "fertig": "Silberwind setzt zur Landung im Garten an. Tipp unten auf Weiter.",
+  "objekte": [
+    {
+      "id": "flocke",
+      "name": "Frau Flocke",
+      "bild": "figuren/frau_flocke_fliegt",
+      "x": 230,
+      "y": 25,
+      "b": 380,
+      "h": 189,
+      "ebene": 3,
+      "klick": [
+        {
+          "blase": "Frau Flocke fliegt ein Stück mit. „Huhu! Gut gemacht!“"
+        }
+      ]
+    },
+    {
+      "id": "wolkenberg",
+      "name": "Wolkenberg",
+      "x": 1240,
+      "y": 30,
+      "b": 210,
+      "h": 240,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Ganz oben auf dem Wolkenberg leuchten jetzt alle Sterne."
+        }
+      ]
+    },
+    {
+      "id": "hoehle",
+      "name": "Echohöhle",
+      "x": 1190,
+      "y": 440,
+      "b": 90,
+      "h": 80,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Die Echohöhle! „Hallo!“, ruft Ida. „Hallo … hallo … hallo“, ruft die Höhle zurück."
+        }
+      ]
+    },
+    {
+      "id": "nebelwald",
+      "name": "Nebelwald",
+      "x": 1050,
+      "y": 540,
+      "b": 450,
+      "h": 200,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Im Nebelwald leuchten die Glühwürmchen ein Herz. Für Ida!"
+        }
+      ]
+    },
+    {
+      "id": "idas_haus",
+      "name": "Idas Haus",
+      "x": 380,
+      "y": 510,
+      "b": 180,
+      "h": 130,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Da hinten ist Idas Haus! Im Fenster brennt ein Licht."
+        }
+      ]
+    },
+    {
+      "id": "mondsee",
+      "name": "Mondsee",
+      "x": 580,
+      "y": 680,
+      "b": 220,
+      "h": 100,
+      "ebene": 1,
+      "klick": [
+        {
+          "blase": "Der Mondsee glitzert im Sternenlicht."
+        }
+      ]
+    },
+    {
+      "id": "bruecke",
+      "name": "Brücke",
+      "x": 805,
+      "y": 680,
+      "b": 160,
+      "h": 90,
+      "ebene": 1,
+      "funkeln": [
+        "!raetsel:brief"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:brief"
+          ],
+          "raetsel": "brief"
+        },
+        {
+          "blase": "Unter der Brücke strickt Brummbart. Er winkt mit einem Fäustling."
+        }
+      ]
+    },
+    {
+      "id": "holundas_haus",
+      "name": "Holundas Haus",
+      "x": 572,
+      "y": 388,
+      "b": 80,
+      "h": 70,
+      "ebene": 1,
+      "funkeln": [
+        "raetsel:brief",
+        "!raetsel:abschied"
+      ],
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:brief"
+          ],
+          "blase": "Das kleine leuchtende Haus mitten im Wald! Da wohnt Holunda. Sie ist oft allein. Und Brummbart unter der Brücke ist es auch …"
+        },
+        {
+          "wenn": [
+            "!raetsel:abschied"
+          ],
+          "raetsel": "abschied"
+        },
+        {
+          "bild": "figuren/szenen/holunda_brummbart_tee",
+          "blase": "Holunda und Brummbart trinken zusammen Tee. Zwei Einsame sind jetzt Freunde."
+        }
+      ]
+    },
+    {
+      "id": "perla",
+      "name": "Perla",
+      "bild": "figuren/perla/perla_springt_aus_wasser",
+      "x": 530,
+      "y": 655,
+      "b": 80,
+      "h": 113,
+      "ebene": 3,
+      "klick": [
+        {
+          "blase": "Perla springt aus dem Mondsee und glitzert. „Gute Reise, Ida!“"
+        }
+      ]
+    },
+    {
+      "id": "silberwind",
+      "name": "Ida auf Silberwind",
+      "bild": "figuren/ida_silberwind_flug",
+      "x": 725,
+      "y": 95,
+      "b": 650,
+      "h": 427,
+      "ebene": 4,
+      "klick": [
+        {
+          "wenn": [
+            "!raetsel:wohnen"
+          ],
+          "raetsel": "wohnen"
+        },
+        {
+          "blase": "„Juhuu!“, ruft Rabat und hält sich am Schal fest. Silberwind fliegt eine große Schleife."
+        }
+      ]
+    }
+  ],
+  "raetsel": [
+    {
+      "id": "wohnen",
+      "typ": "paare",
+      "titel": "Wer wohnt wo?",
+      "aufgabe": "Ida schaut hinunter. Überall wohnen ihre neuen Freunde. Lies die Sätze. Wer sagt das? Finde zu jedem Satz den richtigen Namen.",
+      "paare": [
+        [
+          "Ich stricke unter einer Brücke.",
+          "Brummbart"
+        ],
+        [
+          "Ich koche Tee in einem schiefen Haus.",
+          "Holunda"
+        ],
+        [
+          "Ich singe im Wasser.",
+          "Perla"
+        ],
+        [
+          "Ich sitze mit Brille auf einem Felsen.",
+          "Frau Flocke"
+        ],
+        [
+          "Wir leuchten unter einem Baum.",
+          "Glühwürmchen"
+        ]
+      ],
+      "tipps": [
+        "Denk an die Reise. Wer hat unter der Brücke gestrickt? Wer hat im Mondsee gesungen?",
+        "Brücke – Brummbart, Haus – Holunda, Wasser – Perla, Felsen – Frau Flocke, Baum – Glühwürmchen."
+      ],
+      "erfolg": "Ida kennt jetzt alle!",
+      "belohnung": {
+        "blase": "Alle winken zu Ida hinauf. „Da unten wohnen jetzt meine Freunde“, sagt Ida glücklich."
+      }
+    },
+    {
+      "id": "brief",
+      "typ": "luecken",
+      "titel": "Brummbarts Brief",
+      "aufgabe": "Silberwind landet kurz an der Brücke. Brummbart möchte Holunda zum Tee einladen. Aber er kann nicht gut schreiben. Hilf ihm und zieh die Wörter in die Lücken.",
+      "text": "Liebe {Holunda}, ich {lade} dich zum Tee ein. Ich bringe {Fäustlinge} mit. Dein {Brummbart}",
+      "falsche": [
+        "Perla",
+        "singe"
+      ],
+      "tipps": [
+        "An wen schreibt Brummbart? Und wer unterschreibt ganz am Ende?",
+        "Liebe Holunda, ich lade dich zum Tee ein. Ich bringe Fäustlinge mit. Dein Brummbart"
+      ],
+      "erfolg": "Der Brief ist fertig!",
+      "belohnung": {
+        "blase": "Brummbart strahlt. „Den bringe ich gleich zu Holunda!“ Silberwind fliegt weiter."
+      }
+    },
+    {
+      "id": "abschied",
+      "typ": "auswahl",
+      "titel": "Holundas Abschiedsrätsel",
+      "aufgabe": "Ida hält ihr Versprechen und besucht Holunda. Zum Abschied gibt die Hexe ihr ein Rätsel. Lies genau und tipp die richtige Antwort an.",
+      "text": "Ich habe Flügel, aber ich bin kein Vogel. Ich habe vier Hufe, aber ich kann fliegen. Ich suche jedes Jahr ein Licht im Fenster.",
+      "fragen": [
+        {
+          "frage": "Wer bin ich?",
+          "antworten": [
+            "Frau Flocke",
+            "Silberwind",
+            "Rabat"
+          ],
+          "richtig": "Silberwind"
+        },
+        {
+          "frage": "Was sucht er jedes Jahr?",
+          "antworten": [
+            "einen Keks",
+            "einen Stern",
+            "ein Licht im Fenster"
+          ],
+          "richtig": "ein Licht im Fenster"
+        }
+      ],
+      "tipps": [
+        "Wer hat Flügel und Hufe? Ein Vogel hat keine Hufe.",
+        "Es ist Silberwind, der Pegasus. Er sucht jedes Jahr ein Licht im Fenster."
+      ],
+      "erfolg": "Richtig geraten!",
+      "belohnung": {
+        "bild": "figuren/szenen/holunda_brummbart_tee",
+        "blase": "Holunda lacht, und Silberwind wiehert. Da klopft es: Brummbart kommt mit Fäustlingen zum Tee. Zwei Einsame sind jetzt Freunde."
+      }
+    }
+  ],
+  "tipps": [
+    {
+      "wenn": [
+        "!raetsel:wohnen"
+      ],
+      "text": "Schau mal hinunter! Tipp Ida auf Silberwind an.",
+      "zeige": "silberwind"
+    },
+    {
+      "wenn": [
+        "!raetsel:brief"
+      ],
+      "text": "Silberwind kann an der Brücke landen. Tipp die Brücke an.",
+      "zeige": "bruecke"
+    },
+    {
+      "wenn": [
+        "!raetsel:abschied"
+      ],
+      "text": "Ida hat Holunda versprochen, wiederzukommen. Tipp das kleine leuchtende Haus im Wald an.",
+      "zeige": "holundas_haus"
+    },
+    {
+      "text": "Alles geschafft! Tipp unten auf Weiter."
+    }
+  ]
+}
