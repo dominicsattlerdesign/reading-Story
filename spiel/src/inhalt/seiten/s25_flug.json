@@ -103,14 +103,24 @@
       "h": 90,
       "ebene": 1,
       "funkeln": [
-        "!raetsel:brief"
+        "raetsel:brief",
+        "!brief_gebracht"
       ],
       "klick": [
         {
           "wenn": [
             "!raetsel:brief"
           ],
-          "raetsel": "brief"
+          "blase": "Unter der Brücke strickt Brummbart. Er ist oft allein. Und Holunda im kleinen Haus im Wald ist es auch …"
+        },
+        {
+          "wenn": [
+            "!brief_gebracht"
+          ],
+          "setze": [
+            "brief_gebracht"
+          ],
+          "blase": "Silberwind landet kurz an der Brücke. Ida gibt Brummbart Holundas Brief. Er liest und strahlt. „Ich komme! Und ich bringe Fäustlinge mit!“"
         },
         {
           "blase": "Unter der Brücke strickt Brummbart. Er winkt mit einem Fäustling."
@@ -126,7 +136,6 @@
       "h": 70,
       "ebene": 1,
       "funkeln": [
-        "raetsel:brief",
         "!raetsel:abschied"
       ],
       "klick": [
@@ -134,7 +143,13 @@
           "wenn": [
             "!raetsel:brief"
           ],
-          "blase": "Das kleine leuchtende Haus mitten im Wald! Da wohnt Holunda. Sie ist oft allein. Und Brummbart unter der Brücke ist es auch …"
+          "raetsel": "brief"
+        },
+        {
+          "wenn": [
+            "!brief_gebracht"
+          ],
+          "blase": "Holunda winkt aus dem Fenster. „Bringst du Brummbart meinen Brief? Er wohnt unter der Brücke.“"
         },
         {
           "wenn": [
@@ -144,7 +159,7 @@
         },
         {
           "bild": "figuren/szenen/holunda_brummbart_tee",
-          "blase": "Holunda und Brummbart trinken zusammen Tee. Zwei Einsame sind jetzt Freunde."
+          "blase": "Holunda und Brummbart trinken zusammen Tee. Sie sind jetzt Freunde."
         }
       ]
     },
@@ -225,27 +240,27 @@
     {
       "id": "brief",
       "typ": "luecken",
-      "titel": "Brummbarts Brief",
-      "aufgabe": "Silberwind landet kurz an der Brücke. Brummbart möchte Holunda zum Tee einladen. Aber er kann nicht gut schreiben. Hilf ihm und zieh die Wörter in die Lücken.",
-      "text": "Liebe {Holunda}, ich {lade} dich zum Tee ein. Ich bringe {Fäustlinge} mit. Dein {Brummbart}",
+      "titel": "Holundas Brief",
+      "aufgabe": "Silberwind landet kurz bei Holundas Haus. Holunda möchte Brummbart zum Tee einladen. Aber ihre Feder kleckst, und Wörter fehlen. Hilf ihr und zieh die Wörter in die Lücken.",
+      "text": "Lieber {Brummbart}, ich {lade} dich zum Tee ein. Bring deine {Fäustlinge} mit. Deine {Holunda}",
       "falsche": [
         "Sterne",
         "singe"
       ],
       "tipps": [
-        "An wen schreibt Brummbart? Und wer unterschreibt ganz am Ende?",
-        "Liebe Holunda, ich lade dich zum Tee ein. Ich bringe Fäustlinge mit. Dein Brummbart"
+        "An wen schreibt Holunda? Und wer unterschreibt ganz am Ende?",
+        "Lieber Brummbart, ich lade dich zum Tee ein. Bring deine Fäustlinge mit. Deine Holunda"
       ],
       "erfolg": "Der Brief ist fertig!",
       "belohnung": {
-        "blase": "Brummbart strahlt. „Den bringe ich gleich zu Holunda!“ Silberwind fliegt weiter."
+        "blase": "Holunda strahlt. „Bringst du ihn zu Brummbart unter die Brücke?“ Silberwind fliegt weiter."
       }
     },
     {
       "id": "abschied",
       "typ": "auswahl",
       "titel": "Holundas Abschiedsrätsel",
-      "aufgabe": "Ida hält ihr Versprechen und besucht Holunda. Zum Abschied gibt die Hexe ihr ein Rätsel. Lies genau und tipp die richtige Antwort an.",
+      "aufgabe": "Ida fliegt zurück zu Holunda und erzählt, dass Brummbart kommt. Zum Abschied gibt die Hexe ihr ein Rätsel. Lies genau und tipp die richtige Antwort an.",
       "text": "Ich habe Flügel, aber ich bin kein Vogel. Ich habe vier Hufe, aber ich kann fliegen. Ich suche jedes Jahr ein Licht im Fenster.",
       "fragen": [
         {
@@ -274,7 +289,7 @@
       "erfolg": "Richtig geraten!",
       "belohnung": {
         "bild": "figuren/szenen/holunda_brummbart_tee",
-        "blase": "Holunda lacht, und Silberwind wiehert. Da klopft es: Brummbart kommt mit Fäustlingen zum Tee. Zwei Einsame sind jetzt Freunde."
+        "blase": "Holunda lacht, und Silberwind wiehert. Da klopft es: Brummbart kommt mit Fäustlingen zum Tee. Sie sind jetzt Freunde."
       }
     }
   ],
@@ -290,14 +305,21 @@
       "wenn": [
         "!raetsel:brief"
       ],
-      "text": "Silberwind kann an der Brücke landen. Tipp die Brücke an.",
+      "text": "Ida hat Holunda versprochen, wiederzukommen. Tipp das kleine leuchtende Haus im Wald an.",
+      "zeige": "holundas_haus"
+    },
+    {
+      "wenn": [
+        "!brief_gebracht"
+      ],
+      "text": "Bring Holundas Brief zu Brummbart. Tipp die Brücke an.",
       "zeige": "bruecke"
     },
     {
       "wenn": [
         "!raetsel:abschied"
       ],
-      "text": "Ida hat Holunda versprochen, wiederzukommen. Tipp das kleine leuchtende Haus im Wald an.",
+      "text": "Brummbart kommt zum Tee! Flieg zurück zu Holunda. Tipp ihr Haus an.",
       "zeige": "holundas_haus"
     },
     {
