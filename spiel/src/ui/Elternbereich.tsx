@@ -1,9 +1,18 @@
 import { useEffect, useState } from 'preact/hooks';
 import { musik } from './musik';
+import { seiten } from '../inhalt';
 
-/** Elternbereich (hinter dem 3-Sekunden-Halteknopf). Spaeter kommt die Kapiteluebersicht dazu. */
-export function Elternbereich(props: { fortschrittLoeschen: () => void; schliessen: () => void; einfuehrungZeigen: () => void }) {
+/** Elternbereich (hinter dem 3-Sekunden-Halteknopf). */
+export function Elternbereich(props: {
+  fortschrittLoeschen: () => void;
+  schliessen: () => void;
+  einfuehrungZeigen: () => void;
+  /** springt zu einer Seite, alles davor gilt als geschafft */
+  springeZu: (id: string) => void;
+  aktuelleSeite: string | null;
+}) {
   const [sicher, setSicher] = useState(false);
+  const [ziel, setZiel] = useState(props.aktuelleSeite ?? seiten[0].id);
   const [musikAn, setMusikAn] = useState(musik.istAn());
   const [laut, setLaut] = useState(Math.round(musik.lautstaerke() * 100));
   useEffect(() => musik.abonnieren(setMusikAn), []);
@@ -38,6 +47,21 @@ export function Elternbereich(props: { fortschrittLoeschen: () => void; schliess
           <span class="laut-wert">{laut} %</span>
         </label>
 
+
+        <div class="zeile seiten-sprung">
+          Zu Seite springen:
+          <select class="seiten-wahl" value={ziel} onChange={(e) => setZiel((e.target as HTMLSelectElement).value)}>
+            {seiten.map((s) => (
+              <option key={s.id} value={s.id}>
+                Seite {s.nummer}: {s.titel}
+              </option>
+            ))}
+          </select>
+          <button class="klein-knopf" onClick={() => { props.springeZu(ziel); props.schliessen(); }}>
+            Springen
+          </button>
+          <small>Alle Fundstücke und goldenen Buchstaben der Seiten davor sind dann da. Der bisherige Fortschritt wird ersetzt.</small>
+        </div>
 
         <button class="klein-knopf" onClick={() => { props.einfuehrungZeigen(); props.schliessen(); }}>
           Einführung nochmal ansehen

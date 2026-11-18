@@ -177,6 +177,7 @@
       "ebene": 5,
       "funkeln": [
         "raetsel:gedanken",
+        "raetsel:waermen",
         "!raetsel:zauberwort"
       ],
       "klick": [
@@ -185,6 +186,12 @@
             "!raetsel:gedanken"
           ],
           "blase": "Der Glühwürmchen-Funke und die Mondperle leuchten in der Laterne. Aber das Licht reicht nicht. Ein Licht fehlt noch."
+        },
+        {
+          "wenn": [
+            "!raetsel:waermen"
+          ],
+          "blase": "Um die Laterne schweben goldene Buchstaben. Aber Silberwind friert noch so sehr. Wärm ihn zuerst, dann kann er die Sterne sehen."
         },
         {
           "wenn": [

@@ -10,7 +10,7 @@ import { Starttor } from './ui/Starttor';
 import { musik } from './ui/musik';
 import { laden, speichern, hatFortschritt, neuerSpielstand, type Spielstand } from './engine/speicher';
 import { seiten, seiteMitId } from './inhalt';
-import { seiteZuruecksetzen } from './engine/logik';
+import { seiteZuruecksetzen, standBisSeite } from './engine/logik';
 
 type Ansicht = 'start' | 'buch' | 'ende';
 
@@ -96,6 +96,13 @@ export function App() {
         <Elternbereich
           einfuehrungZeigen={() => {
             setEinfuehrung(true);
+            setAnsicht('buch');
+          }}
+          aktuelleSeite={stand.seite}
+          springeZu={(id) => {
+            setStand(standBisSeite(seiten, id));
+            setNeustarts((n) => n + 1);
+            setBlatt(null);
             setAnsicht('buch');
           }}
           fortschrittLoeschen={() => {

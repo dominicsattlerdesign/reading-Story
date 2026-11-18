@@ -189,6 +189,26 @@ export function seiteZuruecksetzen(stand: Spielstand, seite: Seite): Spielstand 
   };
 }
 
+/**
+ * Elternbereich: Spielstand fuer einen Sprung zu einer Seite. Alle Seiten davor gelten als geschafft:
+ * Raetsel geloest, Merker gesetzt, Fundstuecke im Inventar, versteckte Buchstaben gefunden.
+ * Die Zielseite selbst beginnt von vorne.
+ */
+export function standBisSeite(alle: Seite[], zielId: string): Spielstand {
+  const stand: Spielstand = { version: 1, seite: zielId, geloest: {}, inventar: [], buchstaben: [], merker: {} };
+  for (const s of alle) {
+    if (s.id === zielId) break;
+    stand.geloest[s.id] = s.raetsel.map((r) => r.id);
+    const m = new Set<string>();
+    for (const o of s.objekte) for (const a of o.klick ?? []) for (const x of a.setze ?? []) m.add(x);
+    for (const r of s.raetsel) for (const x of r.belohnung?.setze ?? []) m.add(x);
+    if (m.size) stand.merker[s.id] = [...m];
+    for (const i of inventarDerSeite(s)) if (!stand.inventar.includes(i)) stand.inventar.push(i);
+    if (s.buchstabe) stand.buchstaben.push(s.id);
+  }
+  return stand;
+}
+
 // ---------- Satz bauen ----------
 
 /**

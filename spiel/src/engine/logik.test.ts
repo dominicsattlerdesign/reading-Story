@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { istRichtig, merker, erfuellt, ersteAktion, passenderTipp, wendeAn, loese, alleGeloest, zerlegeLuecken, silben, ohneTrennung, mischen, wortschlange, zerlegeFehlertext, verbinde, fuelleLuecke, silbenAuswahl, seiteZuruecksetzen, satzBausteine } from './logik';
+import { istRichtig, merker, erfuellt, ersteAktion, passenderTipp, wendeAn, loese, alleGeloest, zerlegeLuecken, silben, ohneTrennung, mischen, wortschlange, zerlegeFehlertext, verbinde, fuelleLuecke, silbenAuswahl, seiteZuruecksetzen, satzBausteine, standBisSeite, inventarDerSeite } from './logik';
 import { neuerSpielstand } from './speicher';
 import type { Seite } from '../inhalt/typen';
 
@@ -156,5 +156,22 @@ describe('Auswahl mit mehreren richtigen Antworten', () => {
     expect(istRichtig('Sp', ['Sp', 'St'])).toBe(true);
     expect(istRichtig('St', ['Sp', 'St'])).toBe(true);
     expect(istRichtig('St', 'Sp')).toBe(false);
+  });
+});
+
+describe('standBisSeite', () => {
+  it('bringt alles von den Seiten davor mit, die Zielseite beginnt frisch', async () => {
+    const { seiten } = await import('../inhalt');
+    const ziel = seiten[seiten.length - 3];
+    const st = standBisSeite(seiten, ziel.id);
+    expect(st.seite).toBe(ziel.id);
+    expect(st.geloest[ziel.id]).toBeUndefined();
+    const davor = seiten.slice(0, seiten.indexOf(ziel));
+    for (const s of davor) {
+      expect(st.geloest[s.id]).toEqual(s.raetsel.map((r) => r.id));
+      for (const i of inventarDerSeite(s)) expect(st.inventar).toContain(i);
+      if (s.buchstabe) expect(st.buchstaben).toContain(s.id);
+    }
+    expect(standBisSeite(seiten, seiten[0].id).inventar).toEqual([]);
   });
 });
