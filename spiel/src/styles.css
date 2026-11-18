@@ -208,7 +208,7 @@ img { -webkit-user-drag: none; }
 .textkarte-zu:active img { transform: scale(0.94); }
 
 /* ---------- Leiste ---------- */
-/* z-index ueber den Raetseln (40), damit Rabats Hilfe auch waehrend eines Raetsels sichtbar ist */
+/* z-index ueber den Raetseln (40), damit Rabbats Hilfe auch waehrend eines Raetsels sichtbar ist */
 .leiste { position: absolute; left: 0; right: 0; bottom: 0; height: 128px; display: flex; align-items: center; gap: 22px; padding: 0 24px 0 150px; z-index: 45;
   background: linear-gradient(rgba(31, 20, 13, 0), rgba(31, 20, 13, 0.75) 35%); }
 .rabat-knopf { position: absolute; left: 18px; bottom: 14px; width: 124px; height: 124px; border-radius: 50%; padding: 6px;
@@ -476,7 +476,7 @@ button:disabled { opacity: 0.45; cursor: default; }
 .silben-karte.platzhalter { visibility: hidden; }
 .silben-karte.leuchten { animation: karte-leuchten 0.9s ease-in-out infinite; }
 
-/* Auswahl mit Lesetext (z. B. Rabats Spuernase) */
+/* Auswahl mit Lesetext (z. B. Rabbats Spuernase) */
 .auswahl-text { margin: 0; padding: 16px 26px; border-radius: 14px; background: #fffdf6; border: 2px dashed var(--pergament-rand); font-size: 30px; line-height: 1.45; }
 .auswahl:has(.auswahl-text) .auswahl-frage { font-size: 42px; }
 .auswahl:has(.auswahl-text) .auswahl-knopf { min-height: 90px; }
@@ -629,3 +629,60 @@ button:disabled { opacity: 0.45; cursor: default; }
 .buchende .deckel-bild { object-fit: fill; }
 .buchende .buch::before { left: -4px; }
 .widmung .widmung-gruss { font-size: 40px; font-style: italic; font-weight: 700; margin-top: 6px; align-self: flex-end; margin-right: 40px; }
+
+/* ---------- Sortieren, ueberarbeitet: Kisten wachsen mit dem Inhalt, abgelegte Karten bleiben gross ----------
+   Das gruene Filz-Etikett wird als Neun-Felder-Rahmen gezeichnet: Bluetenecken bleiben unverzerrt,
+   die Mitte waechst, wenn mehr Karten hineinkommen. */
+.kisten { flex: 0 0 auto; align-items: stretch; gap: 18px; }
+.kiste { height: auto; min-height: 200px; max-width: none; padding: 58px 30px 32px; background: none;
+  border: 2px solid transparent; border-radius: 0;
+  border-image: url('/assets/gegenstaende/knoepfe/etikett_gruen.webp') 36% 24% 36% 24% fill / 72px 88px 72px 88px stretch; }
+.kiste-schild { font-size: 42px; line-height: 1.1; }
+.kiste-inhalt { padding: 6px 0 0; gap: 10px; }
+/* abgelegte Woerter: so gross wie die Karten im Stapel, mit gruenem Rand als "richtig" */
+.mini-karte { min-width: 0; max-width: 100%; height: auto; min-height: 76px; padding: 6px 22px; font-size: 36px; line-height: 1.15;
+  border-radius: 16px; border: 3px solid var(--gruen); background: #f4faee; white-space: normal; overflow: visible; text-overflow: clip; }
+.mini-karte:not(:has(img)) { height: auto; }
+/* abgelegte Gegenstaende: gleiche Groesse wie vorher, ohne Kaertchen dahinter */
+.mini-karte:has(img), .mini-karte:has(.karten-emoji) { width: 140px; height: 130px; padding: 0; border: 0; background: none; }
+.mini-karte img { max-width: 100%; max-height: 100%; filter: drop-shadow(0 4px 4px rgba(40, 20, 5, 0.3)); }
+.mini-karte .karten-emoji { font-size: 76px; }
+/* Gegenstaende im Stapel ohne hellen Kartenrahmen; gewaehlt leuchtet der Gegenstand gruen */
+.ziehkarte.bildkarte { background: none; border: 0; box-shadow: none; }
+.ziehkarte.bildkarte img { filter: drop-shadow(0 5px 5px rgba(40, 20, 5, 0.35)); }
+.ziehkarte.bildkarte.gewaehlt { box-shadow: none; }
+.ziehkarte.bildkarte.gewaehlt img { filter: drop-shadow(0 0 6px var(--gruen)) drop-shadow(0 0 14px rgba(95, 143, 78, 0.9)); }
+/* Sicherheitsnetz: nichts darf aus dem Raetselfenster ragen */
+.raetsel-inhalt { overflow-y: auto; overflow-x: hidden; }
+.kartenstapel:has(.bildkarte) { padding-top: 12px; padding-bottom: 12px; }
+.kiste:has(.mini-karte) { padding-bottom: 20px; }
+/* Platz sparen, damit auch volle Kisten ins Fenster passen (Schrift bleibt gleich gross) */
+.raetsel-aufgabe { margin: 4px 0 8px; }
+.kiste { padding-top: 50px; }
+.kiste:has(.mini-karte) { padding-bottom: 14px; }
+.mini-karte:not(:has(img)) { min-height: 68px; padding: 4px 18px; }
+.kisten ~ .kartenstapel { padding-top: 14px; padding-bottom: 14px; }
+.paar-feld { font-size: 36px; }
+/* Tagebuch-Text (Fehler antippen) deutlich groesser */
+.tagebuch { font-size: 54px; line-height: 104px; padding: 46px 84px 44px; }
+.tagebuch::before { inset: 46px 84px 44px; background: repeating-linear-gradient(transparent 0 88px, #d8c6a4 88px 90px, transparent 90px 104px); }
+.tagebuch-wort { line-height: 84px; }
+.tagebuch-zaehler { font-size: 32px; }
+
+/* ---------- Einfuehrung: Rabbat zeigt nacheinander alle Symbole ---------- */
+.einfuehrung { position: absolute; inset: 0; z-index: 85; }
+.einfuehrung-dunkel { position: absolute; inset: 0; background: rgba(15, 8, 4, 0.62); animation: einblenden 0.3s ease-out; }
+/* das hervorgehobene Symbol bleibt hell, alles andere wird ueber einen riesigen Schatten abgedunkelt */
+.einfuehrung-licht { position: absolute; border-radius: 22px; box-shadow: 0 0 0 4000px rgba(15, 8, 4, 0.62), 0 0 0 5px var(--gold-hell), 0 0 30px 10px var(--gold);
+  transition: left 0.35s ease, top 0.35s ease, width 0.35s ease, height 0.35s ease; animation: einfuehrung-pulsieren 1.6s ease-in-out infinite; pointer-events: none; }
+@keyframes einfuehrung-pulsieren { 50% { box-shadow: 0 0 0 4000px rgba(15, 8, 4, 0.62), 0 0 0 7px var(--gold-hell), 0 0 44px 16px var(--gold); } }
+.einfuehrung-blase { position: absolute; display: flex; align-items: center; gap: 20px; padding: 24px 30px 24px 18px; border-radius: 28px;
+  background: #fffdf6; border: 4px solid var(--gold); box-shadow: var(--schatten); animation: auftauchen 0.3s ease-out; }
+.einfuehrung-rabbat { width: 150px; flex: none; align-self: flex-end; filter: drop-shadow(0 4px 6px rgba(40, 20, 5, 0.3)); }
+.einfuehrung-inhalt { display: flex; flex-direction: column; align-items: center; gap: 18px; flex: 1; }
+.einfuehrung-inhalt p { margin: 0; font-size: 38px; line-height: 1.35; color: var(--tinte); text-align: left; align-self: stretch; }
+.einfuehrung-knopf { min-width: 360px; min-height: 96px; font-size: 40px; white-space: nowrap; }
+/* Einfuehrung auch auf kleinen Handys gut lesbar und gut zu treffen */
+.einfuehrung-inhalt p { font-size: 46px; }
+.einfuehrung-knopf { min-height: 116px; min-width: 400px; font-size: 46px; }
+.einfuehrung-rabbat { width: 140px; }

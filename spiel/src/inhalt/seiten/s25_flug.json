@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort13_flug_panorama_ohne_eule",
   "stimmung": "nacht",
   "musik": "flug_finale",
-  "text": "Silberwind fliegt. Der Wind saust in Idas Haaren. Rabat hält sich mit den Pfoten am Schal fest und jubelt. Unter ihnen liegt alles, was sie erlebt haben. Und überall winkt jemand.",
+  "text": "Silberwind fliegt. Der Wind saust in Idas Haaren. Rabbat hält sich mit den Pfoten am Schal fest und jubelt. Unter ihnen liegt alles, was sie erlebt haben. Und überall winkt jemand.",
   "naechste": "s27",
   "fertig": "Silberwind setzt zur Landung im Garten an. Tipp unten auf Weiter.",
   "objekte": [
@@ -180,7 +180,7 @@
           "raetsel": "wohnen"
         },
         {
-          "blase": "„Juhuu!“, ruft Rabat und hält sich am Schal fest. Silberwind fliegt eine große Schleife."
+          "blase": "„Juhuu!“, ruft Rabbat und hält sich am Schal fest. Silberwind fliegt eine große Schleife."
         }
       ]
     }
@@ -229,7 +229,7 @@
       "aufgabe": "Silberwind landet kurz an der Brücke. Brummbart möchte Holunda zum Tee einladen. Aber er kann nicht gut schreiben. Hilf ihm und zieh die Wörter in die Lücken.",
       "text": "Liebe {Holunda}, ich {lade} dich zum Tee ein. Ich bringe {Fäustlinge} mit. Dein {Brummbart}",
       "falsche": [
-        "Perla",
+        "Sterne",
         "singe"
       ],
       "tipps": [
@@ -253,7 +253,7 @@
           "antworten": [
             "Frau Flocke",
             "Silberwind",
-            "Rabat"
+            "Rabbat"
           ],
           "richtig": "Silberwind"
         },

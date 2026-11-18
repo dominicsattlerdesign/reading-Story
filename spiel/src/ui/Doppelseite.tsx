@@ -20,6 +20,7 @@ import { Auswahl } from './raetsel/Auswahl';
 import { Silbenbau } from './raetsel/Silbenbau';
 import { Satzbau } from './raetsel/Satzbau';
 import { Zauberwort } from './raetsel/Zauberwort';
+import { Einfuehrung } from './Einfuehrung';
 import type { RaetselHelfer } from './raetsel/gemeinsam';
 
 /** Eine aufgeschlagene Doppelseite: Szene zum Antippen, Text, Raetsel, Leiste. */
@@ -30,6 +31,9 @@ export function Doppelseite(props: {
   zurStartseite: () => void;
   /** nach dem Schlussbild der letzten Seite: Schriftzug „Ende“, das Buch klappt zu */
   buchZu?: () => void;
+  /** Einfuehrung zeigen (erster Start oder aus dem Elternbereich) */
+  einfuehrung?: boolean;
+  einfuehrungFertig?: () => void;
   oeffneEltern: () => void;
   weiterZu: (id: string) => void;
   /** Seite von vorne beginnen (Fortschritt dieser Seite weg) */
@@ -44,7 +48,7 @@ export function Doppelseite(props: {
 
   const [offen, setOffen] = useState<{ raetsel: Raetsel; von: Objekt | null } | null>(null);
   const [blase, setBlase] = useState<Blase | null>(null);
-  const [rabatBlase, setRabatBlase] = useState<string | null>(null);
+  const [rabatBlase, setRabbatBlase] = useState<string | null>(null);
   const [leuchtet, setLeuchtet] = useState<string | null>(null);
   const [ende, setEnde] = useState(false);
   const [bildKarte, setBildKarte] = useState<{ bild: string; text?: string; buchstabe?: boolean } | null>(null);
@@ -52,6 +56,14 @@ export function Doppelseite(props: {
   const uhren = useRef<Record<string, number>>({});
 
   useEffect(() => () => Object.values(uhren.current).forEach((u) => window.clearTimeout(u)), []);
+
+  // Nur beim Entwickeln: ?raetsel=id oeffnet das Raetsel dieser Seite sofort
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    const id = new URLSearchParams(location.search).get('raetsel');
+    const r = id ? seite.raetsel.find((x) => x.id === id) : undefined;
+    if (r) setOffen({ raetsel: r, von: null });
+  }, []);
 
   const spaeter = (name: string, ms: number, f: () => void) => {
     window.clearTimeout(uhren.current[name]);
@@ -63,7 +75,7 @@ export function Doppelseite(props: {
   };
 
   const rabatSagt = (text: string) => {
-    setRabatBlase(text);
+    setRabbatBlase(text);
   };
 
   const leuchten = (id: string) => {
@@ -74,7 +86,7 @@ export function Doppelseite(props: {
   const antippen = (o: Objekt) => {
     const a = ersteAktion(o.klick, m);
     if (!a) return;
-    setRabatBlase(null); // alter Tipp passt nach einer Aktion oft nicht mehr
+    setRabbatBlase(null); // alter Tipp passt nach einer Aktion oft nicht mehr
     props.aendern((s) => wendeAn(s, seite.id, a));
     const raetsel = a.raetsel ? seite.raetsel.find((r) => r.id === a.raetsel) : undefined;
     if (raetsel) {
@@ -126,7 +138,7 @@ export function Doppelseite(props: {
   const geloestAnzahl = (stand.geloest[seite.id] ?? []).length;
   const fertig = alleGeloest(stand, seite);
 
-  // sobald alles geloest ist, sagt Rabat Bescheid
+  // sobald alles geloest ist, sagt Rabbat Bescheid
   const warFertig = useRef(fertig);
   useEffect(() => {
     if (fertig && !warFertig.current) spaeter('fertig', 1200, () => rabatSagt(seite.fertig));
@@ -196,9 +208,11 @@ export function Doppelseite(props: {
         raetsel={{ gesamt: seite.raetsel.length, geloest: geloestAnzahl }}
         rabatBlase={rabatBlase}
         rabatTippen={rabatTippen}
-        blaseZu={() => setRabatBlase(null)}
+        blaseZu={() => setRabbatBlase(null)}
         weiter={weiter}
       />
+
+      {props.einfuehrung && <Einfuehrung fertig={() => props.einfuehrungFertig?.()} />}
 
       {ende && (
         <div class="raetsel-hintergrund">

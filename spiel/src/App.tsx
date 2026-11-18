@@ -3,6 +3,7 @@ import { Buehne } from './ui/Buehne';
 import { Startseite } from './ui/Startseite';
 import { Doppelseite } from './ui/Doppelseite';
 import { Buchende } from './ui/Buchende';
+import { einfuehrungGesehen } from './ui/Einfuehrung';
 import { Elternbereich } from './ui/Elternbereich';
 import { Umblaettern } from './ui/Umblaettern';
 import { Starttor } from './ui/Starttor';
@@ -13,10 +14,15 @@ import { seiteZuruecksetzen } from './engine/logik';
 
 type Ansicht = 'start' | 'buch' | 'ende';
 
+/** Nur beim Entwickeln: ?seite=s05&raetsel=kisten springt direkt zu einer Seite (und einem Raetsel) */
+const testSeite = import.meta.env.DEV ? new URLSearchParams(location.search).get('seite') : null;
+
 export function App() {
-  const [stand, setStand] = useState<Spielstand>(() => laden());
-  const [ansicht, setAnsicht] = useState<Ansicht>('start');
+  const [stand, setStand] = useState<Spielstand>(() => (testSeite ? { ...laden(), seite: testSeite } : laden()));
+  const [ansicht, setAnsicht] = useState<Ansicht>(testSeite ? 'buch' : 'start');
   const [elternOffen, setElternOffen] = useState(false);
+  // Einfuehrung: beim allerersten Start auf der ersten Seite, oder wenn sie im Elternbereich gewuenscht wird
+  const [einfuehrung, setEinfuehrung] = useState(() => !einfuehrungGesehen() && !testSeite);
   // laufendes Umblaettern: Hintergrund der alten und der neuen Doppelseite
   const [blatt, setBlatt] = useState<{ alt: string; neu: string; rueckwaerts?: boolean } | null>(null);
   // zaehlt hoch, wenn eine Seite neu gestartet wird: dann beginnt auch die Oberflaeche frisch (Text offen, keine Blasen)
@@ -28,7 +34,7 @@ export function App() {
   const seite = seiteMitId(stand.seite) ?? seiten[0];
   const vorige = seiten[seiten.indexOf(seite) - 1];
   // erst nach dem Start-Knopf darf der Browser Ton abspielen
-  const [tor, setTor] = useState(true);
+  const [tor, setTor] = useState(!testSeite);
 
   // jede Szene hat ihre Musik; beim Umblaettern blendet sie weich zur naechsten ueber
   useEffect(() => musik.spiele(ansicht !== 'buch' ? 'titel_zuhause' : seite.musik ?? null), [ansicht, seite.id]);
@@ -56,6 +62,8 @@ export function App() {
           aendern={setStand}
           zurStartseite={() => setAnsicht('start')}
           buchZu={() => setAnsicht('ende')}
+          einfuehrung={einfuehrung && !blatt && (seite.id === seiten[0].id || einfuehrungGesehen())}
+          einfuehrungFertig={() => setEinfuehrung(false)}
           oeffneEltern={() => setElternOffen(true)}
           weiterZu={(id) => {
             const neu = seiteMitId(id);
@@ -86,6 +94,10 @@ export function App() {
       )}
       {elternOffen && (
         <Elternbereich
+          einfuehrungZeigen={() => {
+            setEinfuehrung(true);
+            setAnsicht('buch');
+          }}
           fortschrittLoeschen={() => {
             setStand(neuerSpielstand());
             setAnsicht('start');

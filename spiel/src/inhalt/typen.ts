@@ -61,7 +61,7 @@ interface RaetselBasis {
 
 export interface LueckenRaetsel extends RaetselBasis {
   typ: 'luecken';
-  /** Text mit Luecken in geschweiften Klammern: "Liebe {Lene}, ..." */
+  /** Text mit Luecken in geschweiften Klammern: "Liebe {Lene}, ..."; passen mehrere Woerter, mit / getrennt: "w{e/a}nn" (das erste ist die Karte) */
   text: string;
   falsche: string[]; // zusaetzliche falsche Woerter
 }
@@ -122,12 +122,15 @@ export interface AuswahlFrage {
   /** Frage oder Satz; "_" ist die Luecke, z. B. "_ein" oder "Die Schnecke _ (kriechen)." */
   frage: string;
   antworten: string[];
-  richtig: string;
+  /** die richtige Antwort; sind mehrere sprachlich richtig, eine Liste */
+  richtig: string | string[];
+  /** wie das fertige Wort angezeigt wird, falls es anders geschrieben wird, z. B. { "St": "stur" } */
+  zeige?: Record<string, string>;
 }
 
 export interface AuswahlRaetsel extends RaetselBasis {
   typ: 'auswahl';
-  /** Lesetext ueber den Fragen (z. B. was Rabat gerochen hat) */
+  /** Lesetext ueber den Fragen (z. B. was Rabbat gerochen hat) */
   text?: string;
   fragen: AuswahlFrage[];
 }
@@ -141,7 +144,8 @@ export interface SilbenbauRaetsel extends RaetselBasis {
 export interface SatzbauRaetsel extends RaetselBasis {
   typ: 'satzbau';
   /** Richtige Saetze mit Punkt, z. B. "Gib Mehl in die Schüssel."; die Woerter kommen gemischt, das erste klein */
-  saetze: string[];
+  /** sind mehrere Satzstellungen richtig, eine Liste: die erste liefert die Wortkarten */
+  saetze: (string | string[])[];
 }
 
 export interface ZauberwortRaetsel extends RaetselBasis {
@@ -165,7 +169,7 @@ export interface Seite {
   objekte: Objekt[];
   raetsel: Raetsel[];
   buchstabe?: string; // versteckter Buchstabe dieser Seite (die letzten Seiten haben keinen mehr)
-  tipps: Tipp[]; // Rabat-Hilfe ausserhalb der Raetsel, erste passende gilt
+  tipps: Tipp[]; // Rabbat-Hilfe ausserhalb der Raetsel, erste passende gilt
   fertig: string; // Satz, wenn alle Raetsel geloest sind
   naechste: string | null; // ID der naechsten Seite
   /** Letzte Seite: Schlussbild und Schlusstext nach dem letzten Weiter */

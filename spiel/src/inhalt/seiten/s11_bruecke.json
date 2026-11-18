@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort06_brummbarts_bruecke",
   "stimmung": "nacht",
   "musik": "nachtlied",
-  "text": "Unter der Brücke sitzt ein Troll. Er ist riesig. Ida hält die Luft an. „Wer will über meine Brücke?“, brummt er. „Ich bin Ida. Und das ist Rabat.“ Der Troll schaut traurig. „Niemand redet mit mir. Alle laufen weg. Dabei mag ich so gern reimen.“ Ida lächelt. „Ich reime mit dir!“",
+  "text": "Unter der Brücke sitzt ein Troll. Er ist riesig. Ida hält die Luft an. „Wer will über meine Brücke?“, brummt er. „Ich bin Ida. Und das ist Rabbat.“ Der Troll schaut traurig. „Niemand redet mit mir. Alle laufen weg. Dabei mag ich so gern reimen.“ Ida lächelt. „Ich reime mit dir!“",
   "buchstabe": "E",
   "naechste": "s13",
   "fertig": "Alles geschafft! Ida darf über die Brücke. Tipp unten auf Weiter.",
@@ -20,7 +20,7 @@
       "ebene": 1,
       "klick": [
         {
-          "blase": "Rabat wärmt sich die Pfoten. „Der ist ja gar nicht gefährlich.“"
+          "blase": "Rabbat wärmt sich die Pfoten. „Der ist ja gar nicht gefährlich.“"
         }
       ]
     },
@@ -170,7 +170,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
       "x": 360,
       "y": 560,
@@ -182,7 +182,7 @@
           "setze": [
             "rabat_liegt"
           ],
-          "blase": "Rabat legt sich vor das Feuer. „Ahh, wie warm! Der Troll sieht gar nicht böse aus.“"
+          "blase": "Rabbat legt sich vor das Feuer. „Ahh, wie warm! Der Troll sieht gar nicht böse aus.“"
         }
       ],
       "sichtbar": [
@@ -191,7 +191,7 @@
     },
     {
       "id": "rabat_liegt",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_eingerollt_schlaeft",
       "x": 336,
       "y": 662,

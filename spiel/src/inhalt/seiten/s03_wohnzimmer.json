@@ -101,7 +101,7 @@
           "setze": [
             "rabat_ofen"
           ],
-          "blase": "Rabat legt sich vor den Ofen. „Hier ist es schön. Müssen wir wirklich raus?“"
+          "blase": "Rabbat legt sich vor den Ofen. „Hier ist es schön. Müssen wir wirklich raus?“"
         },
         {
           "blase": "Das Feuer glimmt nur noch. Es knistert leise."
@@ -220,7 +220,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_vorne",
       "x": 282,
       "y": 62,
@@ -238,7 +238,7 @@
     },
     {
       "id": "rabat_ofen",
-      "name": "Rabat vor dem Ofen",
+      "name": "Rabbat vor dem Ofen",
       "bild": "figuren/rabat/rabat_eingerollt_schlaeft",
       "x": 935,
       "y": 427,

@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort07_nebelwald",
   "stimmung": "nacht",
   "musik": "nebelwald",
-  "text": "Im Nebelwald sieht Ida fast nichts. Die Bäume sehen aus wie Hände. Ida bleibt stehen. Sie hat Angst. Ihre Knie zittern. Rabat setzt sich vor sie. „Weißt du, was Oma sagt? Mut heißt nicht, keine Angst zu haben. Mut heißt, trotzdem einen Schritt zu machen.“ Ida macht einen Schritt. Dann noch einen. Da glimmt etwas im Nebel.",
+  "text": "Im Nebelwald sieht Ida fast nichts. Die Bäume sehen aus wie Hände. Ida bleibt stehen. Sie hat Angst. Ihre Knie zittern. Rabbat setzt sich vor sie. „Weißt du, was Oma sagt? Mut heißt nicht, keine Angst zu haben. Mut heißt, trotzdem einen Schritt zu machen.“ Ida macht einen Schritt. Dann noch einen. Da glimmt etwas im Nebel.",
   "buchstabe": "S",
   "naechste": "s15",
   "fertig": "Alles geschafft! Das Licht zeigt den Weg. Tipp unten auf Weiter.",
@@ -92,7 +92,7 @@
           "setze": [
             "gestolpert"
           ],
-          "blase": "Ida stolpert fast über eine Wurzel. Rabat ruft: „Vorsicht!“ Auf den Wurzeln stehen Wörter."
+          "blase": "Ida stolpert fast über eine Wurzel. Rabbat ruft: „Vorsicht!“ Auf den Wurzeln stehen Wörter."
         },
         {
           "wenn": [
@@ -382,7 +382,7 @@
     },
     {
       "id": "rabat_knurrt",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_knurrt",
       "x": 800,
       "y": 592,
@@ -394,13 +394,13 @@
       ],
       "klick": [
         {
-          "blase": "„Grrr!“ Rabat sträubt das Fell. „Da drüben im Busch leuchtet etwas!“"
+          "blase": "„Grrr!“ Rabbat sträubt das Fell. „Da drüben im Busch leuchtet etwas!“"
         }
       ]
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
       "x": 880,
       "y": 559,
@@ -454,7 +454,7 @@
       ],
       "klick": [
         {
-          "blase": "„Schau, Rabat! Da vorne ist ein Pfad. Und ein schiefes Haus!“"
+          "blase": "„Schau, Rabbat! Da vorne ist ein Pfad. Und ein schiefes Haus!“"
         }
       ]
     }

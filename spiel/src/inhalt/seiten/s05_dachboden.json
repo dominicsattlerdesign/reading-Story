@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort03_dachboden",
   "stimmung": "nacht",
   "musik": "titel_zuhause",
-  "text": "Der Dachboden ist dunkel. Es knarrt. Ida bleibt stehen. Ihr Herz klopft laut. „Ich mag die Dunkelheit nicht“, flüstert sie. Rabat drückt sich an ihr Bein. „Ich bin bei dir. Wir gehen zusammen.“ Ida atmet tief ein. Dann geht sie weiter.",
+  "text": "Der Dachboden ist dunkel. Es knarrt. Ida bleibt stehen. Ihr Herz klopft laut. „Ich mag die Dunkelheit nicht“, flüstert sie. Rabbat drückt sich an ihr Bein. „Ich bin bei dir. Wir gehen zusammen.“ Ida atmet tief ein. Dann geht sie weiter.",
   "buchstabe": "R",
   "naechste": "s07",
   "fertig": "Alles geschafft! Jetzt brauchen wir ein Licht für die Laterne. Tipp unten auf Weiter.",
@@ -94,7 +94,7 @@
           "setze": [
             "pferd_wippt"
           ],
-          "blase": "Das Schaukelpferd wippt von allein! Rabat hat es angestupst. „Hihi, Entschuldigung.“"
+          "blase": "Das Schaukelpferd wippt von allein! Rabbat hat es angestupst. „Hihi, Entschuldigung.“"
         },
         {
           "blase": "Hü, Pferdchen! Das Schaukelpferd wippt hin und her."
@@ -306,7 +306,7 @@
           "wenn": [
             "!raetsel:tagebuch"
           ],
-          "blase": "„Mit Rabat ist es gar nicht so schlimm.“"
+          "blase": "„Mit Rabbat ist es gar nicht so schlimm.“"
         },
         {
           "blase": "„Eine Laterne ohne Licht … Wir müssen ein Licht für sie finden.“"
@@ -315,7 +315,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_seitlich",
       "x": 890,
       "y": 615,

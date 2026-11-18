@@ -64,11 +64,17 @@ describe.each(seiten.map((s) => [s.id, s] as const))('Seite %s', (_, seite) => {
       }
       if (r.typ === 'satzbau') {
         expect(r.saetze.length, r.id).toBeGreaterThan(0);
-        for (const s of r.saetze) expect(s, r.id).toMatch(/^[A-ZÄÖÜ].*[.!?]$/);
+        for (const s of r.saetze) {
+          const varianten = Array.isArray(s) ? s : [s];
+          for (const v of varianten) expect(v, r.id).toMatch(/^[A-ZÄÖÜ].*[.!?]$/);
+          // jede Satzstellung besteht aus denselben Woertern
+          const woerter = (v: string) => v.toLowerCase().replace(/[.!?]$/, '').split(/\s+/).sort().join(' ');
+          for (const v of varianten) expect(woerter(v), r.id + ': ' + v).toBe(woerter(varianten[0]));
+        }
       }
       if (r.typ === 'auswahl') {
         expect(r.fragen.length, r.id).toBeGreaterThan(0);
-        for (const f of r.fragen) expect(f.antworten, `${r.id}: ${f.frage}`).toContain(f.richtig);
+        for (const f of r.fragen) for (const ri of [f.richtig].flat()) expect(f.antworten, `${r.id}: ${f.frage}`).toContain(ri);
       }
       if (r.typ === 'fehler') {
         const teile = zerlegeFehlertext(r.text);

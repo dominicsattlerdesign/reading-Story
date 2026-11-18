@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort04_garten_nacht",
   "stimmung": "nacht",
   "musik": "garten_waldrand",
-  "text": "Ida zieht ihre gelben Gummistiefel an. Leise öffnet sie die Gartentür. Alles ist still und duftet nach Blüten. Rabat springt ins nasse Gras und niest. Im Boden sind viele Spuren. Welche gehören zu Silberwind?",
+  "text": "Ida zieht ihre gelben Gummistiefel an. Leise öffnet sie die Gartentür. Alles ist still und duftet nach Blüten. Rabbat springt ins nasse Gras und niest. Im Boden sind viele Spuren. Welche gehören zu Silberwind?",
   "buchstabe": "Z",
   "naechste": "s09",
   "fertig": "Alles geschafft! Das Gartentor ist offen. Tipp unten auf Weiter.",
@@ -25,7 +25,7 @@
           "setze": [
             "rabat_blueten"
           ],
-          "blase": "Blüten rieseln herunter, direkt auf Rabat. „Jetzt bin ich ein rosa Fuchs!“"
+          "blase": "Blüten rieseln herunter, direkt auf Rabbat. „Jetzt bin ich ein rosa Fuchs!“"
         },
         {
           "blase": "Omas Kirschbaum blüht und duftet. Ein paar Blüten tanzen durch die Luft."
@@ -254,7 +254,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schnueffelt",
       "x": 990,
       "y": 600,
@@ -272,7 +272,7 @@
     },
     {
       "id": "rabat_blueten",
-      "name": "Rabat mit Blüten",
+      "name": "Rabbat mit Blüten",
       "bild": "figuren/rabat/rabat_bluetenkranz",
       "x": 1000,
       "y": 585,
@@ -333,7 +333,13 @@
             "Sp",
             "St"
           ],
-          "richtig": "Sp"
+          "richtig": [
+            "Sp",
+            "St"
+          ],
+          "zeige": {
+            "St": "stur"
+          }
         },
         {
           "frage": "_iefel",
@@ -349,7 +355,10 @@
             "Sp",
             "St"
           ],
-          "richtig": "Sp"
+          "richtig": [
+            "Sp",
+            "St"
+          ]
         },
         {
           "frage": "_ern",
@@ -362,7 +371,7 @@
       ],
       "tipps": [
         "Sprich das Wort laut. Hörst du am Anfang Sp oder St?",
-        "Stein, Stiefel und Stern fangen mit St an. Spur und Spiel mit Sp."
+        "Stein, Stiefel und Stern fangen mit St an. Bei _ur und _iel passen beide: Spur und stur, Spiel und Stiel."
       ],
       "erfolg": "Platsch! Alle Wörter sind wieder ganz."
     },
@@ -391,7 +400,7 @@
           "richtig": "gießt"
         },
         {
-          "frage": "Rabat _ (schnüffeln).",
+          "frage": "Rabbat _ (schnüffeln).",
           "antworten": [
             "schnüffeln",
             "schnüffelt",
@@ -402,7 +411,7 @@
       ],
       "tipps": [
         "Wer macht etwas? Die Schnecke. Dann heißt es: Die Schnecke kriech…",
-        "Die Schnecke kriecht. Ida gießt. Rabat schnüffelt."
+        "Die Schnecke kriecht. Ida gießt. Rabbat schnüffelt."
       ],
       "erfolg": "Danke! Jetzt kann die Schnecke wieder ganze Sätze sagen."
     }

@@ -27,10 +27,10 @@
     {
       "id": "minze",
       "name": "Kräuterglas",
-      "x": 20,
-      "y": 280,
-      "b": 160,
-      "h": 90,
+      "x": 580,
+      "y": 225,
+      "b": 140,
+      "h": 280,
       "ebene": 1,
       "klick": [
         {
@@ -41,10 +41,10 @@
     {
       "id": "glaeser",
       "name": "Regal mit Gläsern",
-      "x": 580,
-      "y": 225,
-      "b": 140,
-      "h": 280,
+      "x": 0,
+      "y": 120,
+      "b": 200,
+      "h": 380,
       "ebene": 1,
       "funkeln": [
         "!raetsel:kraeuter"
@@ -135,7 +135,7 @@
           "setze": [
             "katze_faucht"
           ],
-          "blase": "„Fffff!“ Die Katze faucht Rabat an. Schwupp, versteckt sich Rabat hinter Ida."
+          "blase": "„Fffff!“ Die Katze faucht Rabbat an. Schwupp, versteckt sich Rabbat hinter Ida."
         },
         {
           "blase": "Die Katze putzt sich. Jetzt schnurrt sie sogar ein bisschen."
@@ -275,7 +275,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
       "x": 540,
       "y": 630,
@@ -288,14 +288,14 @@
       ],
       "klick": [
         {
-          "blase": "Rabat flüstert: „Eine echte Hexe! Aber sie hat einen Tisch für zwei gedeckt.“"
+          "blase": "Rabbat flüstert: „Eine echte Hexe! Aber sie hat einen Tisch für zwei gedeckt.“"
         }
       ],
       "spiegeln": true
     },
     {
       "id": "rabat_keks",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_schaut_hoch",
       "spiegeln": true,
       "x": 640,
@@ -308,13 +308,13 @@
       ],
       "klick": [
         {
-          "blase": "Rabat schnuppert. „Bekomme ich auch einen Keks?“ Holunda lacht und gibt ihm einen Krümel."
+          "blase": "Rabbat schnuppert. „Bekomme ich auch einen Keks?“ Holunda lacht und gibt ihm einen Krümel."
         }
       ]
     },
     {
       "id": "rabat_versteckt",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schleicht",
       "x": 640,
       "y": 718,
@@ -330,7 +330,7 @@
           "wenn": [
             "!raetsel:karte"
           ],
-          "blase": "Rabat lugt hinter Idas Beinen hervor. „Ist die Katze noch da?“"
+          "blase": "Rabbat lugt hinter Idas Beinen hervor. „Ist die Katze noch da?“"
         },
         {
           "blase": "„Weißt du was? Die Katze ist eigentlich ganz nett.“"
@@ -384,9 +384,15 @@
       "titel": "Holundas Rezept",
       "aufgabe": "Im Rezept sind die Wörter durcheinander. Tipp die Wörter der Reihe nach an. Am Anfang groß, am Ende ein Punkt!",
       "saetze": [
-        "Gib Mehl in die Schüssel.",
+        [
+          "Gib Mehl in die Schüssel.",
+          "Gib in die Schüssel Mehl."
+        ],
         "Rühre den Teig um.",
-        "Backe die Kekse im Ofen."
+        [
+          "Backe die Kekse im Ofen.",
+          "Backe im Ofen die Kekse."
+        ]
       ],
       "tipps": [
         "Womit fängt der Satz an? Mit dem Wort, das sagt, was man tun soll. Zum Schluss kommt der Punkt.",
@@ -485,7 +491,7 @@
       "wenn": [
         "!raetsel:kraeuter"
       ],
-      "text": "Im Regal stehen viele Gläser. Stimmen die Schilder?",
+      "text": "Im Regal links neben dem Kessel stehen viele Gläser. Stimmen die Schilder?",
       "zeige": "glaeser"
     },
     {

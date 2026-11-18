@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort11_wolkenpfad",
   "stimmung": "nacht",
   "musik": "wolkenpfad_gipfel",
-  "text": "Der Wind pfeift. Ida friert an den Händen. Da fällt ihr Brummbarts Fäustling ein. Sie zieht ihn an. Ihre Hand verschwindet ganz darin. Rabat lacht. Auf einem Felsen sitzt eine Eule. „Ich bin Frau Flocke. Nur wer klug ist, darf weiter. Die Wörter hier haben ihr Ende vergessen.“",
+  "text": "Der Wind pfeift. Ida friert an den Händen. Da fällt ihr Brummbarts Fäustling ein. Sie zieht ihn an. Ihre Hand verschwindet ganz darin. Rabbat lacht. Auf einem Felsen sitzt eine Eule. „Ich bin Frau Flocke. Nur wer klug ist, darf weiter. Die Wörter hier haben ihr Ende vergessen.“",
   "buchstabe": "T",
   "naechste": "s23",
   "fertig": "Alles geschafft! Die Wolken öffnen sich, und der Weg zum Gipfel ist frei. Tipp unten auf Weiter.",
@@ -205,7 +205,7 @@
           "setze": [
             "faeustling_an"
           ],
-          "blase": "„Brrr, meine Hände sind so kalt!“ Da fällt Ida Brummbarts Fäustling ein. Sie zieht ihn an. Ihre Hand verschwindet ganz darin. Rabat lacht."
+          "blase": "„Brrr, meine Hände sind so kalt!“ Da fällt Ida Brummbarts Fäustling ein. Sie zieht ihn an. Ihre Hand verschwindet ganz darin. Rabbat lacht."
         }
       ]
     },
@@ -235,7 +235,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_lachend",
       "x": 790,
       "y": 570,
@@ -250,19 +250,19 @@
           "wenn": [
             "!faeustling_an"
           ],
-          "blase": "Rabats Fell ist voller Schneeflocken. Er zittert ein bisschen."
+          "blase": "Rabbats Fell ist voller Schneeflocken. Er zittert ein bisschen."
         },
         {
           "setze": [
             "rabat_warm"
           ],
-          "blase": "Rabat lacht über den riesigen Fäustling. Dann wickelt Ida ihn in Mamas Schal. Jetzt sind beide warm."
+          "blase": "Rabbat lacht über den riesigen Fäustling. Dann wickelt Ida ihn in Mamas Schal. Jetzt sind beide warm."
         }
       ]
     },
     {
       "id": "rabat_schal",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schal_sitzt",
       "x": 805,
       "y": 535,
@@ -274,7 +274,7 @@
       ],
       "klick": [
         {
-          "blase": "„Mamas Schal riecht nach zu Hause“, sagt Rabat und kuschelt sich hinein."
+          "blase": "„Mamas Schal riecht nach zu Hause“, sagt Rabbat und kuschelt sich hinein."
         }
       ]
     }
@@ -315,7 +315,7 @@
           "richtig": "gelb"
         },
         {
-          "frage": "Rabat ist _.",
+          "frage": "Rabbat ist _.",
           "antworten": [
             "liep",
             "lieb"
@@ -341,7 +341,7 @@
       ],
       "tipps": [
         "Schau dir beide Wörter genau an. Welches hast du schon oft gelesen?",
-        "Der Mond ist gelb. Rabat ist lieb. Der Stein ist rund. Der Wind ist kalt."
+        "Der Mond ist gelb. Rabbat ist lieb. Der Stein ist rund. Der Wind ist kalt."
       ],
       "erfolg": "Alle Wiewörter sind richtig!",
       "belohnung": {
@@ -410,7 +410,7 @@
       "wenn": [
         "!rabat_warm"
       ],
-      "text": "Rabat friert. Tipp ihn an!",
+      "text": "Rabbat friert. Tipp ihn an!",
       "zeige": "rabat"
     },
     {

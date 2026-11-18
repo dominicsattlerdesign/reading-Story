@@ -50,7 +50,7 @@ export function alleGeloest(stand: Spielstand, seite: Seite): boolean {
 
 // ---------- Lueckentext ----------
 
-export type Textteil = { art: 'text'; text: string } | { art: 'luecke'; nr: number; wort: string };
+export type Textteil = { art: 'text'; text: string } | { art: 'luecke'; nr: number; wort: string; alle: string[] };
 
 /** "Liebe {Lene}, ich" -> [text "Liebe ", luecke Lene, text ", ich"] */
 export function zerlegeLuecken(text: string): Textteil[] {
@@ -61,7 +61,8 @@ export function zerlegeLuecken(text: string): Textteil[] {
   let m: RegExpExecArray | null;
   while ((m = muster.exec(text))) {
     if (m.index > letzte) teile.push({ art: 'text', text: text.slice(letzte, m.index) });
-    teile.push({ art: 'luecke', nr: nr++, wort: m[1] });
+    const alle = m[1].split('/');
+    teile.push({ art: 'luecke', nr: nr++, wort: alle[0], alle });
     letzte = m.index + m[0].length;
   }
   if (letzte < text.length) teile.push({ art: 'text', text: text.slice(letzte) });
@@ -200,4 +201,9 @@ export function satzBausteine(satz: string): { richtig: string[]; karten: string
   const richtig = [...woerter, zeichen];
   const karten = richtig.map((w, i) => (i === 0 ? w.charAt(0).toLowerCase() + w.slice(1) : w));
   return { richtig, karten };
+}
+
+/** Ist die Antwort richtig? Bei mehreren richtigen Antworten zaehlt jede davon. */
+export function istRichtig(antwort: string, richtig: string | string[]): boolean {
+  return Array.isArray(richtig) ? richtig.includes(antwort) : antwort === richtig;
 }

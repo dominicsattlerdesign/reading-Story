@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { AuswahlRaetsel } from '../../inhalt/typen';
-import { fuelleLuecke, mischen } from '../../engine/logik';
+import { fuelleLuecke, istRichtig, mischen } from '../../engine/logik';
 import { RaetselRahmen, useFehler, type RaetselHelfer } from './gemeinsam';
 
 /**
@@ -10,6 +10,7 @@ import { RaetselRahmen, useFehler, type RaetselHelfer } from './gemeinsam';
 export function Auswahl({ raetsel, helfer }: { raetsel: AuswahlRaetsel; helfer: RaetselHelfer }) {
   const [nr, setNr] = useState(0);
   const [richtig, setRichtig] = useState(false);
+  const [gewaehlt, setGewaehlt] = useState(''); // die gewaehlte richtige Antwort (es koennen mehrere richtig sein)
   const [wackelt, setWackelt] = useState<string | null>(null);
   const [hilfe, setHilfe] = useState(false);
   const uhr = useRef<number | null>(null);
@@ -23,7 +24,8 @@ export function Auswahl({ raetsel, helfer }: { raetsel: AuswahlRaetsel; helfer: 
 
   const waehlen = (a: string) => {
     if (richtig || fertig) return;
-    if (a === f.richtig) {
+    if (istRichtig(a, f.richtig)) {
+      setGewaehlt(a);
       setRichtig(true);
       setHilfe(false);
       if (nr < raetsel.fragen.length - 1) fb.richtig();
@@ -49,7 +51,7 @@ export function Auswahl({ raetsel, helfer }: { raetsel: AuswahlRaetsel; helfer: 
         </div>
         <p class={`auswahl-frage ${richtig ? 'richtig' : ''}`}>
           {richtig ? (
-            nach === undefined ? `${f.frage} – ${f.richtig}!` : fuelleLuecke(f.frage, f.richtig)
+            nach === undefined ? `${f.frage} – ${gewaehlt}!` : f.zeige?.[gewaehlt] ?? fuelleLuecke(f.frage, gewaehlt)
           ) : nach === undefined ? (
             f.frage
           ) : (
@@ -64,7 +66,7 @@ export function Auswahl({ raetsel, helfer }: { raetsel: AuswahlRaetsel; helfer: 
           {antworten.map((a) => (
             <button
               key={a}
-              class={`auswahl-knopf ${/^[.?!,]$/.test(a) ? 'zeichen' : ''} ${wackelt === a ? 'wackeln' : ''} ${hilfe && a === f.richtig ? 'leuchten' : ''}`}
+              class={`auswahl-knopf ${/^[.?!,]$/.test(a) ? 'zeichen' : ''} ${wackelt === a ? 'wackeln' : ''} ${hilfe && istRichtig(a, f.richtig) ? 'leuchten' : ''}`}
               disabled={richtig}
               onClick={() => waehlen(a)}
             >

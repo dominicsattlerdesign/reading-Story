@@ -199,7 +199,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schal_sitzt",
       "x": 620,
       "y": 560,
@@ -214,16 +214,16 @@
           "wenn": [
             "!raetsel:gedanken"
           ],
-          "blase": "„Ein Licht fehlt noch“, sagt Rabat. „Und ich glaube, es ist in dir.“"
+          "blase": "„Ein Licht fehlt noch“, sagt Rabbat. „Und ich glaube, es ist in dir.“"
         },
         {
-          "blase": "„Schau, die goldenen Buchstaben!“, ruft Rabat. „Es sind zwei Wörter. Und sie sagen, was du heute gezeigt hast.“"
+          "blase": "„Schau, die goldenen Buchstaben!“, ruft Rabbat. „Es sind zwei Wörter. Und sie sagen, was du heute gezeigt hast.“"
         }
       ]
     },
     {
       "id": "rabat_froh",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schal_springt_lacht",
       "x": 520,
       "y": 480,
@@ -235,7 +235,7 @@
       ],
       "klick": [
         {
-          "blase": "„Wir fliegen nach Hause!“, jubelt Rabat und wedelt mit dem Schwanz."
+          "blase": "„Wir fliegen nach Hause!“, jubelt Rabbat und wedelt mit dem Schwanz."
         }
       ],
       "einblenden": true
@@ -248,14 +248,28 @@
       "titel": "Idas Gedanken",
       "aufgabe": "Das letzte Licht ist Idas Mut. Sie erzählt Silberwind, was sie heute geschafft hat. Doch ihre Gedanken sind durcheinander. Tipp die Wörter in der richtigen Reihenfolge an.",
       "saetze": [
-        "Im Wald hatte ich große Angst.",
-        "Aber ich bin trotzdem gegangen.",
-        "Rabat war immer bei mir.",
-        "Ich habe dich gefunden!"
+        [
+          "Im Wald hatte ich große Angst.",
+          "Ich hatte im Wald große Angst.",
+          "Große Angst hatte ich im Wald.",
+          "Ich hatte große Angst im Wald."
+        ],
+        [
+          "Aber ich bin trotzdem gegangen.",
+          "Aber trotzdem bin ich gegangen."
+        ],
+        [
+          "Rabbat war immer bei mir.",
+          "Immer war Rabbat bei mir."
+        ],
+        [
+          "Ich habe dich gefunden!",
+          "Dich habe ich gefunden!"
+        ]
       ],
       "tipps": [
         "Lies alle Wörter. Welches Wort passt an den Anfang? Am Ende steht das Satzzeichen.",
-        "Im Wald hatte ich große Angst. Aber ich bin trotzdem gegangen. Rabat war immer bei mir. Ich habe dich gefunden!"
+        "Im Wald hatte ich große Angst. Aber ich bin trotzdem gegangen. Rabbat war immer bei mir. Ich habe dich gefunden!"
       ],
       "erfolg": "Ida hat alles erzählt!",
       "belohnung": {
@@ -302,7 +316,7 @@
       "id": "zauberwort",
       "typ": "zauberwort",
       "titel": "Das Zauberwort",
-      "aufgabe": "Die goldenen Buchstaben von der ganzen Reise schweben um die Laterne. Rabat sagt: „Es sind zwei Wörter. Sie sagen, was du heute gezeigt hast.“ Tipp die Buchstaben in der richtigen Reihenfolge an.",
+      "aufgabe": "Die goldenen Buchstaben von der ganzen Reise schweben um die Laterne. Rabbat sagt: „Es sind zwei Wörter. Sie sagen, was du heute gezeigt hast.“ Tipp die Buchstaben in der richtigen Reihenfolge an.",
       "woerter": [
         "MUTIGES",
         "HERZ"

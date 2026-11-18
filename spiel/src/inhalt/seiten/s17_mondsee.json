@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort09_mondsee",
   "stimmung": "nacht",
   "musik": "mondsee",
-  "text": "Der Mondsee glänzt wie ein Spiegel. Am Steg liegt ein Boot. Ida will einsteigen. Aber Rabat bleibt stehen. Sein Fell ist gesträubt. „Ich … ich kann nicht. Ich habe Angst vor Wasser.“ Ida kniet sich zu ihm. „Du warst im Wald für mich mutig. Jetzt bin ich es für dich.“ Da taucht eine Nixe aus dem Wasser auf.",
+  "text": "Der Mondsee glänzt wie ein Spiegel. Am Steg liegt ein Boot. Ida will einsteigen. Aber Rabbat bleibt stehen. Sein Fell ist gesträubt. „Ich … ich kann nicht. Ich habe Angst vor Wasser.“ Ida kniet sich zu ihm. „Du warst im Wald für mich mutig. Jetzt bin ich es für dich.“ Da taucht eine Nixe aus dem Wasser auf.",
   "buchstabe": "I",
   "naechste": "s19",
   "fertig": "Alles geschafft! Das Boot gleitet über den See. Tipp unten auf Weiter.",
@@ -23,7 +23,7 @@
           "wenn": [
             "!raetsel:lied"
           ],
-          "blase": "Das Boot wackelt. Rabat jault leise: „Uiii! Nein, nein, nein!“"
+          "blase": "Das Boot wackelt. Rabbat jault leise: „Uiii! Nein, nein, nein!“"
         },
         {
           "blase": "Das Wasser ist spiegelglatt. Das Boot liegt ganz ruhig da."
@@ -189,7 +189,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_erschrocken_gestraeubt",
       "x": 472,
       "y": 448,
@@ -207,13 +207,13 @@
           "raetsel": "gefuehle"
         },
         {
-          "blase": "Rabat zittert. „Ich habe Angst. Aber du bist ja bei mir.“"
+          "blase": "Rabbat zittert. „Ich habe Angst. Aber du bist ja bei mir.“"
         }
       ]
     },
     {
       "id": "rabat_stolz",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_stolz",
       "x": 698,
       "y": 395,
@@ -231,7 +231,7 @@
           "raetsel": "gefuehle"
         },
         {
-          "blase": "Rabat hebt die Nase und strahlt. „Ich hatte Angst. Und ich hab es trotzdem geschafft!“"
+          "blase": "Rabbat hebt die Nase und strahlt. „Ich hatte Angst. Und ich hab es trotzdem geschafft!“"
         }
       ]
     },
@@ -249,7 +249,7 @@
       ],
       "klick": [
         {
-          "blase": "Ida streckt die Hand aus. „Komm her, Rabat. Ich halte dich ganz fest.“"
+          "blase": "Ida streckt die Hand aus. „Komm her, Rabbat. Ich halte dich ganz fest.“"
         }
       ]
     },
@@ -267,7 +267,7 @@
       ],
       "klick": [
         {
-          "blase": "Ida atmet tief aus. „Geschafft! Du warst so mutig, Rabat.“"
+          "blase": "Ida atmet tief aus. „Geschafft! Du warst so mutig, Rabbat.“"
         }
       ]
     }
@@ -278,7 +278,7 @@
       "typ": "luecken",
       "titel": "Perlas Lied",
       "aufgabe": "In Perlas Lied fehlen Buchstaben. Es sind Selbstlaute: a, e, i, o oder u. Zieh sie in die Lücken.",
-      "text": "Der M{o}nd ist hell, der S{e}e ist still, ich s{i}nge, w{e}nn ich s{i}ngen will.",
+      "text": "Der M{o}nd ist hell, der S{e}e ist still, ich s{i}nge, w{e/a}nn ich s{i}ngen will.",
       "falsche": [
         "a",
         "u"
@@ -290,7 +290,7 @@
       "erfolg": "Perlas Lied klingt wieder!",
       "belohnung": {
         "inventar": "mondperle",
-        "blase": "Perla singt. Das Wasser wird spiegelglatt, und das Boot gleitet ganz ruhig. Rabat zittert, aber er schafft es! Perla schenkt Ida die Mondperle. „Ihr Licht hilft dir oben am Berg.“"
+        "blase": "Perla singt. Das Wasser wird spiegelglatt, und das Boot gleitet ganz ruhig. Rabbat zittert, aber er schafft es! Perla schenkt Ida die Mondperle. „Ihr Licht hilft dir oben am Berg.“"
       }
     },
     {
@@ -356,11 +356,11 @@
     {
       "id": "gefuehle",
       "typ": "auswahl",
-      "titel": "Wie fühlt sich Rabat?",
-      "aufgabe": "Lies, was Rabat tut. Was fühlt er dabei? Tipp das passende Gefühl an.",
+      "titel": "Wie fühlt sich Rabbat?",
+      "aufgabe": "Lies, was Rabbat tut. Was fühlt er dabei? Tipp das passende Gefühl an.",
       "fragen": [
         {
-          "frage": "Rabat zittert am Steg. Was fühlt er?",
+          "frage": "Rabbat zittert am Steg. Was fühlt er?",
           "antworten": [
             "Angst",
             "Freude",
@@ -369,7 +369,7 @@
           "richtig": "Angst"
         },
         {
-          "frage": "Rabat jubelt am anderen Ufer. Was fühlt er?",
+          "frage": "Rabbat jubelt am anderen Ufer. Was fühlt er?",
           "antworten": [
             "Angst",
             "Freude",
@@ -378,22 +378,25 @@
           "richtig": "Freude"
         },
         {
-          "frage": "Rabat hebt die Nase und strahlt. Was fühlt er?",
+          "frage": "Rabbat hebt die Nase und strahlt. Was fühlt er?",
           "antworten": [
             "Angst",
             "Freude",
             "Stolz"
           ],
-          "richtig": "Stolz"
+          "richtig": [
+            "Stolz",
+            "Freude"
+          ]
         }
       ],
       "tipps": [
         "Wer zittert, hat oft Angst. Wer jubelt, freut sich.",
         "Zittern: Angst. Jubeln: Freude. Nase hoch und strahlen: Stolz."
       ],
-      "erfolg": "Du weißt genau, wie Rabat sich fühlt!",
+      "erfolg": "Du weißt genau, wie Rabbat sich fühlt!",
       "belohnung": {
-        "blase": "Rabat schmiegt sich an Ida. „Du verstehst mich einfach.“"
+        "blase": "Rabbat schmiegt sich an Ida. „Du verstehst mich einfach.“"
       }
     }
   ],
@@ -424,14 +427,14 @@
         "!raetsel:gefuehle",
         "!raetsel:lied"
       ],
-      "text": "Rabat zittert am Steg. Wie geht es ihm wohl?",
+      "text": "Rabbat zittert am Steg. Wie geht es ihm wohl?",
       "zeige": "rabat"
     },
     {
       "wenn": [
         "!raetsel:gefuehle"
       ],
-      "text": "Wie geht es Rabat wohl? Tipp ihn an.",
+      "text": "Wie geht es Rabbat wohl? Tipp ihn an.",
       "zeige": "rabat_stolz"
     },
     {

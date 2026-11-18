@@ -4,12 +4,12 @@
   "titel": "Wieder zu Hause",
   "hintergrund": "hintergruende/ort14_garten_morgen_neu",
   "musik": "titel_zuhause",
-  "text": "Silberwind landet im Garten. Die Tür geht auf. Da steht Oma. Sie hat Tränen in den Augen. „Silberwind! Du bist da!“ Sie umarmt seinen Hals. Mama nimmt Ida in die Arme. „Wo warst du denn?“ Ida lacht. „Das ist eine lange Geschichte.“ Oma streicht Ida sanft über die weiße Strähne. „Du warst sehr mutig.“ „Ich war nicht allein“, sagt Ida. Rabat wedelt stolz mit dem Schwanz.",
+  "text": "Silberwind landet im Garten. Die Tür geht auf. Da steht Oma. Sie hat Tränen in den Augen. „Silberwind! Du bist da!“ Sie umarmt seinen Hals. Mama nimmt Ida in die Arme. „Wo warst du denn?“ Ida lacht. „Das ist eine lange Geschichte.“ Oma streicht Ida sanft über die weiße Strähne. „Du warst sehr mutig.“ „Ich war nicht allein“, sagt Ida. Rabbat wedelt stolz mit dem Schwanz.",
   "naechste": null,
   "fertig": "Was für ein Tag! Tipp unten auf Weiter, dann geht Ida schlafen.",
   "schluss": {
     "bild": "figuren/ida/ida_im_bett_mit_rabat",
-    "text": "Ida liegt im Bett. Rabat rollt sich auf ihren Füßen zusammen. Draußen steht ein heller Stern, der aussieht wie ein Pferd mit Flügeln. „Gute Nacht, Rabat.“ „Gute Nacht, Ida.“ Zum ersten Mal hat sie keine Angst vor der Dunkelheit."
+    "text": "Ida liegt im Bett. Rabbat rollt sich auf ihren Füßen zusammen. Draußen steht ein heller Stern, der aussieht wie ein Pferd mit Flügeln. „Gute Nacht, Rabbat.“ „Gute Nacht, Ida.“ Zum ersten Mal hat sie keine Angst vor der Dunkelheit."
   },
   "objekte": [
     {
@@ -196,13 +196,13 @@
       "ebene": 4,
       "klick": [
         {
-          "blase": "„Ich war nicht allein“, sagt Ida und lächelt Rabat an."
+          "blase": "„Ich war nicht allein“, sagt Ida und lächelt Rabbat an."
         }
       ]
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schal_wedelt",
       "x": 410,
       "y": 565,
@@ -211,7 +211,7 @@
       "ebene": 5,
       "klick": [
         {
-          "blase": "Rabat wedelt stolz mit dem Schwanz."
+          "blase": "Rabbat wedelt stolz mit dem Schwanz."
         }
       ]
     }
@@ -222,10 +222,10 @@
       "typ": "fehler",
       "titel": "Idas Tagebuch",
       "aufgabe": "Am Abend schreibt Ida in ihr Tagebuch, genau wie Oma früher. Aber sie ist so müde, dass Fehler drin sind. Tipp die falschen Wörter an, dann werden sie richtig.",
-      "text": "{heute|Heute} habe ich {silberwind|Silberwind} gefunden. {rabat|Rabat} war bei {mir|mir.} Ich hatte {angst|Angst}, aber ich war mutig.",
+      "text": "{heute|Heute} habe ich {silberwind|Silberwind} gefunden. {rabbat|Rabbat} war bei {mir|mir.} Ich hatte {angst|Angst}, aber ich war mutig.",
       "tipps": [
         "Am Satzanfang schreibt man groß. Namen und Nomen auch. Und am Satzende steht ein Punkt.",
-        "Heute, Silberwind, Rabat und Angst schreibt man groß. Nach „mir“ fehlt der Punkt."
+        "Heute, Silberwind, Rabbat und Angst schreibt man groß. Nach „mir“ fehlt der Punkt."
       ],
       "erfolg": "Das Tagebuch ist fertig!",
       "belohnung": {
@@ -301,7 +301,7 @@
           "richtig": "weise"
         },
         {
-          "frage": "Rabat lässt Ida nie allein. Er ist _.",
+          "frage": "Rabbat lässt Ida nie allein. Er ist _.",
           "antworten": [
             "feige",
             "treu",

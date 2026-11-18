@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort05_waldrand",
   "stimmung": "nacht",
   "musik": "garten_waldrand",
-  "text": "Ida steht am Waldrand. Sie war noch nie nachts hier. Hinter ihr leuchtet das Haus. Vor ihr ist der Wald. „Wir können noch umdrehen“, sagt Rabat leise. Ida schaut zurück. Sie denkt an Oma. „Nein. Silberwind braucht uns.“",
+  "text": "Ida steht am Waldrand. Sie war noch nie nachts hier. Hinter ihr leuchtet das Haus. Vor ihr ist der Wald. „Wir können noch umdrehen“, sagt Rabbat leise. Ida schaut zurück. Sie denkt an Oma. „Nein. Silberwind braucht uns.“",
   "buchstabe": "M",
   "naechste": "s11",
   "fertig": "Alles geschafft! Der Weg zur Brücke ist frei. Tipp unten auf Weiter.",
@@ -158,7 +158,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_schnueffelt",
       "x": 1000,
       "y": 588,
@@ -191,7 +191,7 @@
     },
     {
       "id": "rabat_ruhig",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_lachend",
       "x": 1005,
       "y": 575,
@@ -301,8 +301,8 @@
     {
       "id": "spuernase",
       "typ": "auswahl",
-      "titel": "Rabats Spürnase",
-      "aufgabe": "Lies, was Rabat gerochen hat. Dann tipp auf Ja oder Nein.",
+      "titel": "Rabbats Spürnase",
+      "aufgabe": "Lies, was Rabbat gerochen hat. Dann tipp auf Ja oder Nein.",
       "text": "Hier war ein großes Pferd mit Flügeln. Es war müde. Es ist über den Bach geflogen. Dann hat es sich bei einem Troll ausgeruht.",
       "fragen": [
         {

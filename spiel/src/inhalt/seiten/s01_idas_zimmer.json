@@ -5,7 +5,7 @@
   "hintergrund": "hintergruende/ort01_idas_zimmer",
   "stimmung": "nacht",
   "musik": "titel_zuhause",
-  "text": "Heute blüht Omas Kirschbaum zum ersten Mal in diesem Jahr. Ida kann nicht schlafen. Oma hat erzählt, dass in dieser Nacht Silberwind kommt. Silberwind ist ein Pegasus. Ein Pferd mit Flügeln! Ida schaut aus dem Fenster. Aber der Himmel bleibt leer. Da tippt etwas an die Scheibe. Rabat spitzt die Ohren.",
+  "text": "Heute blüht Omas Kirschbaum zum ersten Mal in diesem Jahr. Ida kann nicht schlafen. Oma hat erzählt, dass in dieser Nacht Silberwind kommt. Silberwind ist ein Pegasus. Ein Pferd mit Flügeln! Ida schaut aus dem Fenster. Aber der Himmel bleibt leer. Da tippt etwas an die Scheibe. Rabbat spitzt die Ohren.",
   "buchstabe": "E",
   "naechste": "s03",
   "fertig": "Alles geschafft! Tipp unten auf Weiter.",
@@ -118,7 +118,7 @@
       "h": 160,
       "klick": [
         {
-          "blase": "Ida, Mama, Papa, Oma und Rabat. Alle lachen. Da muss Ida auch lächeln."
+          "blase": "Ida, Mama, Papa, Oma und Rabbat. Alle lachen. Da muss Ida auch lächeln."
         }
       ],
       "ebene": 1
@@ -195,7 +195,7 @@
     },
     {
       "id": "rabat_schlaeft",
-      "name": "Rabat schläft auf dem Bett",
+      "name": "Rabbat schläft auf dem Bett",
       "bild": "figuren/rabat/rabat_eingerollt_schlaeft",
       "x": 395,
       "y": 435,
@@ -210,13 +210,13 @@
           "setze": [
             "rabat_wach"
           ],
-          "blase": "Rabat gähnt. „Ist es schon Frühstück?“"
+          "blase": "Rabbat gähnt. „Ist es schon Frühstück?“"
         }
       ]
     },
     {
       "id": "koerbchen",
-      "name": "Rabats Körbchen",
+      "name": "Rabbats Körbchen",
       "x": 1175,
       "y": 515,
       "b": 290,
@@ -225,7 +225,7 @@
       "sichtbar": [],
       "klick": [
         {
-          "blase": "Rabats Körbchen. Heute Nacht schläft er lieber bei Ida im Bett."
+          "blase": "Rabbats Körbchen. Heute Nacht schläft er lieber bei Ida im Bett."
         }
       ]
     },
@@ -244,7 +244,7 @@
       "klick": [
         {
           "buchstabe": true,
-          "blase": "Wo Rabat geschlafen hat, leuchtet ein E!",
+          "blase": "Wo Rabbat geschlafen hat, leuchtet ein E!",
           "bild": "gegenstaende/buchstaben/buchstabe_06_e"
         }
       ]
@@ -272,7 +272,7 @@
     },
     {
       "id": "rabat",
-      "name": "Rabat",
+      "name": "Rabbat",
       "bild": "figuren/rabat/rabat_sitzt_vorne",
       "x": 1040,
       "y": 560,

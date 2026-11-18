@@ -7,7 +7,7 @@ import { Ziehkarte } from './Ziehkarte';
 /** Woerter in die Luecken eines Textes ziehen (oder Wort antippen, dann Luecke antippen). */
 export function Lueckentext({ raetsel, helfer }: { raetsel: LueckenRaetsel; helfer: RaetselHelfer }) {
   const teile = useMemo(() => zerlegeLuecken(raetsel.text), [raetsel.text]);
-  const luecken = teile.filter((t) => t.art === 'luecke') as { art: 'luecke'; nr: number; wort: string }[];
+  const luecken = teile.filter((t) => t.art === 'luecke') as { art: 'luecke'; nr: number; wort: string; alle: string[] }[];
   const karten = useMemo(
     () => mischen([...luecken.map((l) => l.wort), ...raetsel.falsche]).map((wort, i) => ({ id: `k${i}`, wort })),
     [raetsel.id],
@@ -19,6 +19,8 @@ export function Lueckentext({ raetsel, helfer }: { raetsel: LueckenRaetsel; helf
   const [wackelt, wackeln] = useWackeln();
   const fb = useFehler(helfer, raetsel.tipps[0]);
 
+  // das Wort der Karte, die in der Luecke liegt (es koennen mehrere Woerter passen)
+  const gelegtesWort = (nr: number) => karten.find((k) => k.id === gefuellt[nr])?.wort ?? '';
   const benutzt = new Set(gefuellt.filter(Boolean) as string[]);
   const geloest = gefuellt.every(Boolean);
 
@@ -26,7 +28,7 @@ export function Lueckentext({ raetsel, helfer }: { raetsel: LueckenRaetsel; helf
     const karte = karten.find((k) => k.id === kartenId);
     if (!karte || gefuellt[nr] || benutzt.has(kartenId)) return;
     setGewaehlt(null);
-    if (karte.wort === luecken[nr].wort) {
+    if (luecken[nr].alle.includes(karte.wort)) {
       const neu = [...gefuellt];
       neu[nr] = kartenId;
       setGefuellt(neu);
@@ -35,7 +37,7 @@ export function Lueckentext({ raetsel, helfer }: { raetsel: LueckenRaetsel; helf
     } else {
       wackeln(`l${nr}`);
       if (fb.fehler(`l${nr}`) >= 3) {
-        const richtige = karten.find((k) => k.wort === luecken[nr].wort && !benutzt.has(k.id));
+        const richtige = karten.find((k) => luecken[nr].alle.includes(k.wort) && !benutzt.has(k.id));
         setLeuchtet(richtige?.id ?? null);
       }
     }
@@ -52,10 +54,10 @@ export function Lueckentext({ raetsel, helfer }: { raetsel: LueckenRaetsel; helf
               key={i}
               data-ziel={`${t.nr}`}
               class={`luecke ${luecken[t.nr].wort.length === 1 ? 'buchstabe' : ''} ${gefuellt[t.nr] ? 'voll' : ''} ${wackelt === `l${t.nr}` ? 'wackeln' : ''} ${gewaehlt && !gefuellt[t.nr] ? 'bereit' : ''}`}
-              aria-label={gefuellt[t.nr] ? luecken[t.nr].wort : `Lücke ${t.nr + 1}`}
+              aria-label={gefuellt[t.nr] ? gelegtesWort(t.nr) : `Lücke ${t.nr + 1}`}
               onClick={() => gewaehlt && versuche(gewaehlt, t.nr)}
             >
-              {gefuellt[t.nr] ? luecken[t.nr].wort : ''}
+              {gefuellt[t.nr] ? gelegtesWort(t.nr) : ''}
             </button>
           ),
         )}

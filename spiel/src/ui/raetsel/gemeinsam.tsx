@@ -3,7 +3,7 @@ import { useRef, useState } from 'preact/hooks';
 
 /** Verbindung eines Raetsels zum Rest des Spiels. */
 export interface RaetselHelfer {
-  /** Rabat sagt etwas (Sprechblase unten links) */
+  /** Rabbat sagt etwas (Sprechblase unten links) */
   rabat: (text: string) => void;
   /** Raetsel ist geloest und der Erfolg wurde bestaetigt */
   geschafft: () => void;

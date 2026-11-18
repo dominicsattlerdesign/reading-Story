@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { merker, erfuellt, ersteAktion, passenderTipp, wendeAn, loese, alleGeloest, zerlegeLuecken, silben, ohneTrennung, mischen, wortschlange, zerlegeFehlertext, verbinde, fuelleLuecke, silbenAuswahl, seiteZuruecksetzen, satzBausteine } from './logik';
+import { istRichtig, merker, erfuellt, ersteAktion, passenderTipp, wendeAn, loese, alleGeloest, zerlegeLuecken, silben, ohneTrennung, mischen, wortschlange, zerlegeFehlertext, verbinde, fuelleLuecke, silbenAuswahl, seiteZuruecksetzen, satzBausteine } from './logik';
 import { neuerSpielstand } from './speicher';
 import type { Seite } from '../inhalt/typen';
 
@@ -48,11 +48,15 @@ describe('Lueckentext', () => {
   it('zerlegt Text mit Luecken', () => {
     expect(zerlegeLuecken('Liebe {Lene}, ich habe mich {verirrt}.')).toEqual([
       { art: 'text', text: 'Liebe ' },
-      { art: 'luecke', nr: 0, wort: 'Lene' },
+      { art: 'luecke', nr: 0, wort: 'Lene', alle: ['Lene'] },
       { art: 'text', text: ', ich habe mich ' },
-      { art: 'luecke', nr: 1, wort: 'verirrt' },
+      { art: 'luecke', nr: 1, wort: 'verirrt', alle: ['verirrt'] },
       { art: 'text', text: '.' },
     ]);
+  });
+
+  it('kennt mehrere passende Woerter in einer Luecke', () => {
+    expect(zerlegeLuecken('w{e/a}nn')[1]).toEqual({ art: 'luecke', nr: 0, wort: 'e', alle: ['e', 'a'] });
   });
 });
 
@@ -144,5 +148,13 @@ describe('Satz bauen', () => {
       richtig: ['Gib', 'Mehl', 'in', 'die', 'Schüssel', '.'],
       karten: ['gib', 'Mehl', 'in', 'die', 'Schüssel', '.'],
     });
+  });
+});
+
+describe('Auswahl mit mehreren richtigen Antworten', () => {
+  it('nimmt jede richtige Antwort an', () => {
+    expect(istRichtig('Sp', ['Sp', 'St'])).toBe(true);
+    expect(istRichtig('St', ['Sp', 'St'])).toBe(true);
+    expect(istRichtig('St', 'Sp')).toBe(false);
   });
 });

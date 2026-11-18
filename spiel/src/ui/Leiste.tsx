@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { asset, inventar } from '../inhalt';
 
-/** Untere Leiste: Rabat als Hilfe, Inventar, Raetsel-Punkte, Weiter-Knopf. */
+/** Untere Leiste: Rabbat als Hilfe, Inventar, Raetsel-Punkte, Weiter-Knopf. */
 export function Leiste(props: {
   inventar: string[];
   lichter: number;
@@ -27,7 +27,7 @@ export function Leiste(props: {
 
   return (
     <div class="leiste">
-      <button class="rabat-knopf" onClick={props.rabatTippen} aria-label="Rabat um Hilfe bitten">
+      <button class="rabat-knopf" onClick={props.rabatTippen} aria-label="Rabbat um Hilfe bitten">
         <img src={asset('figuren/rabat/rabat_schal_lacht')} alt="" draggable={false} />
       </button>
       {props.rabatBlase && (

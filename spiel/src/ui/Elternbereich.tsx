@@ -2,7 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { musik } from './musik';
 
 /** Elternbereich (hinter dem 3-Sekunden-Halteknopf). Spaeter kommt die Kapiteluebersicht dazu. */
-export function Elternbereich(props: { fortschrittLoeschen: () => void; schliessen: () => void }) {
+export function Elternbereich(props: { fortschrittLoeschen: () => void; schliessen: () => void; einfuehrungZeigen: () => void }) {
   const [sicher, setSicher] = useState(false);
   const [musikAn, setMusikAn] = useState(musik.istAn());
   const [laut, setLaut] = useState(Math.round(musik.lautstaerke() * 100));
@@ -38,6 +38,10 @@ export function Elternbereich(props: { fortschrittLoeschen: () => void; schliess
           <span class="laut-wert">{laut} %</span>
         </label>
 
+
+        <button class="klein-knopf" onClick={() => { props.einfuehrungZeigen(); props.schliessen(); }}>
+          Einführung nochmal ansehen
+        </button>
 
         {!sicher ? (
           <button class="klein-knopf warnung" onClick={() => setSicher(true)}>
